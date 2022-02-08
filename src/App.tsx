@@ -1,25 +1,30 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from 'style/GlobalStyles'
+import { Page } from 'components';
+import Provider from 'provider/ThemeProvider';
+// import './App.css';
 
 function App() {
+  const [theme, setTheme] = React.useState('gruvbox');
+  
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTheme(e.target.value);
+  }
+
   return (
-    <div className="App">
+    <Provider theme={theme}>
+    <Page >
+      <GlobalStyle />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <select name="theme-select" id="theme" onChange={handleThemeChange}>
+          <option value="gruvbox" selected>Gruvbox</option>
+          <option value="tokyonight">Tokyo Night</option>
+          <option value="catpuccin">Catpuccin</option>
+      </select>
       </header>
-    </div>
+    </Page>
+    </Provider>
   );
 }
 
