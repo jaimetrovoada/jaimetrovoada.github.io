@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { gruvbox, catpuccino, tokyonight } from 'style/theme'
+import { gruvbox, catppuccin, tokyonight } from 'style/theme'
 
 const ThemeProviderWrapper = (props:any) => <ThemeProvider theme={props.theme} {...props} />
 
@@ -13,8 +13,8 @@ const Provider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
     switch (theme) {
       case 'gruvbox':
         return gruvbox
-      case 'catpuccino':
-        return catpuccino
+      case 'catppuccin':
+        return catppuccin
       case 'tokyonight':
         return tokyonight
       default:

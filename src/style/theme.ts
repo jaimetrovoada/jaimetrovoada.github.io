@@ -1,4 +1,4 @@
-interface ThemeProps {
+export interface ColorschemeProps {
   background: {
     even: string
     odd: string
@@ -11,7 +11,7 @@ interface ThemeProps {
     secondary: string
   }
 }
-export const gruvbox: ThemeProps = {
+export const gruvbox: ColorschemeProps = {
   background: {
     even: "#fffffe",
     odd: "#eff0f3"
@@ -25,7 +25,7 @@ export const gruvbox: ThemeProps = {
   }
 }
 
-export const tokyonight: ThemeProps = {
+export const tokyonight: ColorschemeProps = {
   background: {
     even: "#2a2a2a",
     odd: "#1d1d1d"
@@ -39,7 +39,7 @@ export const tokyonight: ThemeProps = {
   }
 }
 
-export const catpuccino: ThemeProps = {
+export const catppuccin: ColorschemeProps = {
   background: {
     even: "#fbf1c7",
     odd: "#f5e7b1"
