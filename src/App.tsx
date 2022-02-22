@@ -3,12 +3,13 @@ import { Page } from 'components'
 import { ThemeProvider } from '@mui/material'
 import { gruvbox, catppuccin, tokyonight } from 'style/theme'
 import { AboutMe, Projects, Socials, Bonus, Skills } from 'views'
+import { SelectChangeEvent } from '@mui/material/Select'
 
 function App() {
   const [theme, setTheme] = React.useState('gruvbox')
 
-  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTheme(e.target.value)
+  const handleThemeChange = (event: SelectChangeEvent) => {
+    setTheme(event.target.value as string)
   }
 
   const getTheme = () => {
@@ -23,16 +24,7 @@ function App() {
   }
   return (
     <ThemeProvider theme={getTheme()}>
-      <Page>
-        <header className="App-header">
-          <select name="theme-select" id="theme" onChange={handleThemeChange}>
-            <option value="gruvbox" selected>
-              Gruvbox
-            </option>
-            <option value="tokyonight">Tokyo Night</option>
-            <option value="catpuccin">Catpuccin</option>
-          </select>
-        </header>
+      <Page themeChanger={handleThemeChange} currentTheme={theme}>
         <AboutMe />
         <Skills />
         <Socials />
