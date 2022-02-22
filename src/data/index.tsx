@@ -77,16 +77,16 @@ export const socials: SocialProps[] = [
   {
     name: 'Instagram',
     icon: <InstagramIcon />,
-    link: '',
+    link: 'https://instagram.com/jaimetrovoada',
   },
   {
     name: 'LinkedIn',
     icon: <LinkedInIcon />,
-    link: '',
+    link: 'https://www.linkedin.com/in/jaime-trovoada-5426bb1a2',
   },
   {
     icon: <AlternateEmailIcon />,
-    name: 'email',
+    name: 'Email',
     link: 'mailto:jaimetrovoada@gmail.com',
   },
 ]

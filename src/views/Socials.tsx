@@ -2,6 +2,7 @@ import React from 'react'
 import { Section } from 'components'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import Link from '@mui/material/Link'
 import { socials } from 'data'
 
 const Socials: React.FC = () => {
@@ -10,10 +11,16 @@ const Socials: React.FC = () => {
       <Box>
         {socials.map((social, index) => {
           return (
-            <Box key={index} sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '5px' }}>
+            <Link
+              href={social.link}
+              rel="noopener noreferrer"
+              target="_blank"
+              key={index}
+              sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '5px' }}
+            >
               {social.icon}
               <Typography>{social.name}</Typography>
-            </Box>
+            </Link>
           )
         })}
       </Box>

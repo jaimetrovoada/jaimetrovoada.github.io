@@ -149,9 +149,6 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
             </Typography>
             <Link href={resumeLink}>📕 Resume</Link>
           </Box>
-          <Box>
-            <Typography>Theme</Typography>
-          </Box>
         </Container>
       </Box>
     </Paper>
