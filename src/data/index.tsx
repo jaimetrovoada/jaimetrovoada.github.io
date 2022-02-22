@@ -65,6 +65,14 @@ export const projects: ProjectProps[] = [
     liveLink: '',
     githubLink: '',
   },
+  {
+    title: 'Animal Crossing: New Horizons Wiki',
+    description:
+      'A fullstack app that allows users to search for a patent and get the patent information, using different parameters.',
+    techStack: 'JavaScript/React',
+    liveLink: '',
+    githubLink: '',
+  },
 ]
 
 interface SocialProps {
@@ -76,16 +84,16 @@ interface SocialProps {
 export const socials: SocialProps[] = [
   {
     name: 'Instagram',
-    icon: <InstagramIcon />,
+    icon: <InstagramIcon color="inherit" />,
     link: 'https://instagram.com/jaimetrovoada',
   },
   {
     name: 'LinkedIn',
-    icon: <LinkedInIcon />,
+    icon: <LinkedInIcon color="inherit" />,
     link: 'https://www.linkedin.com/in/jaime-trovoada-5426bb1a2',
   },
   {
-    icon: <AlternateEmailIcon />,
+    icon: <AlternateEmailIcon color="inherit" />,
     name: 'Email',
     link: 'mailto:jaimetrovoada@gmail.com',
   },

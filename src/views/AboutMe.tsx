@@ -2,6 +2,7 @@ import React from 'react'
 import { Section } from 'components'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import LocationOnIcon from '@mui/icons-material/LocationOn'
 import { aboutMe } from 'data'
 
 const Home: React.FC = () => {
@@ -9,10 +10,10 @@ const Home: React.FC = () => {
     <Section sectionTitle="About Me">
       <Box>
         <Typography>{aboutMe.introduction}</Typography>
-        <Typography>
-          <i className="fa-solid fa-location-dot" />
-          {aboutMe.location}
-        </Typography>
+        <Box sx={{ display: 'flex' }} color="text.secondary">
+          <LocationOnIcon fontSize="small" />
+          <Typography color="text.secondary">{aboutMe.location}</Typography>
+        </Box>
       </Box>
     </Section>
   )

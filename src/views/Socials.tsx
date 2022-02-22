@@ -17,9 +17,10 @@ const Socials: React.FC = () => {
               target="_blank"
               key={index}
               sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '5px' }}
+              color="text.secondary"
             >
               {social.icon}
-              <Typography>{social.name}</Typography>
+              <Typography color="text.primary">{social.name}</Typography>
             </Link>
           )
         })}

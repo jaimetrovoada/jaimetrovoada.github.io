@@ -6,9 +6,10 @@ import { BoxProps } from '@mui/system'
 interface SectionProps extends BoxProps {
   children: React.ReactNode
   sectionTitle: string
+  fixedHeader?: boolean
 }
 
-const Section: React.FC<SectionProps> = ({ sectionTitle, children, ...props }) => {
+const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, ...props }) => {
   return (
     <Box
       sx={{
@@ -20,8 +21,13 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, children, ...props }) =
       }}
       {...props}
     >
-      <Box>
-        <Typography color="text.secondary" variant="h4">
+      <Box
+        sx={{
+          position: fixedHeader ? 'fixed' : null,
+          backgroundColor: fixedHeader ? 'background.paper' : null,
+        }}
+      >
+        <Typography color="primary.main" variant="h4">
           &gt; {sectionTitle}
         </Typography>
       </Box>

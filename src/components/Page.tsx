@@ -56,12 +56,12 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
       <HideOnScroll {...props}>
         <AppBar
           sx={{
-            background: 'background.paper',
             height: '10vh',
             maxHeight: '10vh',
             flex: '0 0 10vh',
             justifyContent: 'center',
           }}
+          color="secondary"
           elevation={0}
           component="header"
         >
@@ -91,7 +91,7 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
               <Box>
                 <Typography component="h1">{name}</Typography>
                 {occupation ? (
-                  <Typography color="text.secondary" component="h2">
+                  <Typography color="secondary.contrastText" component="h2">
                     {occupation}
                   </Typography>
                 ) : null}
@@ -137,12 +137,12 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
         component="footer"
         sx={{
           background: 'background.paper',
-          height: '10vh',
-          maxHeight: '10vh',
-          flex: '0 0 10vh',
+          height: 'calc(5vh + 10px)',
+          maxHeight: 'calc(5vh + 10px)',
+          flex: '0 0 calc(5vh + 10px)',
         }}
       >
-        <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} maxWidth="xl">
           <Box>
             <Typography>
               &copy; {currentYear} {name}. All rights reserved.

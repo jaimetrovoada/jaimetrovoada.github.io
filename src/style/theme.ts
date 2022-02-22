@@ -4,16 +4,17 @@ export const gruvbox = createTheme({
   palette: {
     background: {
       paper: '#282828',
+      default: '#504945',
     },
     text: {
       primary: '#ebdbb2',
-      secondary: '#d5c4a1',
+      secondary: '#a89984',
     },
     primary: {
-      main: '#ebdbb2',
+      main: '#fe8019',
     },
     secondary: {
-      main: "#fbf1c7",
+      main: "#83a598",
     },
   },
   typography: {

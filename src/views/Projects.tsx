@@ -2,12 +2,12 @@
 import { projects } from 'data'
 import { Section } from 'components'
 import Card from '@mui/material/Card'
-import CardActionArea from '@mui/material/CardActionArea'
+import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import IconButton from '@mui/material/IconButton'
+import Link from '@mui/material/Link'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LanguageIcon from '@mui/icons-material/Language'
 import ConstructionIcon from '@mui/icons-material/Construction'
@@ -20,20 +20,20 @@ const Projects = () => {
         flex: '1 1 100%',
         height: '100%',
         maxHeight: '100%',
+        overflow: { md: 'auto' },
         '>div:not(:last-child)': {
           marginBottom: '20px',
         },
       }}
     >
+      {/* TODO: find a way to keep title on top while letting the card region be scrollable */}
       {projects.map((project) => (
         <Card
           sx={{
             maxWidth: { xs: '100%', md: '500px' },
           }}
         >
-          <CardHeader>
-            <Typography variant="h6">{project.title}</Typography>
-          </CardHeader>
+          <CardHeader title={project.title} titleTypographyProps={{ color: 'secondary.main' }} />
           <CardContent>
             <Typography>{project.description}</Typography>
             <Box sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '10px' }}>
@@ -41,16 +41,14 @@ const Projects = () => {
               <Typography>{project.techStack}</Typography>
             </Box>
           </CardContent>
-          <CardActionArea>
-            <IconButton href={project.githubLink} target="_blank" rel="noopener noreferrer">
+          <CardActions>
+            <Link href={project?.githubLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
               <GitHubIcon />
-            </IconButton>
-            {project.liveLink ? (
-              <IconButton href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                <LanguageIcon />
-              </IconButton>
-            ) : null}
-          </CardActionArea>
+            </Link>
+            <Link href={project?.liveLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
+              <LanguageIcon />
+            </Link>
+          </CardActions>
         </Card>
       ))}
     </Section>
