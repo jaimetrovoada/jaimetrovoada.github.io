@@ -1,26 +1,22 @@
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 import React from 'react'
-import styled from 'styled-components'
 
 interface SectionProps {
-  children: any
+  children: React.ReactNode
+  sectionTitle: string
 }
 
-const StyledSection = styled.div`
-  height: 100vh;
-      scroll-snap-align: start;
-      overflow: scroll;
-
-      &:nth-of-type(odd) {
-        background-color: ${({ theme }) => theme.background.odd};
-      }
-      &:nth-of-type(even) {
-        background-color: ${({ theme }) => theme.background.even};
-      }
-`
-
-const Section: React.FC<SectionProps> = ({ children }) => {
+const Section: React.FC<SectionProps> = ({ sectionTitle, children, ...props }) => {
   return (
-    <StyledSection>{children}</StyledSection>
+    <Box sx={{ height: 'calc(100% / 3)', maxHeight: 'calc(100% / 3)', width: '50%', maxWidth: '50%' }}>
+      <Box>
+        <Typography color="text.secondary" fontSize={3}>
+          &gt; {sectionTitle}
+        </Typography>
+      </Box>
+      {children}
+    </Box>
   )
 }
 
