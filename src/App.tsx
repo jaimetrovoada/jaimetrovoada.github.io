@@ -1,6 +1,7 @@
 import React from 'react'
 import { Page } from 'components'
-import { ThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import { gruvbox, catppuccin, tokyonight } from 'style/theme'
 import { AboutMe, Projects, Socials, Bonus, Skills } from 'views'
 import { SelectChangeEvent } from '@mui/material/Select'
@@ -24,6 +25,7 @@ function App() {
   }
   return (
     <ThemeProvider theme={getTheme()}>
+      <CssBaseline />
       <Page themeChanger={handleThemeChange} currentTheme={theme}>
         <AboutMe />
         <Skills />

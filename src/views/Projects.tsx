@@ -14,9 +14,23 @@ import ConstructionIcon from '@mui/icons-material/Construction'
 
 const Projects = () => {
   return (
-    <Section sectionTitle="Projects">
+    <Section
+      sectionTitle="Projects"
+      sx={{
+        flex: '1 1 100%',
+        height: '100%',
+        maxHeight: '100%',
+        '>div:not(:last-child)': {
+          marginBottom: '20px',
+        },
+      }}
+    >
       {projects.map((project) => (
-        <Card>
+        <Card
+          sx={{
+            maxWidth: { xs: '100%', md: '500px' },
+          }}
+        >
           <CardHeader>
             <Typography variant="h6">{project.title}</Typography>
           </CardHeader>

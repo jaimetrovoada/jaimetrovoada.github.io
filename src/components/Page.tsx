@@ -45,12 +45,26 @@ function HideOnScroll(props: HideOnScrollProps) {
 }
 
 const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props }) => {
-  // get current year
   const currentYear = new Date().getFullYear()
+
+  const { name, occupation, resumeLink, avatar } = aboutMe
+
   return (
-    <Paper sx={{ maxHeight: '100vh', heigh: '100%' }}>
+    <Paper
+      sx={{ maxHeight: { md: '100vh' }, minHeight: '100vh', heigh: '100%', display: 'flex', flexDirection: 'column' }}
+    >
       <HideOnScroll {...props}>
-        <AppBar sx={{ background: 'background.paper', height: '68px' }} elevation={0} component="header">
+        <AppBar
+          sx={{
+            background: 'background.paper',
+            height: '10vh',
+            maxHeight: '10vh',
+            flex: '0 0 10vh',
+            justifyContent: 'center',
+          }}
+          elevation={0}
+          component="header"
+        >
           <Container
             maxWidth="xl"
             sx={{
@@ -58,17 +72,29 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
               justifyContent: 'space-between',
             }}
           >
-            <Box sx={{ display: 'grid', gridTemplateColumns: '50px 1fr', gap: '10px' }}>
-              {aboutMe.avatar ? (
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: '50px 1fr',
+                gap: '10px',
+                fontSize: '50px',
+                alignItems: 'center',
+              }}
+            >
+              {avatar ? (
                 <Box>
-                  <img src={aboutMe.avatar} alt={`${aboutMe.name}-avatar`} />
+                  <img src={avatar} alt={`${name}-avatar`} />
                 </Box>
               ) : (
-                <AccountCircleIcon />
+                <AccountCircleIcon fontSize="inherit" />
               )}
               <Box>
-                <Typography>{aboutMe.name}</Typography>
-                {aboutMe.occupation ? <Typography color="text.secondary">{aboutMe.occupation}</Typography> : null}
+                <Typography component="h1">{name}</Typography>
+                {occupation ? (
+                  <Typography color="text.secondary" component="h2">
+                    {occupation}
+                  </Typography>
+                ) : null}
               </Box>
             </Box>
             <Box>
@@ -96,30 +122,38 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
           display: 'flex',
           flexFlow: 'column wrap',
           minHeight: '100%',
-          maxHeight: '100%',
-          overflow: { xs: 'auto', md: 'hidden' },
+          height: '100%',
+          overflow: { md: 'hidden' },
+          flex: '1 1 auto',
+          paddingTop: '10vh',
+          '>div:not(:last-child)': {
+            marginBottom: '20px',
+          },
         }}
       >
         {children}
       </Container>
-      <Container
+      <Box
         component="footer"
         sx={{
           background: 'background.paper',
+          height: '10vh',
+          maxHeight: '10vh',
+          flex: '0 0 10vh',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Box>
             <Typography>
-              &copy; {currentYear} {aboutMe.name}. All rights reserved.
+              &copy; {currentYear} {name}. All rights reserved.
             </Typography>
-            <Link href={aboutMe.resumeLink}>📕 Resume</Link>
+            <Link href={resumeLink}>📕 Resume</Link>
           </Box>
           <Box>
             <Typography>Theme</Typography>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
     </Paper>
   )
 }

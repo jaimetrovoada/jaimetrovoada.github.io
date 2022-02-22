@@ -5,7 +5,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 
 interface AboutMeProps {
   name: string // your name or nickname, also use for the header
-  avatar?: string // url of the person's avatar
+  avatar?: string // url of the person's avatar, if left empty or deleted a default avatar/icon will be used
   occupation?: string // your job tittle or your current occupation
   resumeLink?: string // optional, link to the person's resume
   introduction: string // introduction of the person
@@ -20,9 +20,10 @@ interface AboutMeProps {
 
 export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
-  avatar: '/images/avatar.png',
+  avatar: '',
   occupation: 'Frontend Developer (Web3)',
-  introduction: '',
+  introduction:
+    'I am a Frontend Developer (Web3) with a background in Computer Science. I have a passion for learning new technologies and I am always trying to improve myself.',
   resumeLink: 'drive.google.com',
   skills: ['JavaScript', 'TypeScript', 'React'],
   location: 'Beijing, CN',
@@ -44,15 +45,23 @@ interface ProjectProps {
 export const projects: ProjectProps[] = [
   {
     title: 'To-do app',
-    description: '',
-    techStack: '',
+    description: 'An to-do app with a simple UI that uses the browser localStorage API to save data.',
+    techStack: 'HTML/CSS, JavaScript',
     liveLink: '',
     githubLink: '',
   },
   {
     title: 'Weather app',
-    description: '',
-    techStack: '',
+    description: 'A weather app that uses the OpenWeatherMap API to get weather data.',
+    techStack: 'JavaScript/React',
+    liveLink: '',
+    githubLink: '',
+  },
+  {
+    title: 'Patent Inquiry System',
+    description:
+      'A fullstack app that allows users to search for a patent and get the patent information, using different parameters.',
+    techStack: 'JavaScript/React, NodeJS/Express, MySQL',
     liveLink: '',
     githubLink: '',
   },
