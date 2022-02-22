@@ -1,54 +1,60 @@
-export interface ColorschemeProps {
-  background: {
-    even: string
-    odd: string
-  }
-  colors: {
-    accent: string
-  }
-  text: {
-    primary: string
-    secondary: string
-  }
-}
-export const gruvbox: ColorschemeProps = {
-  background: {
-    even: "#fffffe",
-    odd: "#eff0f3"
-  },
-  colors: {
-    accent: "#ff8e3c"
-  },
-  text: {
-    primary: "#2a2a2a",
-    secondary: "#cccccc"
-  }
-}
+import { createTheme } from '@mui/material'
 
-export const tokyonight: ColorschemeProps = {
-  background: {
-    even: "#2a2a2a",
-    odd: "#1d1d1d"
+export const gruvbox = createTheme({
+  palette: {
+    background: {
+      paper: '#282828',
+    },
+    text: {
+      primary: '#ebdbb2',
+      secondary: '#d5c4a1',
+    },
+    primary: {
+      main: '#ebdbb2',
+    },
+    secondary: {
+      main: "#fbf1c7",
+    },
   },
-  colors: {
-    accent: "#ff8e3c"
+  typography: {
+    fontFamily: 'Source Code Pro, monospace',
   },
-  text: {
-    primary: "#fffffe",
-    secondary: "#cccccc"
-  }
-}
+})
 
-export const catppuccin: ColorschemeProps = {
-  background: {
-    even: "#fbf1c7",
-    odd: "#f5e7b1"
+export const catppuccin = createTheme({
+  palette: {
+    background: {
+      paper: '#F2F6FE',
+    },
+    text: {
+      primary: '#0E1D38',
+      secondary: '#2772FA',
+    },
+    primary: {
+      main: '#2772FA',
+    },
   },
-  colors: {
-    accent: "#ff8e3c"
+  typography: {
+    fontFamily: 'Source Code Pro, monospace',
   },
-  text: {
-    primary: "#2a2a2a",
-    secondary: "#cccccc"
-  }
-}
+})
+
+export const tokyonight = createTheme({
+  palette: {
+    background: {
+      paper: '#F2F6FE',
+    },
+    text: {
+      primary: '#0E1D38',
+      secondary: '#2772FA',
+    },
+    primary: {
+      main: '#2772FA',
+    },
+  },
+  typography: {
+    fontFamily: 'Source Code Pro, monospace',
+  },
+})
+
+
