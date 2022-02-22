@@ -1,31 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import GlobalStyle from 'style/GlobalStyles'
-import { Page } from 'components';
-import Provider from 'provider/ThemeProvider';
-// import './App.css';
+import React from 'react'
+import { Page } from 'components'
+import { ThemeProvider } from '@mui/material'
+import { gruvbox, catppuccin, tokyonight } from 'style/theme'
+import { AboutMe, Projects, Socials, Bonus, Skills } from 'views'
 
 function App() {
-  const [theme, setTheme] = React.useState('gruvbox');
-  
+  const [theme, setTheme] = React.useState('gruvbox')
+
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTheme(e.target.value);
+    setTheme(e.target.value)
   }
 
+  const getTheme = () => {
+    switch (theme) {
+      case 'catppuccin':
+        return catppuccin
+      case 'tokyonight':
+        return tokyonight
+      default:
+        return gruvbox
+    }
+  }
   return (
-    <Provider theme={theme}>
-    <Page >
-      <GlobalStyle />
-      <header className="App-header">
-        <select name="theme-select" id="theme" onChange={handleThemeChange}>
-          <option value="gruvbox" selected>Gruvbox</option>
-          <option value="tokyonight">Tokyo Night</option>
-          <option value="catpuccin">Catpuccin</option>
-      </select>
-      </header>
-    </Page>
-    </Provider>
-  );
+    <ThemeProvider theme={getTheme()}>
+      <Page>
+        <header className="App-header">
+          <select name="theme-select" id="theme" onChange={handleThemeChange}>
+            <option value="gruvbox" selected>
+              Gruvbox
+            </option>
+            <option value="tokyonight">Tokyo Night</option>
+            <option value="catpuccin">Catpuccin</option>
+          </select>
+        </header>
+        <AboutMe />
+        <Skills />
+        <Socials />
+        <Bonus />
+        <Projects />
+      </Page>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App

@@ -1,73 +1,45 @@
 // import React from 'react'
-import styled from 'styled-components'
 import { projects } from 'data'
 import { Section } from 'components'
-import { ProjectCard } from 'components/Cards'
-
-const StyledSection = styled(Section)`
-  @include flexContainer;
-
-  p {
-    font-size: 2rem;
-  }
-  &-wrapper {
-    @include gridContainer;
-    .card {
-      padding: 2rem;
-      height: 15rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      background-color: bg-color(odd);
-      border: 1px solid #ccc;
-      border-bottom: 3px solid $accent-color;
-
-      &:last-child {
-        flex-direction: column-reverse;
-      }
-
-      @include neumorphism;
-
-      img {
-        height: 2em;
-        width: 2em;
-      }
-      &:hover img {
-        filter: invert(1);
-      }
-      &:nth-child(odd) {
-        &:hover {
-          background: linear-gradient(to bottom, #f3cbab, #feedca);
-        }
-      }
-      &:nth-child(even) {
-        &:hover {
-          background: linear-gradient(to bottom, #b1e5f9, #f4d2fe);
-        }
-      }
-      &-link {
-        align-self: flex-end;
-        width: 20%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        @media only screen and (max-width: 56.25em) {
-          width: 30%;
-        }
-      }
-      &-title {
-        align-self: center;
-      }
-    }
-  }
-`
+import Card from '@mui/material/Card'
+import CardActionArea from '@mui/material/CardActionArea'
+import CardContent from '@mui/material/CardContent'
+import CardHeader from '@mui/material/CardHeader'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LanguageIcon from '@mui/icons-material/Language'
+import ConstructionIcon from '@mui/icons-material/Construction'
 
 const Projects = () => {
   return (
-    <StyledSection>
-      {projects.map((project) => <ProjectCard name={project.name} github={project.githubLink} live={project.liveLink} />)}
-    </StyledSection>
+    <Section sectionTitle="Projects">
+      {projects.map((project) => (
+        <Card>
+          <CardHeader>
+            <Typography variant="h6">{project.title}</Typography>
+          </CardHeader>
+          <CardContent>
+            <Typography>{project.description}</Typography>
+            <Box sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '10px' }}>
+              <ConstructionIcon />
+              <Typography>{project.techStack}</Typography>
+            </Box>
+          </CardContent>
+          <CardActionArea>
+            <IconButton href={project.githubLink} target="_blank" rel="noopener noreferrer">
+              <GitHubIcon />
+            </IconButton>
+            {project.liveLink ? (
+              <IconButton href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                <LanguageIcon />
+              </IconButton>
+            ) : null}
+          </CardActionArea>
+        </Card>
+      ))}
+    </Section>
   )
 }
 
