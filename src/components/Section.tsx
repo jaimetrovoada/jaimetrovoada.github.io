@@ -7,9 +7,10 @@ interface SectionProps extends BoxProps {
   children: React.ReactNode
   sectionTitle: string
   fixedHeader?: boolean
+  titleSize?: number | string
 }
 
-const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, ...props }) => {
+const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, titleSize, ...props }) => {
   return (
     <Box
       sx={{
@@ -27,7 +28,7 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, 
           backgroundColor: fixedHeader ? 'background.paper' : null,
         }}
       >
-        <Typography color="primary.main" variant="h4">
+        <Typography color="primary.main" variant="h4" fontSize={titleSize}>
           &gt; {sectionTitle}
         </Typography>
       </Box>

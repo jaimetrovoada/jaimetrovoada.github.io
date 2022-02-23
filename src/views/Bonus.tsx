@@ -7,9 +7,9 @@ import { aboutMe } from 'data'
 const Bonus: React.FC = () => {
   if (!aboutMe.funFact) return null
   return (
-    <Section sectionTitle={`(Bonus) ${aboutMe?.funFact?.title}`}>
+    <Section sectionTitle={`(Bonus) ${aboutMe?.funFact?.title}`} titleSize="small">
       <Box>
-        <Typography>{aboutMe?.funFact?.description}</Typography>
+        <Typography fontSize="small">{aboutMe?.funFact?.description}</Typography>
       </Box>
     </Section>
   )
