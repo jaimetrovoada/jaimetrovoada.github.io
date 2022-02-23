@@ -49,6 +49,14 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
 
   const { name, occupation, resumeLink, avatar } = aboutMe
 
+  const appbarRef = React.useRef<HTMLDivElement>(null)
+  const [appbarHeight, setAppbarHeight] = React.useState(0)
+  React.useEffect(() => {
+    if (appbarRef.current) {
+      setAppbarHeight(appbarRef.current.clientHeight)
+    }
+  }, [appbarRef])
+
   return (
     <Paper
       sx={{ maxHeight: { md: '100vh' }, minHeight: '100vh', heigh: '100%', display: 'flex', flexDirection: 'column' }}
@@ -63,6 +71,7 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
           color="secondary"
           elevation={0}
           component="header"
+          ref={appbarRef}
         >
           <Container
             maxWidth="xl"
@@ -124,7 +133,7 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
           height: '100%',
           overflow: { md: 'hidden' },
           flex: '1 1 auto',
-          paddingTop: '10vh',
+          paddingTop: `calc(${appbarHeight}px + 1rem)`,
           '>div:not(:last-child)': {
             marginBottom: '20px',
           },
