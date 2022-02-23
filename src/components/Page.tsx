@@ -56,9 +56,8 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
       <HideOnScroll {...props}>
         <AppBar
           sx={{
-            height: '10vh',
-            maxHeight: '10vh',
-            flex: '0 0 10vh',
+            paddingY: '1rem',
+            flex: '0 0 auto',
             justifyContent: 'center',
           }}
           color="secondary"
@@ -136,19 +135,21 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
       <Box
         component="footer"
         sx={{
-          background: 'background.paper',
-          height: 'calc(5vh + 10px)',
-          maxHeight: 'calc(5vh + 10px)',
-          flex: '0 0 calc(5vh + 10px)',
+          backgroundColor: 'background.paper',
+          flex: '0 0 auto',
+          paddingY: '1rem',
+          borderTop: '1px solid',
+          borderTopColor: 'background.default',
         }}
       >
-        <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} maxWidth="xl">
-          <Box>
-            <Typography>
-              &copy; {currentYear} {name}. All rights reserved.
-            </Typography>
-            <Link href={resumeLink}>📕 Resume</Link>
-          </Box>
+        <Container
+          sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
+          maxWidth="xl"
+        >
+          <Typography>
+            &copy; {currentYear} {name}. All rights reserved.
+          </Typography>
+          <Link href={resumeLink}>📕 Resume</Link>
         </Container>
       </Box>
     </Paper>
