@@ -15,8 +15,8 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, 
       sx={{
         height: 'calc(100% / 3)',
         maxHeight: 'calc(100% / 3)',
-        width: '50%',
-        maxWidth: '50%',
+        width: { xs: '100%', md: '50%' },
+        maxWidth: { xs: '100%', md: '50%' },
         flex: '0 0 calc(100% / 3)',
       }}
       {...props}
