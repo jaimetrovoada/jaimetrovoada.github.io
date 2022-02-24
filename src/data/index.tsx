@@ -2,29 +2,29 @@ import React from 'react'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 interface AboutMeProps {
-  name: string // your name or nickname, also use for the header
-  avatar?: string // url of the person's avatar, if left empty or deleted a default avatar/icon will be used
-  occupation?: string // your job tittle or your current occupation
-  resumeLink?: string // optional, link to the person's resume
-  introduction: string // introduction of the person
-  skills: string[] // skills of the person
-  location?: string // optional, location of the person
+  name: string
+  avatar?: string
+  occupation?: string
+  resumeLink?: string
+  introduction: string
+  skills: string[]
+  location?: string
   funFact?: {
-    // optional, a fun fact about the person
-    title: string // title of the fun fact
-    description: string // description of the fun fact
+    title: string
+    description: string
   }
 }
 
 export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
-  avatar: '',
+  avatar: '/images/avatar.png',
   occupation: 'Frontend Developer (Web3)',
   introduction:
     'I am a Frontend Developer (Web3) with a background in Computer Science. I have a passion for learning new technologies and I am always trying to improve myself.',
-  resumeLink: 'drive.google.com',
+  resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
   skills: ['JavaScript', 'TypeScript', 'React'],
   location: 'Beijing, CN',
   funFact: {
@@ -35,11 +35,11 @@ export const aboutMe: AboutMeProps = {
 }
 
 interface ProjectProps {
-  title: string // Project title
-  description?: string // optional, description of the project
-  techStack: string // comma separated list of technologies used in the project
-  liveLink?: string // optional, link to a live demo of the project
-  githubLink: string // link to the project's github repository
+  title: string
+  description?: string
+  techStack: string
+  liveLink?: string
+  githubLink: string
 }
 
 export const projects: ProjectProps[] = [
@@ -47,15 +47,15 @@ export const projects: ProjectProps[] = [
     title: 'To-do app',
     description: 'An to-do app with a simple UI that uses the browser localStorage API to save data.',
     techStack: 'HTML/CSS, JavaScript',
-    liveLink: '',
-    githubLink: '',
+    liveLink: 'https://todo-app-j.vercel.app/',
+    githubLink: 'https://github.com/jaimetrovoada/Todo-App--J-',
   },
   {
     title: 'Weather app',
     description: 'A weather app that uses the OpenWeatherMap API to get weather data.',
     techStack: 'JavaScript/React',
-    liveLink: '',
-    githubLink: '',
+    liveLink: 'https://weather-app-plum-eta.vercel.app/',
+    githubLink: 'https://github.com/jaimetrovoada/weather-app',
   },
   {
     title: 'Patent Inquiry System',
@@ -63,22 +63,29 @@ export const projects: ProjectProps[] = [
       'A fullstack app that allows users to search for a patent and get the patent information, using different parameters.',
     techStack: 'JavaScript/React, NodeJS/Express, MySQL',
     liveLink: '',
-    githubLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/patent-inquiry-system-react',
   },
   {
     title: 'Animal Crossing: New Horizons Wiki',
     description:
-      'A fullstack app that allows users to search for a patent and get the patent information, using different parameters.',
+      'A simple project using the Animal Crossing New Horizons API, to display information about the various characters and items in the game.',
     techStack: 'JavaScript/React',
+    liveLink: 'https://a-new-horizon-wiki.vercel.app/',
+    githubLink: 'https://github.com/jaimetrovoada/A-New-Horizon-Wiki',
+  },
+  {
+    title: 'Weather Fetch (WIP)',
+    description: 'A CLI tool for fetching system info alongside the weather.',
+    techStack: 'TypeScript, NodeJS, Ink',
     liveLink: '',
-    githubLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/weather-fetch',
   },
 ]
 
 interface SocialProps {
-  name: String // name of the social media/platform
-  link: string // link to your social media/platform profile
-  icon: any // icon of the social media/platform
+  name: String
+  link: string
+  icon: any
 }
 
 export const socials: SocialProps[] = [
@@ -96,5 +103,10 @@ export const socials: SocialProps[] = [
     icon: <AlternateEmailIcon color="inherit" />,
     name: 'Email',
     link: 'mailto:jaimetrovoada@gmail.com',
+  },
+  {
+    icon: <GitHubIcon color="inherit" />,
+    name: 'GitHub',
+    link: 'https://gituhb.com/jaimetrovoada',
   },
 ]

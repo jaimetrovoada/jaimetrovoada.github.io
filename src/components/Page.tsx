@@ -91,35 +91,21 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
             >
               {avatar ? (
                 <Box>
-                  <img src={avatar} alt={`${name}-avatar`} />
+                  <img src={avatar} alt={`${name}-avatar`} style={{ width: '100%', maxWidth: '100%' }} />
                 </Box>
               ) : (
                 <AccountCircleIcon fontSize="inherit" />
               )}
               <Box>
-                <Typography component="h1">{name}</Typography>
+                <Typography component="h1" color="text.primary" fontWeight="bold">
+                  {name}
+                </Typography>
                 {occupation ? (
-                  <Typography color="secondary.contrastText" component="h2">
+                  <Typography color="text.secondary" component="h2">
                     {occupation}
                   </Typography>
                 ) : null}
               </Box>
-            </Box>
-            <Box>
-              <FormControl fullWidth>
-                <InputLabel id="theme-changer">Theme</InputLabel>
-                <Select
-                  labelId="theme-changer"
-                  id="theme-select"
-                  value={currentTheme}
-                  label="Change themes"
-                  onChange={themeChanger}
-                >
-                  <MenuItem value={'gruvbox'}>Gruvbox</MenuItem>
-                  <MenuItem value={'catppuccin'}>Catppuccin</MenuItem>
-                  <MenuItem value={'tokyonight'}>Tokyo Night</MenuItem>
-                </Select>
-              </FormControl>
             </Box>
           </Container>
         </AppBar>
@@ -155,10 +141,28 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
           sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
           maxWidth="xl"
         >
-          <Typography>
-            &copy; {currentYear} {name}. All rights reserved.
-          </Typography>
-          <Link href={resumeLink}>📕 Resume</Link>
+          <Box>
+            <Typography>
+              &copy; {currentYear} {name}. All rights reserved.
+            </Typography>
+            <Link href={resumeLink}>📕 Resume</Link>
+          </Box>
+          <Box>
+            <FormControl fullWidth>
+              <InputLabel id="theme-changer">Theme</InputLabel>
+              <Select
+                labelId="theme-changer"
+                id="theme-select"
+                value={currentTheme}
+                label="Change themes"
+                onChange={themeChanger}
+              >
+                <MenuItem value={'gruvbox'}>Gruvbox</MenuItem>
+                <MenuItem value={'catppuccin'}>Catppuccin</MenuItem>
+                <MenuItem value={'tokyonight'}>Tokyo Night</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
         </Container>
       </Box>
     </Paper>
