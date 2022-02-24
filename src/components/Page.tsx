@@ -67,8 +67,8 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
             paddingY: '1rem',
             flex: '0 0 auto',
             justifyContent: 'center',
+            backgroundColor: 'background.default',
           }}
-          color="secondary"
           elevation={0}
           component="header"
           ref={appbarRef}
