@@ -31,6 +31,7 @@ const Projects = () => {
         <Card
           sx={{
             maxWidth: { xs: '100%', md: '500px' },
+            backgroundColor: 'background.default',
           }}
         >
           <CardHeader title={project.title} titleTypographyProps={{ color: 'secondary.main' }} />
@@ -45,9 +46,11 @@ const Projects = () => {
             <Link href={project?.githubLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
               <GitHubIcon />
             </Link>
-            <Link href={project?.liveLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
-              <LanguageIcon />
-            </Link>
+            {project.liveLink ? (
+              <Link href={project?.liveLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
+                <LanguageIcon />
+              </Link>
+            ) : null}
           </CardActions>
         </Card>
       ))}

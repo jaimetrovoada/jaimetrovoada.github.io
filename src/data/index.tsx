@@ -44,18 +44,18 @@ interface ProjectProps {
 
 export const projects: ProjectProps[] = [
   {
-    title: 'To-do app',
-    description: 'An to-do app with a simple UI that uses the browser localStorage API to save data.',
-    techStack: 'HTML/CSS, JavaScript',
-    liveLink: 'https://todo-app-j.vercel.app/',
-    githubLink: 'https://github.com/jaimetrovoada/Todo-App--J-',
+    title: 'Weather Fetch (WIP)',
+    description: 'A CLI tool for fetching system info alongside the weather.',
+    techStack: 'TypeScript, NodeJS, Ink',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/weather-fetch',
   },
   {
-    title: 'Weather app',
-    description: 'A weather app that uses the OpenWeatherMap API to get weather data.',
-    techStack: 'JavaScript/React',
-    liveLink: 'https://weather-app-plum-eta.vercel.app/',
-    githubLink: 'https://github.com/jaimetrovoada/weather-app',
+    title: 'React Portfolio Template (WIP)',
+    description: 'A portfolio website template made with React. The template was made based on this website.',
+    techStack: 'TypeScript/React',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/react-portfolio-template',
   },
   {
     title: 'Patent Inquiry System',
@@ -74,11 +74,18 @@ export const projects: ProjectProps[] = [
     githubLink: 'https://github.com/jaimetrovoada/A-New-Horizon-Wiki',
   },
   {
-    title: 'Weather Fetch (WIP)',
-    description: 'A CLI tool for fetching system info alongside the weather.',
-    techStack: 'TypeScript, NodeJS, Ink',
-    liveLink: '',
-    githubLink: 'https://github.com/jaimetrovoada/weather-fetch',
+    title: 'To-do app',
+    description: 'An to-do app with a simple UI that uses the browser localStorage API to save data.',
+    techStack: 'HTML/CSS, JavaScript',
+    liveLink: 'https://todo-app-j.vercel.app/',
+    githubLink: 'https://github.com/jaimetrovoada/Todo-App--J-',
+  },
+  {
+    title: 'Weather app',
+    description: 'A weather app that uses the OpenWeatherMap API to get weather data.',
+    techStack: 'JavaScript/React',
+    liveLink: 'https://weather-app-plum-eta.vercel.app/',
+    githubLink: 'https://github.com/jaimetrovoada/weather-app',
   },
 ]
 
