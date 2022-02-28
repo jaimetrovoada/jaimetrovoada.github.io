@@ -9,16 +9,14 @@ const Skills: React.FC = () => {
     <Section sectionTitle="Skills">
       <Box>
         <Typography>
-          {
-            aboutMe.skills.map((skill, index) => {
-              return (
-                <span key={index}>
-                  {skill}
-                  {index !== aboutMe.skills.length - 1 ? ', ' : ''}
-                </span>
-              )
-            })
-          }
+          {aboutMe.skills.map((skill, index) => {
+            return (
+              <span key={index}>
+                {skill}
+                {index !== aboutMe.skills.length - 1 ? ', ' : ''}
+              </span>
+            )
+          })}
         </Typography>
       </Box>
     </Section>

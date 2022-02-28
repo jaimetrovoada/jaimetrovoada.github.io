@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import React from 'react'
 import { Page } from 'components'
 import { ThemeProvider } from '@mui/material/styles'

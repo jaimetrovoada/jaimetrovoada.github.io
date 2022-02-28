@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import { projects } from 'data'
 import { Section } from 'components'
 import Card from '@mui/material/Card'
@@ -33,6 +33,7 @@ const Projects = () => {
             maxWidth: { xs: '100%', md: '500px' },
             backgroundColor: 'background.default',
           }}
+          key={project.title}
         >
           <CardHeader title={project.title} titleTypographyProps={{ color: 'secondary.main' }} />
           <CardContent>
