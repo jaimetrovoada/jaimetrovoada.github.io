@@ -31,7 +31,6 @@ export const gruvbox = createTheme({
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: '#ebdbb2',
-          outline: '1px solid #a89984',
           borderRadius: '16px',
         },
       },
@@ -76,21 +75,40 @@ export const catppuccin = createTheme({
     },
   },
 })
-
 export const tokyonight = createTheme({
   palette: {
     background: {
-      paper: '#F2F6FE',
+      paper: '#24283b',
+      default: '#414868',
     },
     text: {
-      primary: '#0E1D38',
-      secondary: '#2772FA',
+      primary: '#7aa2f7',
+      secondary: '#c0caf5',
     },
     primary: {
-      main: '#2772FA',
+      main: '#f7768e',
+    },
+    secondary: {
+      main: '#e0af68',
     },
   },
   typography: {
     fontFamily: 'Source Code Pro, monospace',
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '*::-webkit-scrollbar': {
+          width: '0.2em',
+        },
+        '*::-webkit-scrollbar-track': {
+          '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)',
+        },
+        '*::-webkit-scrollbar-thumb': {
+          backgroundColor: '#a9b1d6',
+          borderRadius: '16px',
+        },
+      },
+    },
   },
 })
