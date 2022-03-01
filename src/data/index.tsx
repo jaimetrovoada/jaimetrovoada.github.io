@@ -23,14 +23,14 @@ export const aboutMe: AboutMeProps = {
   avatar: '/images/avatar.png',
   occupation: 'Frontend Developer (Web3)',
   introduction:
-    'I am a Frontend Developer (Web3) with a background in Computer Science. I have a passion for learning new technologies and I am always trying to improve myself.',
+    'Gamer, and a big nerd of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
   resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
   skills: ['JavaScript', 'TypeScript', 'React'],
   location: 'Beijing, CN',
   funFact: {
-    title: 'Favorite Sports Car',
+    title: 'RPGs!!!!',
     description:
-      'Audi R8. \nWhy? Because when I played Need For Speed: Shift on the PlayStation Portable it was the car that got me through most of the game. \nAnd also because it looks really cool!!!',
+      'Been trying to get into the Shin Megami Tensei series. Playing: SMT III Nocturne, SMT V, Persona 5 Strikers',
   },
 }
 
@@ -116,4 +116,19 @@ export const socials: SocialProps[] = [
     name: 'GitHub',
     link: 'https://gituhb.com/jaimetrovoada',
   },
+]
+
+interface WorkProps {
+  company: string // name of the company
+  position: string // position in the company
+  period: string // period of time in the company
+  description?: string // optional, description of the work
+}
+
+export const works: WorkProps[] = [
+  // {
+  //   company: 'Huski Finance',
+  //   position: 'Frontend Developer (Web3)',
+  //   period: 'August 2021 - Present',
+  // },
 ]
