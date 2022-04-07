@@ -4,11 +4,11 @@ import { Page } from 'components'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { gruvbox, catppuccin, tokyonight } from 'style/theme'
-import { AboutMe, Projects, Socials, Bonus, Skills } from 'views'
+import { AboutMe, Projects, Socials, Bonus, Skills, Work } from 'views'
 import { SelectChangeEvent } from '@mui/material/Select'
 
 function App() {
-  const [theme, setTheme] = React.useState('gruvbox')
+  const [theme, setTheme] = React.useState('catppuccin')
 
   const handleThemeChange = (event: SelectChangeEvent) => {
     setTheme(event.target.value as string)
@@ -16,12 +16,12 @@ function App() {
 
   const getTheme = () => {
     switch (theme) {
-      case 'catppuccin':
-        return catppuccin
+      case 'gruvbox':
+        return gruvbox
       case 'tokyonight':
         return tokyonight
       default:
-        return gruvbox
+        return catppuccin
     }
   }
   return (
@@ -31,6 +31,7 @@ function App() {
         <AboutMe />
         <Skills />
         <Socials />
+        <Work />
         <Bonus />
         <Projects />
       </Page>

@@ -20,12 +20,12 @@ interface AboutMeProps {
 
 export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
-  avatar: '/images/avatar.png',
+  avatar: '/images/avatar.webp',
   occupation: 'Frontend Developer (Web3)',
   introduction:
     'Gamer, and a big nerd of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
   resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
-  skills: ['JavaScript', 'TypeScript', 'React'],
+  skills: ['JavaScript', 'TypeScript', 'React', 'Golang (learning)'],
   location: 'Beijing, CN',
   funFact: {
     title: 'RPGs!!!!',
