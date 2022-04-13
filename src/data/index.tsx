@@ -25,7 +25,7 @@ export const aboutMe: AboutMeProps = {
   introduction:
     'Gamer, and a big nerd of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
   resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
-  skills: ['JavaScript', 'TypeScript', 'React', 'Golang (learning)'],
+  skills: ['JavaScript/TypeScript', 'React + Redux', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
   location: 'Beijing, CN',
   funFact: {
     title: 'RPGs!!!!',
@@ -43,13 +43,6 @@ interface ProjectProps {
 }
 
 export const projects: ProjectProps[] = [
-  {
-    title: 'Weather Fetch (WIP)',
-    description: 'A CLI tool for fetching system info alongside the weather.',
-    techStack: 'TypeScript, NodeJS, Ink',
-    liveLink: '',
-    githubLink: 'https://github.com/jaimetrovoada/weather-fetch',
-  },
   {
     title: 'React Portfolio Template (WIP)',
     description: 'A portfolio website template made with React. The template was made based on this website.',
@@ -74,6 +67,13 @@ export const projects: ProjectProps[] = [
     githubLink: 'https://github.com/jaimetrovoada/A-New-Horizon-Wiki',
   },
   {
+    title: 'Image Uploader (WIP)',
+    description: 'A image uploading service.',
+    techStack: 'TypeScript/React, Go',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/image-uploader',
+  },
+  {
     title: 'To-do app',
     description: 'An to-do app with a simple UI that uses the browser localStorage API to save data.',
     techStack: 'HTML/CSS, JavaScript',
@@ -81,11 +81,32 @@ export const projects: ProjectProps[] = [
     githubLink: 'https://github.com/jaimetrovoada/Todo-App--J-',
   },
   {
+    title: 'Meal CLI',
+    description: 'A CLI tool to display recipes, using the MealDB API and prompTUI package.',
+    techStack: 'Go',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/meal-cli',
+  },
+  {
     title: 'Weather app',
     description: 'A weather app that uses the OpenWeatherMap API to get weather data.',
     techStack: 'JavaScript/React',
     liveLink: 'https://weather-app-plum-eta.vercel.app/',
     githubLink: 'https://github.com/jaimetrovoada/weather-app',
+  },
+  {
+    title: 'Weather Fetch (WIP)',
+    description: 'A CLI tool for fetching system info alongside the weather.',
+    techStack: 'TypeScript, NodeJS, Ink',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/weather-fetch',
+  },
+  {
+    title: 'Foodtypes',
+    description: 'A simple API built with a mock database.',
+    techStack: 'Go, MySQL',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/foodtypes-golang',
   },
 ]
 
@@ -126,9 +147,9 @@ interface WorkProps {
 }
 
 export const works: WorkProps[] = [
-  // {
-  //   company: 'Huski Finance',
-  //   position: 'Frontend Developer (Web3)',
-  //   period: 'August 2021 - Present',
-  // },
+  {
+    company: 'Huski Finance',
+    position: 'Frontend Developer (Web3)',
+    period: 'August 2021 - May 2022',
+  },
 ]
