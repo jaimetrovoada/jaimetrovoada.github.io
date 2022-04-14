@@ -148,8 +148,8 @@ interface WorkProps {
 
 export const works: WorkProps[] = [
   {
-    company: 'Huski Finance',
+    company: '北京燃星科技有限公司',
     position: 'Frontend Developer (Web3)',
-    period: 'August 2021 - May 2022',
+    period: 'August 2021 - April 2022',
   },
 ]
