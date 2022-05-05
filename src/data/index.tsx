@@ -21,9 +21,9 @@ interface AboutMeProps {
 export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
   avatar: '/images/avatar.webp',
-  occupation: 'Frontend Developer (Web3)',
+  occupation: 'Junior Frontend Developer',
   introduction:
-    'Gamer, and a big nerd of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
+    'Gamer, and a big enthusiast of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
   resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
   skills: ['JavaScript/TypeScript', 'React + Redux', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
   location: 'Beijing, CN',
@@ -149,7 +149,7 @@ interface WorkProps {
 export const works: WorkProps[] = [
   {
     company: '北京燃星科技有限公司',
-    position: 'Frontend Developer (Web3)',
+    position: 'Junior Frontend Developer',
     period: 'August 2021 - April 2022',
   },
 ]
