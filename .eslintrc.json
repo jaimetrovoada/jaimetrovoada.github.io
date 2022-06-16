@@ -14,7 +14,8 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "spaced-comment": ["error", "always", { "markers": ["/"] }]
+    "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    "no-console": ["error", { "allow": ["warn", "error"] }]
   },
   "settings": {
     "react": {
