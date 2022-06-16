@@ -1,7 +1,7 @@
 import React from 'react'
-import { Section } from 'components'
+import { Section, ExperienceDrawer } from 'components'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
+// import Typography from '@mui/material/Typography'
 import { works } from 'data'
 
 const Work = () => {
@@ -10,9 +10,9 @@ const Work = () => {
   }
 
   return (
-    <Section sectionTitle="Experience">
+    <Section sectionTitle="Where I've Worked">
       <Box
-        sx={{
+      /*  sx={{
           '> div': {
             border: '1px solid ',
             borderColor: 'primary.main',
@@ -21,41 +21,9 @@ const Work = () => {
               marginBottom: '0.75rem',
             },
           },
-        }}
+        }} */
       >
-        {works.map((work, index) => {
-          return (
-            <Box key={`${index}-${work.position}`}>
-              <Typography>
-                <Typography component="span" fontWeight="bold">
-                  Position:
-                </Typography>{' '}
-                {work.position}
-              </Typography>
-              <Typography>
-                <Typography component="span" fontWeight="bold">
-                  Company:
-                </Typography>{' '}
-                {work.company}
-              </Typography>
-              <Typography>
-                {' '}
-                <Typography component="span" fontWeight="bold">
-                  Period:
-                </Typography>{' '}
-                {work.period}
-              </Typography>
-              {work.description ? (
-                <Typography>
-                  <Typography component="span" fontWeight="bold">
-                    Description:
-                  </Typography>{' '}
-                  {work.description}
-                </Typography>
-              ) : null}
-            </Box>
-          )
-        })}
+        <ExperienceDrawer />
       </Box>
     </Section>
   )
