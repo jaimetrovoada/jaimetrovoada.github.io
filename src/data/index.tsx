@@ -12,26 +12,46 @@ interface AboutMeProps {
   introduction: string
   skills: string[]
   location?: string
-  funFact?: {
-    title: string
-    description: string
-  }
+  socials: SocialProps[]
+}
+
+interface SocialProps {
+  name: String
+  link: string
+  icon: any
 }
 
 export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
   avatar: '/images/avatar.webp',
-  occupation: 'Junior Frontend Developer',
+  occupation: 'Frontend Developer',
   introduction:
     'Gamer, and a big enthusiast of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
   resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
   skills: ['JavaScript/TypeScript', 'React + Redux', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
   location: 'Beijing, CN',
-  funFact: {
-    title: 'RPGs!!!!',
-    description:
-      'Been trying to get into the Shin Megami Tensei series. Playing: SMT III Nocturne, SMT V, Persona 5 Strikers',
-  },
+  socials: [
+    {
+      name: 'Instagram',
+      icon: <InstagramIcon color="inherit" />,
+      link: 'https://instagram.com/jaimetrovoada',
+    },
+    {
+      name: 'LinkedIn',
+      icon: <LinkedInIcon color="inherit" />,
+      link: 'https://www.linkedin.com/in/jaime-trovoada-5426bb1a2',
+    },
+    {
+      icon: <AlternateEmailIcon color="inherit" />,
+      name: 'Email',
+      link: 'mailto:jaimetrovoada@gmail.com',
+    },
+    {
+      icon: <GitHubIcon color="inherit" />,
+      name: 'GitHub',
+      link: 'https://gituhb.com/jaimetrovoada',
+    },
+  ],
 }
 
 interface ProjectProps {
@@ -110,40 +130,11 @@ export const projects: ProjectProps[] = [
   },
 ]
 
-interface SocialProps {
-  name: String
-  link: string
-  icon: any
-}
-
-export const socials: SocialProps[] = [
-  {
-    name: 'Instagram',
-    icon: <InstagramIcon color="inherit" />,
-    link: 'https://instagram.com/jaimetrovoada',
-  },
-  {
-    name: 'LinkedIn',
-    icon: <LinkedInIcon color="inherit" />,
-    link: 'https://www.linkedin.com/in/jaime-trovoada-5426bb1a2',
-  },
-  {
-    icon: <AlternateEmailIcon color="inherit" />,
-    name: 'Email',
-    link: 'mailto:jaimetrovoada@gmail.com',
-  },
-  {
-    icon: <GitHubIcon color="inherit" />,
-    name: 'GitHub',
-    link: 'https://gituhb.com/jaimetrovoada',
-  },
-]
-
 interface WorkProps {
   company: string // name of the company
   position: string // position in the company
   period: string // period of time in the company
-  description?: string // optional, description of the work
+  description: string // optional, description of the work
 }
 
 export const works: WorkProps[] = [
@@ -151,5 +142,6 @@ export const works: WorkProps[] = [
     company: '北京燃星科技有限公司',
     position: 'Junior Frontend Developer',
     period: 'August 2021 - April 2022',
+    description: '',
   },
 ]
