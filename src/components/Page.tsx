@@ -7,17 +7,11 @@ import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import Slide from '@mui/material/Slide'
-import FormControl from '@mui/material/FormControl'
-import InputLabel from '@mui/material/InputLabel'
-import Select, { SelectChangeEvent } from '@mui/material/Select'
-import MenuItem from '@mui/material/MenuItem'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { aboutMe } from 'data'
 
 interface Props {
   children: React.ReactNode
-  themeChanger: (event: SelectChangeEvent<string>, child: React.ReactNode) => void
-  currentTheme: string
 }
 interface HideOnScrollProps {
   /**
@@ -45,7 +39,7 @@ function HideOnScroll(props: HideOnScrollProps) {
   )
 }
 
-const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props }) => {
+const Page: React.FC<Props> = ({ children, ...props }) => {
   const currentYear = new Date().getFullYear()
 
   const { name, occupation, resumeLink, avatar } = aboutMe
@@ -115,57 +109,42 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
         maxWidth="xl"
         sx={{
           display: 'flex',
-          flexFlow: 'column wrap',
+          flexFlow: 'column',
+          alignItems: 'center',
           minHeight: '100%',
           height: '100%',
-          overflow: { md: 'hidden' },
+          overflow: 'auto',
           flex: '1 1 auto',
           paddingTop: `calc(${appbarHeight}px + 1rem)`,
           '>div:not(:last-child)': {
-            marginBottom: '20px',
+            marginBottom: '10vh',
           },
         }}
       >
         {children}
-      </Container>
-      <Box
-        component="footer"
-        sx={{
-          backgroundColor: 'background.paper',
-          flex: '0 0 auto',
-          paddingY: '1rem',
-          borderTop: '1px solid',
-          borderTopColor: 'background.default',
-        }}
-      >
-        <Container
-          sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
-          maxWidth="xl"
+        <Box
+          component="footer"
+          sx={{
+            backgroundColor: 'background.paper',
+            flex: '0 0 auto',
+            paddingY: '1rem',
+            borderTop: '1px solid',
+            borderTopColor: 'background.default',
+          }}
         >
-          <Box>
-            <Typography>
-              &copy; {currentYear} {name}. All rights reserved.
-            </Typography>
-            <Link href={resumeLink}>📕 Resume</Link>
-          </Box>
-          <Box>
-            <FormControl fullWidth>
-              <InputLabel id="theme-changer">Theme</InputLabel>
-              <Select
-                labelId="theme-changer"
-                id="theme-select"
-                value={currentTheme}
-                label="Change themes"
-                onChange={themeChanger}
-              >
-                <MenuItem value={'gruvbox'}>Gruvbox</MenuItem>
-                <MenuItem value={'catppuccin'}>Catppuccin</MenuItem>
-                <MenuItem value={'tokyonight'}>Tokyo Night</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </Container>
-      </Box>
+          <Container
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
+            maxWidth="xl"
+          >
+            <Box>
+              <Typography>
+                &copy; {currentYear} {name}. All rights reserved.
+              </Typography>
+              <Link href={resumeLink}>📕 Resume</Link>
+            </Box>
+          </Container>
+        </Box>
+      </Container>
     </Paper>
   )
 }

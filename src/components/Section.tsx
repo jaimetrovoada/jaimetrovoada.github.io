@@ -13,13 +13,15 @@ interface SectionProps extends BoxProps {
 const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, titleSize, ...props }) => {
   return (
     <Box
-      sx={{
-        height: 'calc(100% / 3)',
-        maxHeight: 'calc(100% / 3)',
-        width: { xs: '100%', md: '50%' },
-        maxWidth: { xs: '100%', md: '50%' },
-        flex: '0 0 calc(100% / 3)',
-      }}
+      sx={
+        {
+          // height: '100vh',
+          // maxHeight: '100vh',
+          // width: { xs: '100%', md: '50%' },
+          // maxWidth: { xs: '100%', md: '50%' },
+          // flex: '0 0 100vh',
+        }
+      }
       {...props}
     >
       <Box
