@@ -24,16 +24,9 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, 
       }
       {...props}
     >
-      <Box
-        sx={{
-          position: fixedHeader ? 'fixed' : null,
-          backgroundColor: fixedHeader ? 'background.paper' : null,
-        }}
-      >
-        <Typography color="primary.main" variant="h4" fontSize={titleSize}>
-          &gt; {sectionTitle}
-        </Typography>
-      </Box>
+      <Typography color="primary.main" variant="h4" fontSize={titleSize} marginBottom="1.5rem">
+        &gt; {sectionTitle}
+      </Typography>
       {children}
     </Box>
   )

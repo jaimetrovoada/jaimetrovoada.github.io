@@ -40,11 +40,7 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
   return (
     <Paper
       sx={{
-        maxHeight: { md: '100vh' },
         minHeight: '100vh',
-        heigh: '100%',
-        display: 'flex',
-        flexDirection: 'column',
       }}
     >
       <AppbarContext.Provider
@@ -57,15 +53,12 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
       >
         <HeroAppBar />
         <Container
-          maxWidth="xl"
+          maxWidth="lg"
           sx={{
-            display: 'flex',
+            flexDirection: 'column',
             opacity: appbarIsMinimized ? '100%' : '0',
-            flexFlow: 'column ',
-            alignItems: 'center',
             height: appbarIsMinimized ? '100%' : '0',
-            flex: appbarIsMinimized ? '1 1 auto' : '0',
-            marginTop: `calc(${appbarHeight}px + 1rem)`,
+            marginTop: `${appbarHeight}px`,
             transition: 'opacity .5s ease-in-out .5s',
             '>div:not(:last-child)': {
               marginBottom: '10vh',
@@ -78,7 +71,6 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
             component="footer"
             sx={{
               backgroundColor: 'background.paper',
-              flex: '0 0 auto',
               transition: 'all 1s ease-in-out',
               paddingY: '1rem',
               borderTop: '1px solid',
