@@ -1,7 +1,7 @@
 import React from 'react'
-import { Section, ExperienceDrawer } from 'components'
+import { Section } from 'components'
 import Box from '@mui/material/Box'
-// import Typography from '@mui/material/Typography'
+import { Button, Typography } from '@mui/material'
 import { works } from 'data'
 
 const Work = () => {
@@ -9,21 +9,84 @@ const Work = () => {
     return null
   }
 
+  const [selectedPosition, setSelectedPosition] = React.useState(0)
+
+  const handlePositionClick = (positionIndex: number) => {
+    setSelectedPosition(positionIndex)
+  }
+
   return (
     <Section sectionTitle="Where I've Worked">
       <Box
-      /*  sx={{
-          '> div': {
-            border: '1px solid ',
-            borderColor: 'primary.main',
-            padding: '0.5rem',
-            '&:not(:last-child)': {
-              marginBottom: '0.75rem',
-            },
-          },
-        }} */
+        sx={{
+          display: 'flex',
+          minWidth: '100%',
+          width: '100%',
+          height: '300px',
+          maxHeight: '300px',
+          // borderLeft: '1px solid ',
+          // borderLeftColor: 'primary',
+        }}
       >
-        <ExperienceDrawer />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '0 0 25%',
+          }}
+        >
+          {works.map((work, index) => {
+            return (
+              <Button
+                key={`${index}-${work.position}`}
+                onClick={() => handlePositionClick(index)}
+                sx={{
+                  backgroundColor: index === selectedPosition ? '#313244' : 'currentTheme',
+                  color: index === selectedPosition ? 'text.primary' : 'text.secondary',
+                  fontWeight: index === selectedPosition ? 'bold' : null,
+                }}
+              >
+                {work.company}
+              </Button>
+            )
+          })}
+        </Box>
+        <Box
+          sx={{
+            padding: '0.5rem',
+            flex: '0 0 75%',
+          }}
+        >
+          <Typography
+            sx={{
+              fontWeight: 'bold',
+            }}
+          >
+            {works[selectedPosition].position}{' '}
+            <Typography
+              component="span"
+              sx={{
+                color: '#89b4fa',
+              }}
+            >
+              @ {works[selectedPosition].company}
+            </Typography>
+          </Typography>
+          <Typography
+            color="text.secondary"
+            sx={{
+              fontSize: '.9rem',
+              marginBottom: '1rem',
+            }}
+          >
+            {works[selectedPosition].period}
+          </Typography>
+          <Typography color="text.secondary">
+            {works[selectedPosition].description.split('\n').map((newLine, index) => {
+              return <li key={index}>{newLine}</li>
+            })}
+          </Typography>
+        </Box>
       </Box>
     </Section>
   )
