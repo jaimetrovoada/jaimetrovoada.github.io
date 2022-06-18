@@ -4,7 +4,6 @@ import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import { aboutMe } from 'data'
 import Typography from '@mui/material/Typography'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { ArrowUpward } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import { useAppbarContext, useComponentSize } from 'hooks'
@@ -27,12 +26,10 @@ const HeroAppBar = () => {
 
   return (
     <AppBar
-      onTransitionEnd={() => console.log('transition ended')}
       sx={{
-        paddingY: '1rem',
-        height: appbarIsMinimized ? '100px' : '100vh',
+        height: appbarIsMinimized ? '5rem' : '100vh',
         backgroundColor: 'background.default',
-        transition: 'height .5s ease-in-out',
+        transition: 'height 1s ease-in-out',
       }}
       elevation={0}
       component="header"
@@ -44,54 +41,103 @@ const HeroAppBar = () => {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
+          transition: 'height 1s ease-in-out',
         }}
       >
         <Box
           sx={{
-            width: 'fit-content',
-            display: 'grid',
-            gridTemplateColumns: '50px 1fr',
-            gap: '10px',
-            fontSize: '50px',
-            marginLeft: appbarIsMinimized ? '0' : '50%',
-            marginTop: appbarIsMinimized ? '0' : '50vh',
-            transform: appbarIsMinimized ? 'translate(0)' : 'translate(-50%, -50%)',
-            transition: 'all .5s ease-in-out',
+            flex: appbarIsMinimized ? '0' : 'auto',
+            transition: 'flex 1s ease-in',
           }}
-        >
-          {avatar ? (
-            <Box>
-              <img src={avatar} alt={`${name}-avatar`} style={{ width: '100%', maxWidth: '100%' }} />
+        />
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box
+            sx={{
+              maxWidth: 'fit-content',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              transition: 'all 1s ease-in-out',
+            }}
+          >
+            <Box
+              sx={{
+                flex: `0 0 ${appbarIsMinimized ? '2.5rem' : '50%'}`,
+                marginRight: appbarIsMinimized ? 'unset' : '-25%',
+                transition: 'flex 1s ease-in-out, margin-right 1s ease-in-out',
+              }}
+            >
+              <img
+                src={avatar}
+                alt={`${name}-avatar`}
+                style={{ width: '100%', maxWidth: '100%', transition: 'width 1s ease-in-out' }}
+              />
             </Box>
-          ) : (
-            <AccountCircleIcon fontSize="inherit" />
-          )}
-          <Box>
-            <Typography component="h1" color="text.primary" fontWeight="bold">
-              {name}
-            </Typography>
-            {occupation ? (
-              <Typography color="text.secondary" component="h2">
-                {occupation}
+            <Box>
+              <Typography
+                color="text.secondary"
+                sx={{
+                  height: appbarIsMinimized ? '0' : null,
+                  visibility: appbarIsMinimized ? 'hidden' : 'visible',
+                  opacity: appbarIsMinimized ? '0' : '1',
+                  transition: 'all 1s ease-in-out',
+                }}
+              >
+                Hello, I am
               </Typography>
-            ) : null}
+              <Typography
+                component="h1"
+                color={appbarIsMinimized ? 'text.primary' : '#fab387'}
+                fontWeight="bold"
+                fontSize={appbarIsMinimized ? '1rem' : '3rem'}
+                sx={{
+                  transition: 'all 1s ease-in-out',
+                }}
+              >
+                {name}
+              </Typography>
+              {occupation ? (
+                <Typography
+                  color="text.secondary"
+                  component="h2"
+                  sx={{ fontSize: { md: appbarIsMinimized ? '1rem' : '1.75rem' }, transition: 'all 1s ease-in-out' }}
+                >
+                  {appbarIsMinimized ? occupation : 'I build web apps with a focus on simplicity and usability.'}
+                </Typography>
+              ) : null}
+            </Box>
           </Box>
+          <Box
+            sx={{
+              flex: appbarIsMinimized ? 'auto' : '0',
+              transition: 'all 1s ease-in-out',
+            }}
+          />
         </Box>
-        <IconButton
-          onClick={handleCloseOverlay}
+
+        <Box
           sx={{
-            margin: 'auto auto 0',
-            // width: 'fit-content',
+            flex: appbarIsMinimized ? '0' : 'auto',
+            transition: 'flex 1s ease-in',
           }}
-        >
+        />
+      </Container>
+      <Box
+        sx={{
+          margin: '0 auto',
+        }}
+      >
+        <IconButton onClick={handleCloseOverlay}>
           <ArrowUpward
+            color="primary"
             sx={{
               transform: appbarIsMinimized ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform .5s ease-in-out',
+              transition: 'transform 1s ease-in-out',
             }}
           />
         </IconButton>
-      </Container>
+      </Box>
     </AppBar>
   )
 }
