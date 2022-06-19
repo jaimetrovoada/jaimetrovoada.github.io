@@ -27,9 +27,10 @@ const HeroAppBar = () => {
   return (
     <AppBar
       sx={{
-        height: appbarIsMinimized ? '5rem' : '100vh',
+        height: appbarIsMinimized ? '7.5rem' : '100%',
+        paddingTop: appbarIsMinimized ? '1rem' : '0',
         backgroundColor: 'background.default',
-        transition: 'height 1s ease-in-out',
+        transition: 'height 1s ease-in-out, padding .5s ease-in-out',
       }}
       elevation={0}
       component="header"
@@ -50,22 +51,23 @@ const HeroAppBar = () => {
             transition: 'flex 1s ease-in',
           }}
         />
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', flex: 'auto' }}>
           <Box
             sx={{
               maxWidth: 'fit-content',
               display: 'flex',
+              flexFlow: 'row wrap',
               alignItems: 'center',
-              justifyContent: 'center',
               gap: '10px',
-              transition: 'all 1s ease-in-out',
             }}
           >
             <Box
               sx={{
-                flex: `0 0 ${appbarIsMinimized ? '2.5rem' : '50%'}`,
-                marginRight: appbarIsMinimized ? 'unset' : '-25%',
-                transition: 'flex 1s ease-in-out, margin-right 1s ease-in-out',
+                flex: {
+                  xs: `0 0 ${appbarIsMinimized ? '2.5rem' : '100%'}`,
+                  md: `0 0 ${appbarIsMinimized ? '2.5rem' : '50%'}`,
+                },
+                transition: 'flex 1s ease-in-out',
               }}
             >
               <img
@@ -78,7 +80,7 @@ const HeroAppBar = () => {
               <Typography
                 color="text.secondary"
                 sx={{
-                  height: appbarIsMinimized ? '0' : null,
+                  height: appbarIsMinimized ? '0px' : null,
                   visibility: appbarIsMinimized ? 'hidden' : 'visible',
                   opacity: appbarIsMinimized ? '0' : '1',
                   transition: 'all 1s ease-in-out',
@@ -97,15 +99,16 @@ const HeroAppBar = () => {
               >
                 {name}
               </Typography>
-              {occupation ? (
-                <Typography
-                  color="text.secondary"
-                  component="h2"
-                  sx={{ fontSize: { md: appbarIsMinimized ? '1rem' : '1.75rem' }, transition: 'all 1s ease-in-out' }}
-                >
-                  {appbarIsMinimized ? occupation : 'I build web apps with a focus on simplicity and usability.'}
-                </Typography>
-              ) : null}
+              <Typography
+                color="text.secondary"
+                component="h2"
+                sx={{
+                  fontSize: { md: appbarIsMinimized ? '1rem' : '1.75rem' },
+                  transition: 'font-size 1s ease-in-out',
+                }}
+              >
+                {occupation}
+              </Typography>
             </Box>
           </Box>
           <Box
@@ -118,26 +121,24 @@ const HeroAppBar = () => {
 
         <Box
           sx={{
-            flex: appbarIsMinimized ? '0' : 'auto',
+            flex: appbarIsMinimized ? '0 0 fit-content' : 'auto',
+            display: 'flex',
+            alignItems: 'end',
+            justifyContent: 'center',
             transition: 'flex 1s ease-in',
           }}
-        />
+        >
+          <IconButton onClick={handleCloseOverlay}>
+            <ArrowUpward
+              color="primary"
+              sx={{
+                transform: appbarIsMinimized ? 'rotate(180deg)' : 'rotate(0deg)',
+                transition: 'transform 1s ease-in-out',
+              }}
+            />
+          </IconButton>
+        </Box>
       </Container>
-      <Box
-        sx={{
-          margin: '0 auto',
-        }}
-      >
-        <IconButton onClick={handleCloseOverlay}>
-          <ArrowUpward
-            color="primary"
-            sx={{
-              transform: appbarIsMinimized ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform 1s ease-in-out',
-            }}
-          />
-        </IconButton>
-      </Box>
     </AppBar>
   )
 }
