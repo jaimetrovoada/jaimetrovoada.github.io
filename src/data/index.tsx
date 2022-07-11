@@ -117,11 +117,11 @@ interface SocialProps {
 }
 
 export const socials: SocialProps[] = [
-  {
+  /* {
     name: 'Instagram',
     icon: <InstagramIcon color="inherit" />,
     link: 'https://instagram.com/jaimetrovoada',
-  },
+  }, */
   {
     name: 'LinkedIn',
     icon: <LinkedInIcon color="inherit" />,
