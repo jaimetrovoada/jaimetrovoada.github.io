@@ -1,5 +1,5 @@
 import React from 'react'
-import InstagramIcon from '@mui/icons-material/Instagram'
+// import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 import GitHubIcon from '@mui/icons-material/GitHub'
