@@ -28,7 +28,7 @@ export const aboutMe: AboutMeProps = {
   introduction:
     'Gamer, and a big enthusiast of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
   resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
-  skills: ['JavaScript/TypeScript', 'React + Redux', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
+  skills: ['JavaScript/TypeScript', 'React', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
   location: 'Beijing, CN',
   socials: [
     {

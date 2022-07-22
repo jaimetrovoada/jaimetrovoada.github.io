@@ -11,8 +11,12 @@ const Home: React.FC = () => {
     <Section
       sectionTitle="About Me"
       sx={{
-        height: '100vh',
-        maxHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        '>div:not(last-child)': {
+          marginBottom: '1rem',
+        },
       }}
     >
       <Box>
@@ -24,6 +28,7 @@ const Home: React.FC = () => {
       </Box>
       <Box>
         <Typography>
+          My skills include:{' '}
           {aboutMe.skills.map((skill, index) => {
             return (
               <span key={index}>
