@@ -1,12 +1,12 @@
 import React from 'react'
+import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { aboutMe } from 'data'
-import HeroAppBar from './HeroAppBar'
-import { AppbarContext } from 'hooks'
 
 interface Props {
   children: React.ReactNode
@@ -15,82 +15,105 @@ interface Props {
 const Page: React.FC<Props> = ({ children, ...props }) => {
   const currentYear = new Date().getFullYear()
 
-  const { name, resumeLink } = aboutMe
+  const { name, occupation, resumeLink, avatar } = aboutMe
 
+  const appbarRef = React.useRef<HTMLDivElement>(null)
   const [appbarHeight, setAppbarHeight] = React.useState(0)
-  const [appbarIsMinimized, setAppbarIsMinimized] = React.useState(false)
-
-  const containerRef = React.useRef<HTMLDivElement>(null)
   React.useEffect(() => {
-    if (appbarIsMinimized) {
-      setTimeout(() => {
-        if (containerRef.current) {
-          containerRef.current.style.display = 'flex'
-        }
-      }, 400)
-    } else {
-      setTimeout(() => {
-        if (containerRef.current) {
-          containerRef.current.style.display = 'none'
-        }
-      }, 400)
+    if (appbarRef.current) {
+      setAppbarHeight(appbarRef.current.clientHeight)
     }
-  }, [appbarIsMinimized])
+  }, [appbarRef])
 
   return (
-    <Paper
-      sx={{
-        minHeight: '100vh',
-      }}
-    >
-      <AppbarContext.Provider
-        value={{
-          appbarHeight: appbarHeight,
-          setAppbarHeight: setAppbarHeight,
-          isMinimized: appbarIsMinimized,
-          setIsMinimized: setAppbarIsMinimized,
+    <Paper sx={{ minHeight: '100vh', heigh: '100%' }}>
+      <AppBar
+        sx={{
+          flex: '0 0 auto',
+          justifyContent: 'center',
+          '@supports (backdrop-filter: blur())': {
+            backgroundColor: '#302D41BF',
+            backdropFilter: 'blur(10px)',
+          },
+          '@supports not (backdrop-filter: blur())': {
+            backgroundColor: '#302D41',
+          },
         }}
+        elevation={0}
+        component="header"
+        ref={appbarRef}
       >
-        <HeroAppBar />
         <Container
-          maxWidth="lg"
+          maxWidth="xl"
           sx={{
-            flexDirection: 'column',
-            opacity: appbarIsMinimized ? '100%' : '0',
-            height: appbarIsMinimized ? '100%' : '0',
-            marginTop: `${appbarHeight}px`,
-            transition: 'opacity .5s ease-in-out .5s',
-            '>div:not(:last-child)': {
-              marginBottom: '10vh',
-            },
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
-          ref={containerRef}
         >
-          {children}
           <Box
-            component="footer"
             sx={{
-              backgroundColor: 'background.paper',
-              transition: 'all 1s ease-in-out',
-              paddingY: '1rem',
-              borderTop: '1px solid',
-              borderTopColor: 'background.default',
+              display: 'grid',
+              gridTemplateColumns: '50px 1fr',
+              gap: '10px',
+              fontSize: '50px',
+              alignItems: 'center',
             }}
           >
-            <Container
-              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
-              maxWidth="xl"
-            >
+            {avatar ? (
               <Box>
-                <Typography>
-                  &copy; {currentYear} {name}. All rights reserved.
-                </Typography>
-                <Link href={resumeLink}>📕 Resume</Link>
+                <img src={avatar} alt={`${name}-avatar`} style={{ width: '100%', maxWidth: '100%' }} />
               </Box>
-            </Container>
+            ) : (
+              <AccountCircleIcon fontSize="inherit" />
+            )}
+            <Box>
+              <Typography component="h1" color="text.primary" fontWeight="bold">
+                {name}
+              </Typography>
+              {occupation ? (
+                <Typography color="text.secondary" component="h2">
+                  {occupation}
+                </Typography>
+              ) : null}
+            </Box>
           </Box>
         </Container>
-      </AppbarContext.Provider>
+      </AppBar>
+      <Container
+        maxWidth="lg"
+        sx={{
+          display: 'flex',
+          minHeight: '100%',
+          height: '100%',
+          flexDirection: 'column',
+          flex: '1 1 auto',
+          paddingTop: `calc(${appbarHeight}px + 1rem)`,
+        }}
+      >
+        {children}
+      </Container>
+      <Box
+        component="footer"
+        sx={{
+          backgroundColor: 'background.paper',
+          flex: '0 0 auto',
+          paddingY: '1rem',
+          borderTop: '1px solid',
+          borderTopColor: 'background.default',
+        }}
+      >
+        <Container
+          sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
+          maxWidth="xl"
+        >
+          <Box>
+            <Typography>
+              &copy; {currentYear} {name}. All rights reserved.
+            </Typography>
+            <Link href={resumeLink}>📕 Resume</Link>
+          </Box>
+        </Container>
+      </Box>
     </Paper>
   )
 }
