@@ -27,7 +27,7 @@ export const aboutMe: AboutMeProps = {
   occupation: 'Frontend Developer',
   introduction:
     'Gamer, and a big enthusiast of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
-  resumeLink: 'https://drive.google.com/file/d/1oLe-4MbWdQLsIQ953fRiFXdqT7wNad3e/view?usp=sharing',
+  resumeLink: 'https://github.com/jaimetrovoada/resume/blob/main/resume.pdf',
   skills: ['JavaScript/TypeScript', 'React', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
   location: 'Beijing, CN',
   socials: [
@@ -142,6 +142,6 @@ export const works: WorkProps[] = [
     company: '北京燃星科技有限公司',
     position: 'Junior Frontend Developer',
     period: 'August 2021 - April 2022',
-    description: '',
+    description: `Build the frontend and implement features for several Web3 realted projects;`,
   },
 ]

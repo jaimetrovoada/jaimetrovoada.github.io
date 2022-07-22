@@ -110,7 +110,9 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
             <Typography>
               &copy; {currentYear} {name}. All rights reserved.
             </Typography>
-            <Link href={resumeLink}>📕 Resume</Link>
+            <Link href={resumeLink} target="_blank" rel="noopener">
+              📕 Resume
+            </Link>
           </Box>
         </Container>
       </Box>
