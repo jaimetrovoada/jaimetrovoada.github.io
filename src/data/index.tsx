@@ -64,13 +64,6 @@ interface ProjectProps {
 
 export const projects: ProjectProps[] = [
   {
-    title: 'React Portfolio Template (WIP)',
-    description: 'A portfolio website template made with React. The template was made based on this website.',
-    techStack: 'TypeScript/React',
-    liveLink: '',
-    githubLink: 'https://github.com/jaimetrovoada/react-portfolio-template',
-  },
-  {
     title: 'Patent Inquiry System',
     description:
       'A fullstack app that allows users to search for a patent and get the patent information, using different parameters.',
@@ -79,26 +72,34 @@ export const projects: ProjectProps[] = [
     githubLink: 'https://github.com/jaimetrovoada/patent-inquiry-system-react',
   },
   {
+    title: 'GruvIt (WIP)',
+    description:
+      'A service that modifies uploaded pictures to the gruvbox color palette with the help of gruvbox-factory python package and then serves it back to the user.',
+    techStack: 'TypeScript/React, Go',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/image-uploader',
+  },
+  {
+    title: 'React Portfolio Template',
+    description: 'A portfolio website template made with React. The template was made based on this website.',
+    techStack: 'TypeScript/React',
+    liveLink: '',
+    githubLink: 'https://github.com/jaimetrovoada/react-portfolio-template',
+  },
+  {
+    title: 'To-do app',
+    description: 'A to-do app with a simple UI that uses the browser localStorage API to save data.',
+    techStack: 'HTML/CSS, JavaScript',
+    liveLink: 'https://todo-app-j.vercel.app/',
+    githubLink: 'https://github.com/jaimetrovoada/Todo-App--J-',
+  },
+  {
     title: 'Animal Crossing: New Horizons Wiki',
     description:
       'A simple project using the Animal Crossing New Horizons API, to display information about the various characters and items in the game.',
     techStack: 'JavaScript/React',
     liveLink: 'https://a-new-horizon-wiki.vercel.app/',
     githubLink: 'https://github.com/jaimetrovoada/A-New-Horizon-Wiki',
-  },
-  {
-    title: 'Image Uploader (WIP)',
-    description: 'A image uploading service.',
-    techStack: 'TypeScript/React, Go',
-    liveLink: '',
-    githubLink: 'https://github.com/jaimetrovoada/image-uploader',
-  },
-  {
-    title: 'To-do app',
-    description: 'An to-do app with a simple UI that uses the browser localStorage API to save data.',
-    techStack: 'HTML/CSS, JavaScript',
-    liveLink: 'https://todo-app-j.vercel.app/',
-    githubLink: 'https://github.com/jaimetrovoada/Todo-App--J-',
   },
   {
     title: 'Meal CLI',
