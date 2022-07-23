@@ -1,5 +1,5 @@
 import React from 'react'
-import InstagramIcon from '@mui/icons-material/Instagram'
+// import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 import GitHubIcon from '@mui/icons-material/GitHub'
@@ -34,11 +34,11 @@ export const aboutMe: AboutMeProps = {
   skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust'],
   location: 'Beijing, CN',
   socials: [
-    {
-      name: 'Instagram',
-      icon: <InstagramIcon color="inherit" />,
-      link: 'https://instagram.com/jaimetrovoada',
-    },
+    // {
+    //   name: 'Instagram',
+    //   icon: <InstagramIcon color="inherit" />,
+    //   link: 'https://instagram.com/jaimetrovoada',
+    // },
     {
       name: 'LinkedIn',
       icon: <LinkedInIcon color="inherit" />,
