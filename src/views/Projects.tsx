@@ -14,47 +14,60 @@ import ConstructionIcon from '@mui/icons-material/Construction'
 
 const Projects = () => {
   return (
-    <Section
-      sectionTitle="Projects"
-      sx={{
-        flex: '1 1 100%',
-        height: '100%',
-        maxHeight: '100%',
-        overflow: { md: 'auto' },
-        '>div:not(:last-child)': {
-          marginBottom: '20px',
-        },
-      }}
-    >
-      {/* TODO: find a way to keep title on top while letting the card region be scrollable */}
-      {projects.map((project) => (
-        <Card
-          sx={{
-            maxWidth: { xs: '100%', md: '500px' },
-            backgroundColor: 'background.default',
-          }}
-          key={project.title}
-        >
-          <CardHeader title={project.title} titleTypographyProps={{ color: 'secondary.main' }} />
-          <CardContent>
-            <Typography>{project.description}</Typography>
-            <Box sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '10px' }}>
-              <ConstructionIcon />
-              <Typography>{project.techStack}</Typography>
-            </Box>
-          </CardContent>
-          <CardActions>
-            <Link href={project?.githubLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
-              <GitHubIcon />
-            </Link>
-            {project.liveLink ? (
-              <Link href={project?.liveLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
-                <LanguageIcon />
+    <Section sectionTitle="Projects">
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '0.25rem',
+          flexDirection: 'column',
+        }}
+      >
+        {projects.map((project) => (
+          <Card
+            sx={{
+              backgroundColor: 'background.default',
+            }}
+            key={project.title}
+          >
+            <CardHeader title={project.title} titleTypographyProps={{ color: 'secondary.main' }} />
+            <CardContent>
+              <Typography>{project.description}</Typography>
+            </CardContent>
+            <CardActions sx={{ margin: 'auto 0 0', gap: '10px' }}>
+              <Box sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '10px' }}>
+                <ConstructionIcon />
+                <Typography>{project.techStack}</Typography>
+              </Box>
+              <Link
+                href={project?.githubLink || '/'}
+                color="text.secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <GitHubIcon sx={{ marginRight: '5px' }} /> Source
               </Link>
-            ) : null}
-          </CardActions>
-        </Card>
-      ))}
+              {project.liveLink ? (
+                <Link
+                  href={project?.liveLink || '/'}
+                  color="text.secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <LanguageIcon sx={{ marginRight: '5px' }} /> Live
+                </Link>
+              ) : null}
+            </CardActions>
+          </Card>
+        ))}
+      </Box>
     </Section>
   )
 }

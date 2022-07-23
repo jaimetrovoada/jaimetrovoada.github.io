@@ -14,24 +14,18 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, 
   return (
     <Box
       sx={{
-        height: 'calc(100% / 3)',
-        maxHeight: 'calc(100% / 3)',
-        width: { xs: '100%', md: '50%' },
-        maxWidth: { xs: '100%', md: '50%' },
-        flex: '0 0 calc(100% / 3)',
+        padding: '50px 0',
+        // height: '100vh',
+        // maxHeight: '100vh',
+        // width: { xs: '100%', md: '50%' },
+        // maxWidth: { xs: '100%', md: '50%' },
+        // flex: '0 0 100vh',
       }}
       {...props}
     >
-      <Box
-        sx={{
-          position: fixedHeader ? 'fixed' : null,
-          backgroundColor: fixedHeader ? 'background.paper' : null,
-        }}
-      >
-        <Typography color="primary.main" variant="h4" fontSize={titleSize}>
-          &gt; {sectionTitle}
-        </Typography>
-      </Box>
+      <Typography color="primary.main" variant="h2" fontSize={titleSize || '2.125rem'} marginBottom="1.5rem">
+        &gt; {sectionTitle}
+      </Typography>
       {children}
     </Box>
   )
