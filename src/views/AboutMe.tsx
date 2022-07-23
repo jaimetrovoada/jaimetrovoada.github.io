@@ -20,11 +20,11 @@ const Home: React.FC = () => {
       }}
     >
       <Box>
-        <Typography>{aboutMe.introduction}</Typography>
-        <Box sx={{ display: 'flex' }} color="text.secondary">
-          <LocationOnIcon fontSize="small" />
-          <Typography color="text.secondary">{aboutMe.location}</Typography>
-        </Box>
+        <Typography>
+          {aboutMe.introduction.split('\n').map((newLine, index) => {
+            return <p key={index}>{newLine}</p>
+          })}
+        </Typography>
       </Box>
       <Box>
         <Typography>
@@ -38,23 +38,41 @@ const Home: React.FC = () => {
             )
           })}
         </Typography>
+        <Typography>
+          You can find my resume{' '}
+          <Link href={aboutMe.resumeLink} target="_blank" rel="noopener">
+            here
+          </Link>
+        </Typography>
       </Box>
       <Box>
-        {aboutMe.socials.map((social, index) => {
-          return (
-            <Link
-              href={social.link}
-              rel="noopener noreferrer"
-              target="_blank"
-              key={index}
-              sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '5px' }}
-              color="text.secondary"
-            >
-              {social.icon}
-              <Typography color="text.primary">{social.name}</Typography>
-            </Link>
-          )
-        })}
+        <Typography>If you want to reach out, here is where to find me:</Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+          }}
+        >
+          {aboutMe.socials.map((social, index) => {
+            return (
+              <Link
+                href={social.link}
+                rel="noopener noreferrer"
+                target="_blank"
+                key={index}
+                sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '5px', marginRight: '5px' }}
+                color="text.secondary"
+              >
+                {social.icon}
+                <Typography color="text.primary">{social.name}</Typography>
+              </Link>
+            )
+          })}
+        </Box>
+      </Box>
+      <Box sx={{ display: 'flex' }} color="text.secondary">
+        <LocationOnIcon fontSize="small" />
+        <Typography color="text.secondary">{aboutMe.location}</Typography>
       </Box>
     </Section>
   )

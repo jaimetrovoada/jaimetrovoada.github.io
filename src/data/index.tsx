@@ -25,10 +25,13 @@ export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
   avatar: '/images/avatar.webp',
   occupation: 'Frontend Developer',
-  introduction:
-    'Gamer, and a big enthusiast of all thigns tech. Looking to contribute to open source projects and learn new things. I use Arch, btw.',
+  introduction: `I\'m Frontend Developer, with one year of professional experience. I mainly work with React and I\'m currently learning Backend development with Go.\n\n
+
+
+    My goal is to build beautiful and performant web applications, further develop my skills, and collaborate with others.
+    `,
   resumeLink: 'https://github.com/jaimetrovoada/resume/blob/main/resume.pdf',
-  skills: ['JavaScript/TypeScript', 'React', 'Golang', 'Rust (learning)', 'CyberSec (learning)'],
+  skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust'],
   location: 'Beijing, CN',
   socials: [
     {

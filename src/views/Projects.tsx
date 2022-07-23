@@ -33,17 +33,35 @@ const Projects = () => {
             <CardContent>
               <Typography>{project.description}</Typography>
             </CardContent>
-            <CardActions sx={{ margin: 'auto 0 0', gap: '0.5rem' }}>
+            <CardActions sx={{ margin: 'auto 0 0', gap: '10px' }}>
               <Box sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '10px' }}>
                 <ConstructionIcon />
                 <Typography>{project.techStack}</Typography>
               </Box>
-              <Link href={project?.githubLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
-                <GitHubIcon />
+              <Link
+                href={project?.githubLink || '/'}
+                color="text.secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <GitHubIcon sx={{ marginRight: '5px' }} /> Source
               </Link>
               {project.liveLink ? (
-                <Link href={project?.liveLink || '/'} color="text.secondary" target="_blank" rel="noopener noreferrer">
-                  <LanguageIcon />
+                <Link
+                  href={project?.liveLink || '/'}
+                  color="text.secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <LanguageIcon sx={{ marginRight: '5px' }} /> Live
                 </Link>
               ) : null}
             </CardActions>

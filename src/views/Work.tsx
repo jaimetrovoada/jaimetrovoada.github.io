@@ -16,7 +16,7 @@ const Work = () => {
   }
 
   return (
-    <Section sectionTitle="Where I've Worked">
+    <Section sectionTitle="Experience">
       <Box
         sx={{
           display: 'flex',
@@ -82,9 +82,11 @@ const Work = () => {
             {works[selectedPosition].period}
           </Typography>
           <Typography color="text.secondary">
-            {works[selectedPosition].description.split('\n').map((newLine, index) => {
-              return <li key={index}>{newLine}</li>
-            })}
+            <ul>
+              {works[selectedPosition].description.split('\n').map((newLine, index) => {
+                return <li key={index}>{newLine}</li>
+              })}
+            </ul>
           </Typography>
         </Box>
       </Box>
