@@ -32,7 +32,7 @@ export const aboutMe: AboutMeProps = {
     `,
   resumeLink: 'https://github.com/jaimetrovoada/resume/blob/main/resume.pdf',
   skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust'],
-  location: 'Beijing, CN',
+  location: 'Tianjin, China',
   socials: [
     // {
     //   name: 'Instagram',
