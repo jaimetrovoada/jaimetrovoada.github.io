@@ -25,14 +25,14 @@ export const aboutMe: AboutMeProps = {
   name: 'Jaime Trovoada',
   avatar: '/images/avatar.webp',
   occupation: 'Frontend Developer',
-  introduction: `I\'m Frontend Developer, with one year of professional experience. I mainly work with React and I\'m currently learning Backend development with Go.\n\n
+  introduction: `I\'m a Frontend Developer, with one year of professional experience. I mainly work with React and I\'m currently learning Backend development with Go.\n\n
 
 
     My goal is to build beautiful and performant web applications, further develop my skills, and collaborate with others.
     `,
   resumeLink: 'https://github.com/jaimetrovoada/resume/blob/main/resume.pdf',
   skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust'],
-  location: 'Beijing, CN',
+  location: 'Tianjin, China',
   socials: [
     // {
     //   name: 'Instagram',
@@ -52,7 +52,7 @@ export const aboutMe: AboutMeProps = {
     {
       icon: <GitHubIcon color="inherit" />,
       name: 'GitHub',
-      link: 'https://gituhb.com/jaimetrovoada',
+      link: 'https://github.com/jaimetrovoada',
     },
   ],
 }
