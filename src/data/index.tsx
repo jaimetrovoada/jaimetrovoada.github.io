@@ -31,7 +31,7 @@ export const aboutMe: AboutMeProps = {
     My goal is to build beautiful and performant web applications, further develop my skills, and collaborate with others.
     `,
   resumeLink: 'https://github.com/jaimetrovoada/resume/blob/main/resume.pdf',
-  skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust'],
+  skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust', 'Docker'],
   location: 'Tianjin, China',
   socials: [
     // {
@@ -75,11 +75,11 @@ export const projects: ProjectProps[] = [
     githubLink: 'https://github.com/jaimetrovoada/patent-inquiry-system-react',
   },
   {
-    title: 'GruvIt (WIP)',
+    title: 'GruvIt',
     description:
       'A service that modifies uploaded pictures to the gruvbox color palette with the help of gruvbox-factory python package and then serves it back to the user.',
-    techStack: 'TypeScript/React, Go',
-    liveLink: '',
+    techStack: 'TypeScript/React, Go, Docker',
+    liveLink: 'https://gruvit.netlify.app/',
     githubLink: 'https://github.com/jaimetrovoada/image-uploader',
   },
   {
