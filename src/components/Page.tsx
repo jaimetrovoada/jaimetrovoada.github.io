@@ -7,12 +7,17 @@ import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { aboutMe } from 'data'
+import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import IconButton from '@mui/material/IconButton'
 
 interface Props {
   children: React.ReactNode
+  themeChanger: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  currentTheme: 'dark' | 'light'
 }
 
-const Page: React.FC<Props> = ({ children, ...props }) => {
+const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props }) => {
   const currentYear = new Date().getFullYear()
 
   const { name, occupation, resumeLink, avatar } = aboutMe
@@ -32,11 +37,11 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
           flex: '0 0 auto',
           justifyContent: 'center',
           '@supports (backdrop-filter: blur())': {
-            backgroundColor: '#302D41BF',
+            backgroundColor: currentTheme === 'dark' ? '#1d2021bf' : '#fbf1c7bf',
             backdropFilter: 'blur(10px)',
           },
           '@supports not (backdrop-filter: blur())': {
-            backgroundColor: '#302D41',
+            backgroundColor: 'background.default',
           },
         }}
         elevation={0}
@@ -48,6 +53,7 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
           <Box
@@ -76,6 +82,17 @@ const Page: React.FC<Props> = ({ children, ...props }) => {
                 </Typography>
               ) : null}
             </Box>
+          </Box>
+          <Box>
+            {currentTheme === 'light' ? (
+              <IconButton color="primary" aria-label="dark mode toggle" onClick={themeChanger}>
+                <DarkModeIcon />
+              </IconButton>
+            ) : (
+              <IconButton color="primary" aria-label="light mode toggle" onClick={themeChanger}>
+                <LightModeIcon />
+              </IconButton>
+            )}
           </Box>
         </Container>
       </AppBar>
