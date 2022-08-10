@@ -81,7 +81,7 @@ const Work = () => {
           >
             {works[selectedPosition].period}
           </Typography>
-          <Typography color="text.secondary">
+          <Typography color="text.secondary" sx={{ maxHeight: '100%', overflow: 'auto' }}>
             <ul>
               {works[selectedPosition].description.split('\n').map((newLine, index) => {
                 return <li key={index}>{newLine}</li>
