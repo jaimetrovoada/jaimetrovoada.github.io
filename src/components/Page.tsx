@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import { aboutMe } from 'data'
@@ -20,7 +19,7 @@ interface Props {
 const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props }) => {
   const currentYear = new Date().getFullYear()
 
-  const { name, occupation, resumeLink, avatar } = aboutMe
+  const { name, occupation, avatar } = aboutMe
 
   const appbarRef = React.useRef<HTMLDivElement>(null)
   const [appbarHeight, setAppbarHeight] = React.useState(0)
@@ -127,9 +126,6 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
             <Typography>
               &copy; {currentYear} {name}. All rights reserved.
             </Typography>
-            <Link href={resumeLink} target="_blank" rel="noopener">
-              📕 Resume
-            </Link>
           </Box>
         </Container>
       </Box>
