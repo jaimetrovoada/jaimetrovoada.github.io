@@ -80,7 +80,7 @@ export const projects: ProjectProps[] = [
       'A service that modifies uploaded pictures to the gruvbox color palette with the help of gruvbox-factory python package and then serves it back to the user.',
     techStack: 'TypeScript/React, Go, Docker',
     liveLink: 'https://gruvit.netlify.app/',
-    githubLink: 'https://github.com/jaimetrovoada/image-uploader',
+    githubLink: 'https://github.com/jaimetrovoada/gruv-it',
   },
   {
     title: 'React Portfolio Template',
