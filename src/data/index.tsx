@@ -80,7 +80,7 @@ export const projects: ProjectProps[] = [
       'A service that modifies uploaded pictures to the gruvbox color palette with the help of gruvbox-factory python package and then serves it back to the user.',
     techStack: 'TypeScript/React, Go, Docker',
     liveLink: 'https://gruvit.netlify.app/',
-    githubLink: 'https://github.com/jaimetrovoada/image-uploader',
+    githubLink: 'https://github.com/jaimetrovoada/gruv-it',
   },
   {
     title: 'React Portfolio Template',
@@ -146,6 +146,9 @@ export const works: WorkProps[] = [
     company: '北京燃星科技有限公司',
     position: 'Junior Frontend Developer',
     period: 'August 2021 - April 2022',
-    description: `Build the frontend and implement features for several Web3 realted projects;`,
+    description: `Improved page accessibility scores by 15% and page responsiveness across devices by discussing with the designer and product manager ways to make the webpage better for its users;
+Reduced page load times by 20% and increased code modularity and reusability by refactoring dozens of lines of code;
+Made our workflow two times more productive by utilizing tools like ESLint and Prettier to ensure consistency throughout the code base;
+Cut debug time by 25% and reduced dozens of errors and unpredicted behaviors by adding type annotations to previously untyped variables;`,
   },
 ]
