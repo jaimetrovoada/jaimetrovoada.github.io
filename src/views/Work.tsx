@@ -41,7 +41,7 @@ const Work = () => {
                 key={`${index}-${work.position}`}
                 onClick={() => handlePositionClick(index)}
                 sx={{
-                  backgroundColor: index === selectedPosition ? '#313244' : 'currentTheme',
+                  backgroundColor: index === selectedPosition ? 'background.default' : 'currentTheme',
                   color: index === selectedPosition ? 'text.primary' : 'text.secondary',
                   fontWeight: index === selectedPosition ? 'bold' : null,
                 }}
@@ -66,7 +66,7 @@ const Work = () => {
             <Typography
               component="span"
               sx={{
-                color: '#89b4fa',
+                color: 'secondary.main',
               }}
             >
               @ {works[selectedPosition].company}

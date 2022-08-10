@@ -33,7 +33,15 @@ const Projects = () => {
             <CardContent>
               <Typography>{project.description}</Typography>
             </CardContent>
-            <CardActions sx={{ margin: 'auto 0 0', gap: '10px' }}>
+            <CardActions
+              sx={{
+                margin: 'auto 0 0',
+                gap: '10px',
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                alignItems: { xs: 'unset', md: 'inherit' },
+              }}
+            >
               <Box sx={{ display: 'grid', gridTemplateColumns: '24px 1fr', gap: '10px' }}>
                 <ConstructionIcon />
                 <Typography>{project.techStack}</Typography>
