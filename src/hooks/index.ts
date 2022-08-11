@@ -1,76 +1,41 @@
 /* eslint-disable require-jsdoc */
-import React, { useCallback, useLayoutEffect, useState } from 'react'
+import { useState } from 'react'
 
-interface AppbarContextProps {
-  appbarHeight: number
-  setAppbarHeight: React.Dispatch<React.SetStateAction<number>>
-  isMinimized: boolean
-  setIsMinimized: React.Dispatch<React.SetStateAction<boolean>>
-}
-export const AppbarContext = React.createContext<AppbarContextProps>({
-  appbarHeight: 0,
-  setAppbarHeight: () => {},
-  isMinimized: false,
-  setIsMinimized: () => {},
-})
-export const useAppbarContext = () => React.useContext(AppbarContext)
+export function useLocalStorage<T>(key: string, initialValue: T) {
+  // State to store our value
+  // Pass initial state function to useState so logic is only executed once
+  const [storedValue, setStoredValue] = useState<T>(() => {
+    if (typeof window === 'undefined') {
+      return initialValue
+    }
 
-function getSize(el: HTMLElement) {
-  if (!el) {
-    return {
-      width: 0,
-      height: 0,
+    try {
+      // Get from local storage by key
+      const item = window.localStorage.getItem(key)
+      // Parse stored json or if none return initialValue
+      return item ? JSON.parse(item) : initialValue
+    } catch (error) {
+      // If error also return initialValue
+      return initialValue
+    }
+  })
+
+  // Return a wrapped version of useState's setter function that ...
+  // ... persists the new value to localStorage.
+  const setValue = (value: T | ((val: T) => T)) => {
+    try {
+      // Allow value to be a function so we have same API as useState
+      const valueToStore = value instanceof Function ? value(storedValue) : value
+      // Save state
+      setStoredValue(valueToStore)
+      // Save to local storage
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      }
+    } catch (error) {
+      // A more advanced implementation would handle the error case
     }
   }
 
-  return {
-    width: el.offsetWidth,
-    height: el.offsetHeight,
-  }
-}
-
-export function useComponentSize(ref: any) {
-  const _useState = useState(getSize(ref ? ref.current : {}))
-  const ComponentSize = _useState[0]
-  const setComponentSize = _useState[1]
-
-  const handleResize = useCallback(
-    function handleResize() {
-      if (ref.current) {
-        setComponentSize(getSize(ref.current))
-      }
-    },
-    [ref],
-  )
-
-  useLayoutEffect(
-    function () {
-      if (!ref.current) {
-        return
-      }
-
-      handleResize()
-
-      if (typeof ResizeObserver === 'function') {
-        const resizeObserver = new ResizeObserver(function () {
-          handleResize()
-        })
-        resizeObserver.observe(ref.current)
-
-        return function () {
-          resizeObserver.disconnect()
-          // resizeObserver = null
-        }
-      } else {
-        window.addEventListener('resize', handleResize)
-
-        return function () {
-          window.removeEventListener('resize', handleResize)
-        }
-      }
-    },
-    [ref.current],
-  )
-
-  return ComponentSize
+  return [storedValue, setValue] as const
 }
