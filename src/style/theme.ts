@@ -11,6 +11,7 @@ const styleOverrides = {
     borderRadius: '16px',
   },
 }
+const fontFamily = 'Consolas, Lucida Console, ui-monospace, monospace'
 
 export const dark = createTheme({
   palette: {
@@ -30,7 +31,7 @@ export const dark = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Consolas, Lucida Console, ui-monospace, monospace',
+    fontFamily,
   },
   components: {
     MuiCssBaseline: {
@@ -57,7 +58,7 @@ export const light = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Consolas, Lucida Console, ui-monospace, monospace',
+    fontFamily,
   },
   components: {
     MuiCssBaseline: {

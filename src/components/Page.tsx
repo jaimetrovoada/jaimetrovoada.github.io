@@ -30,7 +30,15 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
   }, [appbarRef])
 
   return (
-    <Paper sx={{ minHeight: '100vh', heigh: '100%' }}>
+    <Paper
+      sx={{
+        minHeight: '100vh',
+        heigh: '100%',
+        '*': {
+          transition: 'all .5s ease-in-out',
+        },
+      }}
+    >
       <AppBar
         sx={{
           flex: '0 0 auto',

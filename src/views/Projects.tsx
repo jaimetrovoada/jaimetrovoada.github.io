@@ -46,21 +46,9 @@ const Projects = () => {
                 <ConstructionIcon />
                 <Typography>{project.techStack}</Typography>
               </Box>
-              <Link
-                href={project?.githubLink || '/'}
-                color="text.secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <GitHubIcon sx={{ marginRight: '5px' }} /> Source
-              </Link>
-              {project.liveLink ? (
+              <Box sx={{ display: 'flex', gap: '5px' }}>
                 <Link
-                  href={project?.liveLink || '/'}
+                  href={project?.githubLink || '/'}
                   color="text.secondary"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -69,9 +57,23 @@ const Projects = () => {
                     alignItems: 'center',
                   }}
                 >
-                  <LanguageIcon sx={{ marginRight: '5px' }} /> Live
+                  <GitHubIcon /> Source
                 </Link>
-              ) : null}
+                {project.liveLink ? (
+                  <Link
+                    href={project?.liveLink || '/'}
+                    color="text.secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <LanguageIcon /> Live
+                  </Link>
+                ) : null}
+              </Box>
             </CardActions>
           </Card>
         ))}
