@@ -34,8 +34,9 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
       sx={{
         minHeight: '100vh',
         heigh: '100%',
+        transition: 'all .2s ease-in',
         '*': {
-          transition: 'all .5s ease-in-out',
+          transition: 'all .2s ease-in',
         },
       }}
     >
