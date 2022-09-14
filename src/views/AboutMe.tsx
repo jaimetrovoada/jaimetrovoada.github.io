@@ -1,9 +1,9 @@
 import React from 'react'
-import { Section } from 'components'
+import { Section } from '../components'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
-import { aboutMe } from 'data'
+import { aboutMe } from '../data'
 import Link from '@mui/material/Link'
 
 const Home: React.FC = () => {

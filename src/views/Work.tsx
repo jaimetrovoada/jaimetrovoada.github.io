@@ -1,8 +1,8 @@
 import React from 'react'
-import { Section } from 'components'
+import { Section } from '../components'
 import Box from '@mui/material/Box'
 import { Button, Typography } from '@mui/material'
-import { works } from 'data'
+import { works } from '../data'
 
 const Work = () => {
   if (!works.length) {
