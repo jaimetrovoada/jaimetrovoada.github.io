@@ -39,9 +39,9 @@ const Home: React.FC = () => {
           })}
         </Typography>
         <Typography>
-          You can find my resume{' '}
+          Here is where you can find my{' '}
           <Link href={aboutMe.resumeLink} target="_blank" rel="noopener">
-            here
+            resume
           </Link>
         </Typography>
       </Box>
