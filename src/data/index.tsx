@@ -30,7 +30,7 @@ export const aboutMe: AboutMeProps = {
 
     My goal is to build beautiful and performant web applications, further develop my skills, and collaborate with others.
     `,
-  resumeLink: 'https://github.com/jaimetrovoada/resume/blob/main/resume.pdf',
+  resumeLink: 'https://github.com/jaimetrovoada/resume/releases',
   skills: ['JavaScript/TypeScript', 'React', 'HTML/CSS/SCSS', 'Golang', 'NodeJS', 'Rust', 'Docker'],
   location: 'Tianjin, China',
   socials: [
