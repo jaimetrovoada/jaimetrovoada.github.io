@@ -75,7 +75,13 @@ const Page: React.FC<Props> = ({ children, themeChanger, currentTheme, ...props 
           >
             {avatar ? (
               <Box>
-                <img src={avatar} alt={`${name}-avatar`} style={{ width: '100%', maxWidth: '100%' }} />
+                <img
+                  src={avatar}
+                  alt={`${name}-avatar`}
+                  style={{ width: '100%', maxWidth: '100%' }}
+                  width={50}
+                  height={50}
+                />
               </Box>
             ) : (
               <AccountCircleIcon fontSize="inherit" />
