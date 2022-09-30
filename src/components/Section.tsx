@@ -23,7 +23,13 @@ const Section: React.FC<SectionProps> = ({ sectionTitle, children, fixedHeader, 
       }}
       {...props}
     >
-      <Typography color="primary.main" variant="h2" fontSize={titleSize || '2.125rem'} marginBottom="1.5rem">
+      <Typography
+        color="primary.main"
+        variant="h2"
+        fontWeight="bold"
+        fontSize={titleSize || '2.125rem'}
+        marginBottom="1.5rem"
+      >
         &gt; {sectionTitle}
       </Typography>
       {children}
