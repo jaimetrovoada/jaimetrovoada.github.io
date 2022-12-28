@@ -3,6 +3,8 @@ import { aboutMe } from "../data";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -51,10 +53,14 @@ export default function Layout({ children }: LayoutProps) {
       <div className=" px-4 pt-20 flex-1 overflow-y-auto">
         <div className="container mx-auto">{children}</div>
         <button
-          className="bg-background-secondary absolute bottom-6 right-6 text-3xl rounded-full p-3"
+          className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
         >
-          {resolvedTheme === "dark" ? "" : ""}
+          {resolvedTheme === "dark" ? (
+            <FontAwesomeIcon icon={faSun} />
+          ) : (
+            <FontAwesomeIcon icon={faMoon} />
+          )}
         </button>
       </div>
     </div>

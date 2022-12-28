@@ -1,5 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { projects } from "../../data";
 import Link from "next/link";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGlobe, faTools } from "@fortawesome/free-solid-svg-icons";
 
 interface CardProps {
   title: string;
@@ -14,14 +17,25 @@ function Card({ title, tools, source, live }: CardProps) {
       <p className="font-bold text-header-secondary">{title}</p>
       {/*       <p>{description}</p> */}
       <div className="flex flex-col gap-3">
-        <p>{tools}</p>
+        <div className="flex flex-row gap-2 items-center">
+          <FontAwesomeIcon icon={faTools} />
+          <p>{tools}</p>
+        </div>
         <div className="flex flex-row gap-2">
-          <Link href={source} className="underline text-foreground-secondary">
+          <Link
+            href={source}
+            className="underline text-foreground-secondary flex items-center gap-1"
+          >
+            <FontAwesomeIcon icon={faGithub} />
             GitHub
           </Link>
           {live ? (
             <>
-              <Link href={live} className="underline text-foreground-secondary">
+              <Link
+                href={live}
+                className="underline text-foreground-secondary flex items-center gap-1"
+              >
+                <FontAwesomeIcon icon={faGlobe} />
                 Live
               </Link>
             </>

@@ -1,6 +1,32 @@
 import Link from "next/link";
 import { aboutMe } from "../../data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAt, faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
+const getFaIcon = (name: string): React.ReactNode => {
+  switch (name) {
+    case "Email":
+      return (
+        <FontAwesomeIcon icon={faAt} className="text-foreground-secondary" />
+      );
+    case "GitHub":
+      return (
+        <FontAwesomeIcon
+          icon={faGithub}
+          className="text-foreground-secondary"
+        />
+      );
+
+    default:
+      return (
+        <FontAwesomeIcon
+          icon={faLinkedin}
+          className="text-foreground-secondary"
+        />
+      );
+  }
+};
 export default function Intro() {
   return (
     <section className="flex flex-col gap-4">
@@ -17,13 +43,21 @@ export default function Intro() {
         <p>If you want to reach out, here is where to find me:</p>
         <div className="flex flex-row gap-2">
           {aboutMe.socials.map((media) => (
-            <Link href={media.link} key={media.name} className="underline">
+            <Link
+              href={media.link}
+              key={media.name}
+              className="underline flex items-center gap-1"
+            >
+              {getFaIcon(media.name)}
               {media.name}
             </Link>
           ))}
         </div>
       </div>
-      <p className="text-foreground-secondary">{aboutMe.location}</p>
+      <p className="text-foreground-secondary">
+        {" "}
+        <FontAwesomeIcon icon={faLocationPin} /> {aboutMe.location}
+      </p>
     </section>
   );
 }
