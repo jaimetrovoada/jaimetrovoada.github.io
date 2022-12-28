@@ -3,7 +3,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix: isProd ? '/jaimetrovoada.github.io/' : '',
+  assetPrefix: isProd ? './' : '',
   images: {
     unoptimized: true,
   },
