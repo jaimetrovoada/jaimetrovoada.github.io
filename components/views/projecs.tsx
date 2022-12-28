@@ -10,18 +10,18 @@ interface CardProps {
 }
 function Card({ title, tools, source, live }: CardProps) {
   return (
-    <div className="bg-[#1d2021] p-5 rounded flex flex-col justify-between">
-      <p className="font-bold">{title}</p>
+    <div className="bg-background-secondary p-5 rounded flex flex-col justify-between">
+      <p className="font-bold text-header-secondary">{title}</p>
       {/*       <p>{description}</p> */}
       <div className="flex flex-col gap-3">
         <p>{tools}</p>
         <div className="flex flex-row gap-2">
-          <Link href={source} className="underline ">
+          <Link href={source} className="underline text-foreground-secondary">
             GitHub
           </Link>
           {live ? (
             <>
-              <Link href={live} className="underline ">
+              <Link href={live} className="underline text-foreground-secondary">
                 Live
               </Link>
             </>

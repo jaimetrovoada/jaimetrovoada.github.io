@@ -6,6 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      "background": 'rgb(var(--color-background))',
+      "background-secondary": 'rgb(var(--color-background-secondary))',
+      "background-secondary-75": 'rgb(var(--color-background-secondary) / 0.75)',
+      "foreground": 'rgb(var(--color-foreground))',
+      "foreground-secondary": 'rgb(var(--color-foreground-secondary))',
+      "header-primary":"rgb(var(--color-section-header))",
+      "header-secondary":"rgb(var(--color-project-header))"
+    },
   },
   plugins: [],
   darkMode: 'class',

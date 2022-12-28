@@ -23,7 +23,7 @@ export default function Intro() {
           ))}
         </div>
       </div>
-      <p>{aboutMe.location}</p>
+      <p className="text-foreground-secondary">{aboutMe.location}</p>
     </section>
   );
 }

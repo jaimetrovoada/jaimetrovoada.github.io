@@ -1,25 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import Layout from "../components/layout";
 import Intro from "../components/views/intro";
 import Experience from "../components/views/experience";
 import Projects from "../components/views/projecs";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
   return (
     <>
       <Head>
@@ -28,12 +12,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen h-screen flex flex-col">
-        <Layout>
-          <Intro />
-          <Experience />
-          <Projects />
-        </Layout>
+      <main className="flex flex-col gap-12">
+        <Intro />
+        <Experience />
+        <Projects />
       </main>
     </>
   );
