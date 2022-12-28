@@ -55,6 +55,7 @@ export default function Layout({ children }: LayoutProps) {
         <button
           className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+          aria-label="theme-switcher"
         >
           {resolvedTheme === "dark" ? (
             <FontAwesomeIcon icon={faSun} />
