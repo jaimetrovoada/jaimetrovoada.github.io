@@ -36,7 +36,7 @@ export default function Projects() {
   return (
     <section className="flex flex-col gap-4">
       <h2 className="font-bold text-3xl"> &gt; Experience</h2>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-4">
         {projects.map((project, index) => (
           <Card
             title={project.title}
