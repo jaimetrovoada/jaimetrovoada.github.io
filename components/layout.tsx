@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { aboutMe } from "../data";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -21,11 +22,21 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen h-screen flex flex-col">
-      <header className="fixed px-10 py-1 bg-background-secondary-75 backdrop-blur-md h-16 z-10 w-screen">
-        <div className="flex flex-row justify-between items-center">
-          <div>
-            <p className="font-bold text-xl">{aboutMe.name}</p>
-            <p className="text-foreground-secondary">{aboutMe.occupation}</p>
+      <header className="fixed px-4 py-2 bg-background-secondary-75 backdrop-blur-md h-16 z-10 w-screen">
+        <div className="flex flex-row justify-between items-center container mx-auto">
+          <div className="grid grid-flow-col">
+            <div>
+              <Image
+                src="/images/avatar.webp"
+                alt={""}
+                width={50}
+                height={50}
+              />
+            </div>
+            <div>
+              <p className="font-bold text-xl">{aboutMe.name}</p>
+              <p className="text-foreground-secondary">{aboutMe.occupation}</p>
+            </div>
           </div>
           <div>
             <Link
@@ -37,8 +48,8 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </header>
-      <div className="container mx-auto px-4 pt-20 flex-1 overflow-y-auto">
-        {children}
+      <div className=" px-4 pt-20 flex-1 overflow-y-auto">
+        <div className="container mx-auto">{children}</div>
         <button
           className="bg-background-secondary absolute bottom-6 right-6 text-3xl rounded-full p-3"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
