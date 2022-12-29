@@ -3,6 +3,7 @@ import { aboutMe } from "../../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt, faLocationPin } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import Section from "../section";
 
 const getFaIcon = (name: string): React.ReactNode => {
   switch (name) {
@@ -29,7 +30,7 @@ const getFaIcon = (name: string): React.ReactNode => {
 };
 export default function Intro() {
   return (
-    <section className="flex flex-col gap-4">
+    <Section>
       <h2 className="font-bold text-3xl">&gt; About Me</h2>
       <p>{aboutMe.introduction}</p>
       <p>My skills include: {aboutMe.skills.join(", ").toString()}</p>
@@ -58,6 +59,6 @@ export default function Intro() {
         {" "}
         <FontAwesomeIcon icon={faLocationPin} /> {aboutMe.location}
       </p>
-    </section>
+    </Section>
   );
 }

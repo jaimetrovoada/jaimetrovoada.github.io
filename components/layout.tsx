@@ -26,7 +26,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen h-screen flex flex-col">
       <header className="fixed px-4 py-2 bg-background-secondary-75 backdrop-blur-md h-16 z-10 w-screen">
         <div className="flex flex-row justify-between items-center container mx-auto">
-          <div className="grid grid-flow-col">
+          <Link href="/" className="grid grid-flow-col">
             <div>
               <Image
                 src="/images/avatar.webp"
@@ -39,10 +39,10 @@ export default function Layout({ children }: LayoutProps) {
               <p className="font-bold text-xl">{aboutMe.name}</p>
               <p className="text-foreground-secondary">{aboutMe.occupation}</p>
             </div>
-          </div>
+          </Link>
           <div>
             <Link
-              href="/posts"
+              href="/blog"
               className="font-bold text-header-secondary underline"
             >
               Blog
@@ -51,7 +51,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header>
       <div className=" px-4 pt-20 flex-1 overflow-y-auto">
-        <div className="container mx-auto">{children}</div>
+        <div className="container mx-auto h-full">{children}</div>
         <button
           className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}

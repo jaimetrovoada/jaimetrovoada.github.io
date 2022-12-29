@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { works, WorkProps } from "../../data";
+import Section from "../section";
 export default function Experience() {
   const [work, setWork] = useState<WorkProps>(works[0]);
 
   const handleClick = (index: number) => {
     setWork(works[index]);
   };
+
   return (
-    <section className="flex flex-col gap-4">
+    <Section>
       <h2 className="font-bold text-3xl"> &gt; Experience</h2>
       <div className="flex flex-row h-80 max-h-80 w-full max-w-screen-xl mx-auto">
         <div className="flex flex-col flex-none basis-1/4">
@@ -34,6 +36,6 @@ export default function Experience() {
           <p className="text-foreground-secondary">{work.description}</p>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
