@@ -3,6 +3,7 @@ import { projects } from "../../data";
 import Link from "next/link";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe, faTools } from "@fortawesome/free-solid-svg-icons";
+import Section from "../section";
 
 interface CardProps {
   title: string;
@@ -48,7 +49,7 @@ function Card({ title, tools, source, live }: CardProps) {
 
 export default function Projects() {
   return (
-    <section className="flex flex-col gap-4">
+    <Section>
       <h2 className="font-bold text-3xl"> &gt; Experience</h2>
       <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-4">
         {projects.map((project, index) => (
@@ -62,6 +63,6 @@ export default function Projects() {
           />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
