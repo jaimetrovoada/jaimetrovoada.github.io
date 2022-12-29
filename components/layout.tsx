@@ -26,7 +26,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen h-screen flex flex-col">
       <header className="fixed px-4 py-2 bg-background-secondary-75 backdrop-blur-md h-16 z-10 w-screen">
         <div className="flex flex-row justify-between items-center container mx-auto">
-          <div className="grid grid-flow-col">
+          <Link href="/" className="grid grid-flow-col">
             <div>
               <Image
                 src="/images/avatar.webp"
@@ -39,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
               <p className="font-bold text-xl">{aboutMe.name}</p>
               <p className="text-foreground-secondary">{aboutMe.occupation}</p>
             </div>
-          </div>
+          </Link>
           <div>
             <Link
               href="/blog"
