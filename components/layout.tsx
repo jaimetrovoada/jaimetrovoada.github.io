@@ -42,7 +42,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
           <div>
             <Link
-              href="/posts"
+              href="/blog"
               className="font-bold text-header-secondary underline"
             >
               Blog
@@ -51,7 +51,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header>
       <div className=" px-4 pt-20 flex-1 overflow-y-auto">
-        <div className="container mx-auto">{children}</div>
+        <div className="container mx-auto h-full">{children}</div>
         <button
           className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
