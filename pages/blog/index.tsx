@@ -42,15 +42,17 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
 export async function getStaticProps() {
   const files = readdirSync(path.join("_posts"));
 
-  const posts = files.map((filename) => {
-    const slug = filename.replace(".md", "");
+  const posts = files
+    .filter((filename) => filename.match(/\.md$/))
+    .map((filename) => {
+      const slug = filename.replace(/\.md$/, "");
 
-    const mdWithMeta = readFileSync(path.join("_posts", filename), "utf-8");
+      const mdWithMeta = readFileSync(path.join("_posts", filename), "utf-8");
 
-    const { data } = matter(mdWithMeta);
+      const { data } = matter(mdWithMeta);
 
-    return { slug, data };
-  });
+      return { slug, data };
+    });
 
   return {
     props: { posts: posts },
