@@ -1,10 +1,14 @@
 .markdown {
   @apply text-lg leading-relaxed;
+
   p,
   ul,
   ol,
   blockquote,
-  strong {
+  strong,
+  a,
+  th,
+  td {
     @apply my-6 text-foreground;
   }
 
@@ -18,5 +22,9 @@
 
   h3 {
     @apply text-2xl leading-snug text-foreground-secondary;
+  }
+
+  [aria-hidden="true"] {
+    display: none;
   }
 }
