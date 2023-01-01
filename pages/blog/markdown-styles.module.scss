@@ -1,0 +1,30 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+
+  p,
+  ul,
+  ol,
+  blockquote,
+  strong,
+  a,
+  th,
+  td {
+    @apply my-6 text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl leading-snug text-header-primary;
+  }
+
+  h2 {
+    @apply text-3xl leading-snug text-header-secondary;
+  }
+
+  h3 {
+    @apply text-2xl leading-snug text-foreground-secondary;
+  }
+
+  [aria-hidden="true"] {
+    display: none;
+  }
+}
