@@ -38,11 +38,13 @@ export default function PostPage({ data, slug, content }: Props) {
 export async function getStaticPaths() {
   const files = readdirSync(path.join("_posts"));
 
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
+  const paths = files
+    .filter((filename) => filename.match(/\.md$/))
+    .map((filename) => ({
+      params: {
+        slug: filename.replace(".md", ""),
+      },
+    }));
 
   return {
     paths,
