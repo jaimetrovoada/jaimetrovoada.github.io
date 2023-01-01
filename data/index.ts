@@ -145,3 +145,17 @@ export const works: WorkProps[] = [
     description: "Collaborated in the development of several Web3 projects.",
   },
 ];
+
+export interface MetaProps {
+  title: string;
+  description: string;
+  image: string;
+  type: string;
+}
+
+export const meta = {
+  title: "Jaime Trovoada",
+  description: `A full-stack developer`,
+  image: "images/avatar.webp",
+  type: "website",
+};
