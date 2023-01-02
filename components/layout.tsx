@@ -29,7 +29,6 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="follow, index" />
