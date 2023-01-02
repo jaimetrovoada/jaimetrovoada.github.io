@@ -149,13 +149,15 @@ export const works: WorkProps[] = [
 export interface MetaProps {
   title: string;
   description: string;
+  keywords: string,
   image: string;
   type: string;
 }
 
-export const meta = {
+export const meta: MetaProps = {
   title: "Jaime Trovoada",
   description: `A full-stack developer`,
+  keywords: "typescript, react, developer, tianjin, china, web developer, frontend developer, full-stack developer",
   image: "/images/avatar.webp",
   type: "website",
 };
