@@ -18,7 +18,17 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
   console.log({ posts });
 
   if (posts.length === 0) {
-    return <Wow />;
+    return (
+      <>
+        <Head>
+          <title>Blog | Jaime Trovoada</title>
+          <meta name="description" content="Jaime's blog" />
+          {/*   <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+          {/*  <link rel="icon" href="/favicon.ico" /> */}
+        </Head>
+        <Wow />;
+      </>
+    );
   }
 
   return (
