@@ -29,8 +29,9 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <meta name="description" content={meta.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={meta.description} />
+        <meta name="keyword" content={meta.keywords} />
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
         <meta
@@ -46,7 +47,7 @@ export default function Layout({ children }: LayoutProps) {
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
-        <meta name="twitter:card" content={meta.image} />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
