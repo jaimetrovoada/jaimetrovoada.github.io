@@ -75,3 +75,11 @@ h2 {
     color-scheme: dark;
   }
 }
+
+button,
+button:focus,
+button:visited,
+button:active {
+  -webkit-tap-highlight-color: transparent;
+  cursor: default;
+}

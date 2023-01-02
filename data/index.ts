@@ -156,6 +156,6 @@ export interface MetaProps {
 export const meta = {
   title: "Jaime Trovoada",
   description: `A full-stack developer`,
-  image: "images/avatar.webp",
+  image: "/images/avatar.webp",
   type: "website",
 };
