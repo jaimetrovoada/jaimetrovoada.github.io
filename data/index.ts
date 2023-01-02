@@ -156,7 +156,7 @@ export interface MetaProps {
 
 export const meta: MetaProps = {
   title: "Jaime Trovoada",
-  description: `A full-stack developer`,
+  description: `A full-stack developer, specializing in developing web apps with React and TypeScript`,
   keywords: "typescript, react, developer, tianjin, china, web developer, frontend developer, full-stack developer",
   image: "/images/avatar.webp",
   type: "website",
