@@ -50,14 +50,17 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content="https://jaimetrovoada.github.io/images/avatar.webp" />
+        <meta
+          name="twitter:image"
+          content="https://jaimetrovoada.github.io/images/avatar.webp"
+        />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen h-screen flex flex-col">
         <header className="fixed px-4 py-2 bg-background-secondary-75 backdrop-blur-md h-16 z-10 w-screen">
           <div className="flex flex-row justify-between items-center container mx-auto">
-            <h1>
+            <div>
               <Link href="/" className="grid grid-flow-col">
                 <div>
                   <Image
@@ -68,13 +71,13 @@ export default function Layout({ children }: LayoutProps) {
                   />
                 </div>
                 <div>
-                  <p className="font-bold text-xl">{aboutMe.name}</p>
-                  <p className="text-foreground-secondary">
+                  <h1 className="font-bold text-xl">{aboutMe.name}</h1>
+                  <h2 className="text-foreground-secondary">
                     {aboutMe.occupation}
-                  </p>
+                  </h2>
                 </div>
               </Link>
-            </h1>
+            </div>
             <div>
               <Link
                 href="/blog"
