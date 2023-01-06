@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { works, WorkProps } from "../../data";
+import { works } from "../../data";
 import Section from "../section";
+import { WorkProps } from "../../types";
 export default function Experience() {
   const [work, setWork] = useState<WorkProps>(works[0]);
 
