@@ -33,11 +33,11 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="robots" content="follow, index" />
         <meta
           property="og:url"
-          content={`https://jaimetrovoada.github.io${router.asPath}`}
+          content={`https://jaimetrovoada.vercel.app${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://jaimetrovoada.github.io${router.asPath}`}
+          href={`https://jaimetrovoada.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content={meta.title} />
