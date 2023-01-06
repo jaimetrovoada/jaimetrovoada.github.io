@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
-import Image from "next/image";
 import { NextRequest } from "next/server";
 
 export const config = {
@@ -14,7 +14,7 @@ export default function handler(req: NextRequest) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : "My default title";
+      : "Jaime Trovoada";
 
     return new ImageResponse(
       (
@@ -27,8 +27,8 @@ export default function handler(req: NextRequest) {
             display: "flex",
             textAlign: "center",
             alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
+            justifyContent: "space-around",
+            flexDirection: "row",
             flexWrap: "nowrap",
           }}
         >
@@ -40,22 +40,19 @@ export default function handler(req: NextRequest) {
               justifyItems: "center",
             }}
           >
-            <Image
+            <img
               alt="Jaime's avatar"
               height={200}
-              src="https://jaimetrovoada.github.io/images/avatar.png"
-              style={{ margin: "0 30px" }}
-              width={232}
+              src="https://jaimetrovoada.vercel.app/images/avatar.png"
+              width={200}
             />
           </div>
           <div
             style={{
               fontSize: 60,
               fontStyle: "normal",
-              letterSpacing: "-0.025em",
               color: "#ebdbb2",
-              marginTop: 30,
-              padding: "0 120px",
+              padding: "0 20px",
               lineHeight: 1.4,
               whiteSpace: "pre-wrap",
             }}

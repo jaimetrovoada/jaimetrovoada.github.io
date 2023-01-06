@@ -22,10 +22,10 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
           <meta name="keywords" content={meta.keywords.blog} />
           <meta property="og:description" content={meta.description.blog} />
           <meta property="og:title" content="Blog | Jaime Trovoada" />
-        <meta
-          property="og:image"
-          content={`https://jaimetrovoada.github.io/api/og?title=Blog | Jaime Trovoada`}
-        />
+          <meta
+            property="og:image"
+            content={`https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`}
+          />
           <meta name="twitter:title" content="Blog | Jaime Trovoada" />
           <meta name="twitter:description" content={meta.description.blog} />
         </Head>
