@@ -1,18 +1,4 @@
-interface AboutMeProps {
-  name: string;
-  avatar?: string;
-  occupation?: string;
-  resumeLink?: string;
-  introduction: string;
-  skills: string[];
-  location?: string;
-  socials: SocialProps[];
-}
-
-interface SocialProps {
-  name: string;
-  link: string;
-}
+import { AboutMeProps, MetaProps, ProjectProps, WorkProps } from "../types";
 
 export const aboutMe: AboutMeProps = {
   name: "Jaime Trovoada",
@@ -49,13 +35,6 @@ export const aboutMe: AboutMeProps = {
   ],
 };
 
-interface ProjectProps {
-  title: string;
-  // description?: string;
-  techStack: string;
-  liveLink?: string;
-  githubLink: string;
-}
 
 export const projects: ProjectProps[] = [
   {
@@ -130,13 +109,6 @@ export const projects: ProjectProps[] = [
   },
 ];
 
-export interface WorkProps {
-  company: string; // name of the company
-  position: string; // position in the company
-  period: string; // period of time in the company
-  description: string; // optional, description of the work
-}
-
 export const works: WorkProps[] = [
   {
     company: "北京燃星科技有限公司",
@@ -146,18 +118,17 @@ export const works: WorkProps[] = [
   },
 ];
 
-export interface MetaProps {
-  title: string;
-  description: string;
-  keywords: string,
-  image: string;
-  type: string;
-}
 
 export const meta: MetaProps = {
   title: "Jaime Trovoada",
-  description: `A full-stack developer, specializing in developing web apps with React and TypeScript`,
-  keywords: "typescript, react, developer, tianjin, china, web developer, frontend developer, full-stack developer",
+  description: {
+    home: `A full-stack developer, specializing in developing web apps with React and TypeScript`,
+    blog: "Jaime's blog"
+  },
+  keywords: {
+    home: "typescript, react, developer, tianjin, china, web developer, frontend developer, full-stack developer",
+    blog: "blog, programming"
+  },
   image: "/images/avatar.webp",
   type: "website",
 };
