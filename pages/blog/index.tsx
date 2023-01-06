@@ -4,27 +4,30 @@ import Link from "next/link";
 import path from "path";
 import Wow from "../../components/nopost";
 import Head from "next/head";
+import { Frontmatter } from "../../types";
+import { meta } from "../../data";
 
 interface PostProps {
   slug: string;
-  data: {
-    title: string;
-    author: string;
-    date: string;
-  };
+  frontmatter: Frontmatter;
 }
 
 export default function Posts({ posts }: { posts: PostProps[] }) {
-  console.log({ posts });
-
   if (posts.length === 0) {
     return (
       <>
         <Head>
           <title>Blog | Jaime Trovoada</title>
-          <meta name="description" content="Jaime's blog" />
-          {/*   <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-          {/*  <link rel="icon" href="/favicon.ico" /> */}
+          <meta name="description" content={meta.description.blog} />
+          <meta name="keywords" content={meta.keywords.blog} />
+          <meta property="og:description" content={meta.description.blog} />
+          <meta property="og:title" content="Blog | Jaime Trovoada" />
+        <meta
+          property="og:image"
+          content={`https://jaimetrovoada.github.io/api/og?title=Blog | Jaime Trovoada`}
+        />
+          <meta name="twitter:title" content="Blog | Jaime Trovoada" />
+          <meta name="twitter:description" content={meta.description.blog} />
         </Head>
         <Wow />;
       </>
@@ -48,7 +51,7 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
               key={`${index}-${post.slug}`}
             >
               <h2 className="text-header-secondary font-bold text-xl">
-                {post.data.title}
+                {post.frontmatter.title}
               </h2>
             </Link>
           );
@@ -68,9 +71,9 @@ export async function getStaticProps() {
 
       const mdWithMeta = readFileSync(path.join("_posts", filename), "utf-8");
 
-      const { data } = matter(mdWithMeta);
+      const { data: frontmatter } = matter(mdWithMeta);
 
-      return { slug, data };
+      return { slug, frontmatter };
     });
 
   return {
