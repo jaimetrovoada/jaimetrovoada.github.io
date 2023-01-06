@@ -15,7 +15,7 @@ export default function Home() {
         <meta property="og:title" content={meta.title} />
         <meta
           property="og:image"
-          content={`https://jaimetrovoada.github.io/api/og?title=Jaime Trovoada`}
+          content={`https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`}
         />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description.home} />
