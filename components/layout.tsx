@@ -42,10 +42,6 @@ export default function Layout({ children }: LayoutProps) {
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content={meta.title} />
         <meta name="twitter:card" content="summary" />
-        <meta
-          name="twitter:image"
-          content="https://jaimetrovoada.github.io/images/avatar.webp"
-        />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>

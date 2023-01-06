@@ -20,6 +20,10 @@ export default function Home() {
         <meta property="og:image:type" content="image/png" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description.home} />
+        <meta
+          name="twitter:image"
+          content={`https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`}
+        />
       </Head>
       <main className="flex flex-col gap-12">
         <Intro />
