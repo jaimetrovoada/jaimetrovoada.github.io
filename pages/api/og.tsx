@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
@@ -38,14 +37,10 @@ export default function handler(req: NextRequest) {
               alignItems: "center",
               justifyContent: "center",
               justifyItems: "center",
+              fontSize: 200,
             }}
           >
-            <img
-              alt="Jaime's avatar"
-              height={200}
-              src="https://jaimetrovoada.vercel.app/images/avatar.png"
-              width={200}
-            />
+            👨‍💻
           </div>
           <div
             style={{
@@ -64,6 +59,7 @@ export default function handler(req: NextRequest) {
       {
         width: 1200,
         height: 630,
+        emoji: "noto",
       }
     );
   } catch (e: any) {
