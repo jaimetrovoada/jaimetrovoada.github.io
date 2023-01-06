@@ -29,6 +29,10 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
           <meta property="og:image:type" content="image/png" />
           <meta name="twitter:title" content="Blog | Jaime Trovoada" />
           <meta name="twitter:description" content={meta.description.blog} />
+          <meta
+            name="twitter:image"
+            content={`https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`}
+          />
         </Head>
         <Wow />;
       </>

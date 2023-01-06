@@ -34,6 +34,10 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
           content={`${frontmatter.title} | Jaime Trovoada`}
         />
         <meta name="twitter:description" content={frontmatter.summary} />
+        <meta
+          name="twitter:image"
+          content={`https://jaimetrovoada.vercel.app/api/og?title=${frontmatter.title}`}
+        />
       </Head>
       <article className="max-w-2xl mx-auto">
         <div
