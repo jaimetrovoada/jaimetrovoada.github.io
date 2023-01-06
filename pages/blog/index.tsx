@@ -4,18 +4,14 @@ import Link from "next/link";
 import path from "path";
 import Wow from "../../components/nopost";
 import Head from "next/head";
+import { Frontmatter } from "../../types";
 
 interface PostProps {
   slug: string;
-  data: {
-    title: string;
-    author: string;
-    date: string;
-  };
+  frontmatter: Frontmatter;
 }
 
 export default function Posts({ posts }: { posts: PostProps[] }) {
-  console.log({ posts });
 
   if (posts.length === 0) {
     return (
@@ -48,7 +44,7 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
               key={`${index}-${post.slug}`}
             >
               <h2 className="text-header-secondary font-bold text-xl">
-                {post.data.title}
+                {post.frontmatter.title}
               </h2>
             </Link>
           );
@@ -68,9 +64,9 @@ export async function getStaticProps() {
 
       const mdWithMeta = readFileSync(path.join("_posts", filename), "utf-8");
 
-      const { data } = matter(mdWithMeta);
+      const { data: frontmatter } = matter(mdWithMeta);
 
-      return { slug, data };
+      return { slug, frontmatter };
     });
 
   return {

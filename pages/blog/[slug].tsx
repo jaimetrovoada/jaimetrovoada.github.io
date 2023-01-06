@@ -4,24 +4,22 @@ import path from "path";
 import markdownToHtml from "../../helpers/mdtohtml";
 import markdownStyles from "./markdown-styles.module.scss";
 import Head from "next/head";
+import { Frontmatter } from "../../types";
 
 interface Props {
-  data: {
-    title: string;
-    author: string;
-    date: string;
-  };
+  frontmatter: Frontmatter;
   slug: string;
   content: string;
 }
 
-export default function PostPage({ data, slug, content }: Props) {
-  console.log(content);
+export default function PostPage({ frontmatter, slug, content }: Props) {
+
   return (
     <>
       <Head>
-        <title>{data.title} | Jaime Trovoada</title>
+        <title>{frontmatter.title} | Jaime Trovoada</title>
         <meta name="description" content="Jaime's blog" />
+        <meta name="keywords" content={frontmatter.keywords.join(", ")} />
         {/*   <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
         {/*  <link rel="icon" href="/favicon.ico" /> */}
       </Head>
@@ -61,11 +59,11 @@ export async function getStaticProps({
 }) {
   const mdWithMeta = readFileSync(path.join("_posts", slug + ".md"), "utf-8");
 
-  const { data, content } = matter(mdWithMeta);
+  const { data: frontmatter, content } = matter(mdWithMeta);
 
   return {
     props: {
-      data,
+      frontmatter,
       slug,
       content: await markdownToHtml(content || ""),
     },
