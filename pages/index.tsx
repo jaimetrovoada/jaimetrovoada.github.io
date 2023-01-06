@@ -17,6 +17,7 @@ export default function Home() {
           property="og:image"
           content={`https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`}
         />
+        <meta property="og:image:type" content="image/png" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description.home} />
       </Head>

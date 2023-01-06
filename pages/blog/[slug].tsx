@@ -28,6 +28,7 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
           property="og:image"
           content={`https://jaimetrovoada.vercel.app/api/og?title=${frontmatter.title}`}
         />
+        <meta property="og:image:type" content="image/png" />
         <meta
           name="twitter:title"
           content={`${frontmatter.title} | Jaime Trovoada`}
