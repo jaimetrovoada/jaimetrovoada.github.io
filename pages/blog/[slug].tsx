@@ -25,6 +25,10 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
           content={`${frontmatter.title} | Jaime Trovoada`}
         />
         <meta
+          property="og:image"
+          content={`https://jaimetrovoada.github.io/api/og?title=${frontmatter.title}`}
+        />
+        <meta
           name="twitter:title"
           content={`${frontmatter.title} | Jaime Trovoada`}
         />

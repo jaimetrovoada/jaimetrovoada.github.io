@@ -13,6 +13,10 @@ export default function Home() {
         <meta name="description" content={meta.description.home} />
         <meta property="og:description" content={meta.description.home} />
         <meta property="og:title" content={meta.title} />
+        <meta
+          property="og:image"
+          content={`https://jaimetrovoada.github.io/api/og?title=Jaime Trovoada`}
+        />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description.home} />
       </Head>

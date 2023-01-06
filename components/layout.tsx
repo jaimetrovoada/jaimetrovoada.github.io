@@ -41,7 +41,6 @@ export default function Layout({ children }: LayoutProps) {
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content={meta.title} />
-        <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary" />
         <meta
           name="twitter:image"
