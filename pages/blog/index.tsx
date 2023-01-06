@@ -5,6 +5,7 @@ import path from "path";
 import Wow from "../../components/nopost";
 import Head from "next/head";
 import { Frontmatter } from "../../types";
+import { meta } from "../../data";
 
 interface PostProps {
   slug: string;
@@ -12,15 +13,17 @@ interface PostProps {
 }
 
 export default function Posts({ posts }: { posts: PostProps[] }) {
-
   if (posts.length === 0) {
     return (
       <>
         <Head>
           <title>Blog | Jaime Trovoada</title>
-          <meta name="description" content="Jaime's blog" />
-          {/*   <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-          {/*  <link rel="icon" href="/favicon.ico" /> */}
+          <meta name="description" content={meta.description.blog} />
+          <meta name="keywords" content={meta.keywords.blog} />
+          <meta property="og:description" content={meta.description.blog} />
+          <meta property="og:title" content="Blog | Jaime Trovoada" />
+          <meta name="twitter:title" content="Blog | Jaime Trovoada" />
+          <meta name="twitter:description" content={meta.description.blog} />
         </Head>
         <Wow />;
       </>

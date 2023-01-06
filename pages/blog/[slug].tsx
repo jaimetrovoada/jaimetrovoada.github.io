@@ -13,15 +13,22 @@ interface Props {
 }
 
 export default function PostPage({ frontmatter, slug, content }: Props) {
-
   return (
     <>
       <Head>
         <title>{frontmatter.title} | Jaime Trovoada</title>
-        <meta name="description" content="Jaime's blog" />
+        <meta name="description" content={frontmatter.summary} />
         <meta name="keywords" content={frontmatter.keywords.join(", ")} />
-        {/*   <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-        {/*  <link rel="icon" href="/favicon.ico" /> */}
+        <meta property="og:description" content={frontmatter.summary} />
+        <meta
+          property="og:title"
+          content={`${frontmatter.title} | Jaime Trovoada`}
+        />
+        <meta
+          name="twitter:title"
+          content={`${frontmatter.title} | Jaime Trovoada`}
+        />
+        <meta name="twitter:description" content={frontmatter.summary} />
       </Head>
       <article className="max-w-2xl mx-auto">
         <div

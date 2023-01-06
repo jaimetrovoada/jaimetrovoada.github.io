@@ -9,6 +9,12 @@ export default function Home() {
     <>
       <Head>
         <title>{meta.title}</title>
+        <meta name="keyword" content={meta.keywords.home} />
+        <meta name="description" content={meta.description.home} />
+        <meta property="og:description" content={meta.description.home} />
+        <meta property="og:title" content={meta.title} />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description.home} />
       </Head>
       <main className="flex flex-col gap-12">
         <Intro />
