@@ -81,7 +81,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
         </header>
-        <main className="mt-16 flex-1 overflow-y-auto flex flex-col gap-14">
+        <main className="flex-1 overflow-y-auto flex flex-col gap-14">
           {children}
         </main>
         <footer className="p-4 flex flex-row justify-around bg-background-secondary mt-14">
