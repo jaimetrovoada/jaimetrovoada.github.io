@@ -76,8 +76,8 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
         </header>
-        <div className=" px-4 pt-20 flex-1 overflow-y-auto">
-          <div className="container mx-auto h-full">{children}</div>
+        <div className="mt-20 flex-1 overflow-y-auto">
+          {children}
           <button
             className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
             onClick={() =>
