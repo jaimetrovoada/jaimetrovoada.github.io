@@ -26,6 +26,11 @@ export default function Layout({ children }: LayoutProps) {
     return null;
   }
 
+  const getYear = () => {
+    const date = new Date();
+    return date.getFullYear();
+  };
+
   return (
     <>
       <Head>
@@ -78,6 +83,9 @@ export default function Layout({ children }: LayoutProps) {
         </header>
         <div className="mt-20 flex-1 overflow-y-auto">
           {children}
+          <footer className="p-4 flex flex-row justify-around bg-background-secondary mt-14">
+            <p>&copy; {getYear()} - Jaime Trovoada</p>
+          </footer>
           <button
             className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
             onClick={() =>
