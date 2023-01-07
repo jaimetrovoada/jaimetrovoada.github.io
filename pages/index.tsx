@@ -25,11 +25,9 @@ export default function Home() {
           content={`https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`}
         />
       </Head>
-      <main className="flex flex-col gap-12">
-        <Intro />
-        <Experience />
-        <Projects />
-      </main>
+      <Intro />
+      <Experience />
+      <Projects />
     </>
   );
 }

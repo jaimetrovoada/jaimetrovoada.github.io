@@ -26,6 +26,11 @@ export default function Layout({ children }: LayoutProps) {
     return null;
   }
 
+  const getYear = () => {
+    const date = new Date();
+    return date.getFullYear();
+  };
+
   return (
     <>
       <Head>
@@ -45,7 +50,7 @@ export default function Layout({ children }: LayoutProps) {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <header className="fixed px-4 py-2 bg-background-secondary-75 backdrop-blur-md h-16 z-10 w-screen">
           <div className="flex flex-row justify-between items-center container mx-auto">
             <div>
@@ -76,22 +81,23 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
         </header>
-        <div className=" px-4 pt-20 flex-1 overflow-y-auto">
-          <div className="container mx-auto h-full">{children}</div>
-          <button
-            className="bg-background-secondary absolute bottom-6 right-6 text-2xl rounded-full py-2 px-3"
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
-            aria-label="theme-switcher"
-          >
-            {resolvedTheme === "dark" ? (
-              <FontAwesomeIcon icon={faSun} />
-            ) : (
-              <FontAwesomeIcon icon={faMoon} />
-            )}
-          </button>
-        </div>
+        <main className="mt-16 flex-1 overflow-y-auto flex flex-col gap-14">
+          {children}
+        </main>
+        <footer className="p-4 flex flex-row justify-around bg-background-secondary mt-14">
+          <p>&copy; {getYear()} - Jaime Trovoada</p>
+        </footer>
+        <button
+          className="bg-background-secondary fixed bottom-6 right-6 text-2xl rounded-full py-2 px-3"
+          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+          aria-label="theme-switcher"
+        >
+          {resolvedTheme === "dark" ? (
+            <FontAwesomeIcon icon={faSun} />
+          ) : (
+            <FontAwesomeIcon icon={faMoon} />
+          )}
+        </button>
       </div>
     </>
   );
