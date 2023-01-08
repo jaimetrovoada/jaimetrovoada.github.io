@@ -33,10 +33,18 @@ export default function Intro() {
     <Section>
       <h2 className="font-bold text-3xl">&gt; About Me</h2>
       <p>{aboutMe.introduction}</p>
-      <p>My skills include: {aboutMe.skills.join(", ").toString()}</p>
+      <p>
+        My skills include:{" "}
+        <span className="font-bold text-header-secondary">
+          {aboutMe.skills.join(", ").toString()}
+        </span>
+      </p>
       <p>
         Here is where you can find my{" "}
-        <Link href={aboutMe.resumeLink as string} className="underline">
+        <Link
+          href={aboutMe.resumeLink as string}
+          className="underline font-bold text-header-secondary"
+        >
           resume
         </Link>
       </p>
