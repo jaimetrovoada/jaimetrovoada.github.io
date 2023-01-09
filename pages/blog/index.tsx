@@ -19,7 +19,7 @@ export default function Posts({ posts }: { posts: PostProps[] }) {
     return (
       <>
         <BlogBody>
-          <Wow />;
+          <Wow />
         </BlogBody>
       </>
     );

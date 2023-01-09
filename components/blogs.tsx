@@ -25,7 +25,7 @@ export default function BlogBody({ children }: { children: React.ReactNode }) {
           content={`https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`}
         />
       </Head>
-      <div className="mt-20 container mx-auto flex flex-col gap-16">
+      <div className="mt-20 container mx-auto p-4 flex flex-col gap-16">
         <div className="mx-auto">
           <Image
             src="/images/hero-blog.svg"
