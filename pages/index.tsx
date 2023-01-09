@@ -3,6 +3,7 @@ import Experience from "../components/views/experience";
 import Projects from "../components/views/projecs";
 import Head from "next/head";
 import { meta } from "../data";
+import Hero from "../components/views/hero";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           content={`https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`}
         />
       </Head>
+      <Hero />
       <Intro />
       <Experience />
       <Projects />

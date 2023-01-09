@@ -1,0 +1,10 @@
+.hero {
+  // height: calc(100vh - 4rem);
+  > div {
+    align-items: center;
+    justify-content: space-around;
+    @screen md {
+      flex-direction: row;
+    }
+  }
+}
