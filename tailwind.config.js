@@ -16,6 +16,9 @@ module.exports = {
         "header-primary": "rgb(var(--color-section-header))",
         "header-secondary": "rgb(var(--color-project-header))",
       },
+      backgroundImage: {
+        "hero-illustration": "url('/images/website-development.svg')",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
