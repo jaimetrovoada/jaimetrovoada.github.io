@@ -13,18 +13,18 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 export default function Layout({ children }: LayoutProps) {
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
-    setMounted(true);
+    // setMounted(true);
     Prism.highlightAll();
   }, []);
 
-  if (!mounted) {
+  /* if (!mounted) {
     return null;
-  }
+  } */
 
   const getYear = () => {
     const date = new Date();
@@ -36,14 +36,14 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="follow, index" />
-        <meta
+        {/* <meta
           property="og:url"
           content={`https://jaimetrovoada.vercel.app${router.asPath}`}
         />
         <link
           rel="canonical"
           href={`https://jaimetrovoada.vercel.app${router.asPath}`}
-        />
+        /> */}
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content={meta.title} />
         <meta name="twitter:card" content="summary" />
