@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
+import Image from "next/image";
 import { NextRequest } from "next/server";
 
 export const config = {
@@ -20,7 +22,9 @@ export default function handler(req: NextRequest) {
         <div
           style={{
             backgroundColor: "#282828",
-            backgroundSize: "150px 150px",
+            backgroundImage:
+              "url('https://jaimetrovoada.vercel.app/images/og_bg.svg')",
+            backgroundSize: "1200px 630px",
             height: "100%",
             width: "100%",
             display: "flex",
@@ -40,12 +44,18 @@ export default function handler(req: NextRequest) {
               fontSize: 200,
             }}
           >
-            👨‍💻
+            <img
+              alt="Jaime's avatar"
+              height={691}
+              src="https://jaimetrovoada.vercel.app/images/me_dev.svg"
+              width={512}
+            />
           </div>
           <div
             style={{
               fontSize: 60,
               fontStyle: "normal",
+              fontWeight: "bold",
               color: "#ebdbb2",
               padding: "0 20px",
               lineHeight: 1.4,
