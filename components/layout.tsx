@@ -46,7 +46,7 @@ export default function Layout({ children }: LayoutProps) {
         /> */}
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content={meta.title} />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
