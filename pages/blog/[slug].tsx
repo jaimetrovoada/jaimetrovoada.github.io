@@ -16,7 +16,7 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
   return (
     <>
       <Head>
-        <title>{frontmatter.title} | Jaime Trovoada</title>
+        <title>{`${frontmatter.title} | Jaime Trovoada`}</title>
         <meta name="description" content={frontmatter.summary} />
         <meta name="keywords" content={frontmatter.keywords.join(", ")} />
         <meta property="og:description" content={frontmatter.summary} />
@@ -39,12 +39,10 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
           content={`https://jaimetrovoada.vercel.app/api/og?title=${frontmatter.title}`}
         />
       </Head>
-      <article className="max-w-2xl mx-auto">
-        <div
-          className={`${markdownStyles["markdown"]} prose prose-slate prose-base `}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      </article>
+      <article
+        className={`${markdownStyles["markdown"]} prose prose-slate prose-base max-w-2xl mx-auto pt-20`}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </>
   );
 }
