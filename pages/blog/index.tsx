@@ -4,10 +4,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import path from "path";
 import Wow from "../../components/nopost";
-import Head from "next/head";
 import { Frontmatter } from "../../types";
-import { meta } from "../../data";
-import Image from "next/image";
 import BlogBody from "../../components/blogs";
 
 interface PostProps {
