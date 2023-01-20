@@ -13,15 +13,19 @@
   }
 
   h1 {
-    @apply text-4xl leading-snug text-header-primary;
+    @apply text-4xl leading-snug font-bold text-header-primary;
   }
 
   h2 {
-    @apply text-3xl leading-snug text-header-secondary;
+    @apply text-3xl leading-snug font-bold text-header-secondary;
   }
 
   h3 {
-    @apply text-2xl leading-snug text-foreground-secondary;
+    @apply text-2xl leading-snug font-bold text-foreground-secondary;
+  }
+
+  strong {
+    @apply font-bold text-header-secondary;
   }
 
   [aria-hidden="true"] {
