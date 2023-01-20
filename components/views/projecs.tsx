@@ -14,7 +14,7 @@ interface CardProps {
 }
 function Card({ title, tools, source, live }: CardProps) {
   return (
-    <div className="bg-background-secondary p-5 rounded flex flex-col justify-between">
+    <div className="bg-background-secondary p-5 rounded flex flex-col gap-4 justify-between md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:transition-all md:hover:shadow-foreground md:hover:-translate-y-1 md:hover:-translate-x-1">
       <p className="font-bold text-header-secondary">{title}</p>
       {/*       <p>{description}</p> */}
       <div className="flex flex-col gap-3">
