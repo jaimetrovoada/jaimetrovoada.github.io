@@ -40,7 +40,7 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
         />
       </Head>
       <article
-        className={`${markdownStyles["markdown"]} prose prose-slate prose-base max-w-2xl mx-auto pt-20`}
+        className={`${markdownStyles["markdown"]} container px-4 md:px-0 prose prose-slate prose-base max-w-2xl mx-auto pt-20`}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </>
