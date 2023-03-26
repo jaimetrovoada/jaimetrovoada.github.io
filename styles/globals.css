@@ -17,6 +17,7 @@
     --color-section-header: 204 36 29;
     --color-project-header: 175 58 48;
   }
+
   .dark {
     --color-background: 40 40 40;
     --color-background-secondary: 29 32 33;
@@ -43,7 +44,7 @@ body {
 
 body {
   color: rgb(var(--color-foreground));
-  background: rgb(var(--color-background));
+  background: rgb(var(--color-background-secondary));
 }
 
 a {
@@ -58,10 +59,12 @@ h2 {
 *::-webkit-scrollbar {
   width: 0.2em;
 }
+
 *::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
 }
+
 *::-webkit-scrollbar-thumb {
   background-color: rgb(var(--color-foreground));
   border-radius: 16px;
