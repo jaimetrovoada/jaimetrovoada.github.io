@@ -80,14 +80,19 @@ export default function Layout({ children }: LayoutProps) {
       </Head>
       <div className="flex max-h-screen min-h-screen flex-col gap-4 overflow-y-auto p-4 md:flex-row md:p-8">
         <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-background p-4 transition-all md:sticky md:top-0">
-          <Link href="/" className="flex flex-row items-center gap-2">
+          <Link
+            href="/"
+            className="mx-auto rounded-2xl bg-background-secondary p-2"
+          >
             <Image
               src={aboutMe.avatar as string}
               alt={"avatar"}
-              width={50}
-              height={50}
+              width={100}
+              height={100}
             />
-            <h1 className="bg-gradient-to-r from-header-primary to-header-secondary bg-clip-text text-xl font-bold text-transparent md:-skew-y-6 md:text-5xl">
+          </Link>
+          <Link href="/">
+            <h1 className="bg-gradient-to-r from-header-primary to-header-secondary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">
               &lt;{aboutMe.name} /&gt;
             </h1>
           </Link>
