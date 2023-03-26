@@ -78,8 +78,8 @@ export default function Layout({ children }: LayoutProps) {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex max-h-screen min-h-screen flex-col gap-4 p-4 md:flex-row md:p-8">
-        <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-background p-4 transition-all">
+      <div className="flex max-h-screen min-h-screen flex-col gap-4 overflow-y-auto p-4 md:flex-row md:p-8">
+        <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-background p-4 transition-all md:sticky md:top-0">
           <Link href="/" className="flex flex-row items-center gap-2">
             <Image
               src={aboutMe.avatar as string}
@@ -137,9 +137,7 @@ export default function Layout({ children }: LayoutProps) {
             <p>&copy; {getYear()} - Jaime Trovoada</p>
           </footer>
         </aside>
-        <main className="flex flex-col gap-14 rounded-2xl bg-background p-4">
-          {children}
-        </main>
+        <main className="flex flex-col gap-14 rounded-2xl">{children}</main>
         <button
           className="fixed bottom-6 right-6 rounded-full bg-background-secondary py-2 px-3 text-2xl"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
