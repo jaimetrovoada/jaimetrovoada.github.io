@@ -95,44 +95,54 @@ export default function Layout({ children }: LayoutProps) {
             {aboutMe.occupation}
           </h2>
 
-          {router.asPath.includes("/blog") ? null : (
-            <>
-              <Link
-                href="/blog"
-                className="font-bold text-header-secondary underline"
-              >
-                Blog
-              </Link>
-              <div>
-                <p className="font-bold">Get in touch:</p>
-                <div className="flex flex-row gap-2">
-                  {aboutMe.socials.map((media) => (
-                    <Link
-                      href={media.link}
-                      key={media.name}
-                      className="flex items-center gap-1 underline"
-                    >
-                      <SocialIcon social={media.name} />
-                      {media.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="font-bold">My Skills:</p>
-                <span className="">{aboutMe.skills.join(", ").toString()}</span>
-              </div>
-              <Link
-                href={aboutMe.resumeLink as string}
-                className="font-bold text-header-secondary underline"
-              >
-                Resume
-              </Link>
-              <p className="text-foreground-secondary">
-                <FontAwesomeIcon icon={faLocationPin} /> {aboutMe.location}
-              </p>
-            </>
-          )}
+          <Link
+            href="/blog"
+            className="font-bold text-header-secondary underline"
+          >
+            Blog
+          </Link>
+          <div
+            className={`${
+              router.asPath.includes("/blog") && "hidden"
+            } md:block`}
+          >
+            <p className="font-bold">Get in touch:</p>
+            <div className="flex flex-row gap-2">
+              {aboutMe.socials.map((media) => (
+                <Link
+                  href={media.link}
+                  key={media.name}
+                  className="flex items-center gap-1 underline"
+                >
+                  <SocialIcon social={media.name} />
+                  {media.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div
+            className={`${
+              router.asPath.includes("/blog") && "hidden"
+            } md:block`}
+          >
+            <p className="font-bold">My Skills:</p>
+            <span className="">{aboutMe.skills.join(", ").toString()}</span>
+          </div>
+          <Link
+            href={aboutMe.resumeLink as string}
+            className={`${
+              router.asPath.includes("/blog") && "hidden"
+            } font-bold text-header-secondary underline md:block`}
+          >
+            Resume
+          </Link>
+          <p
+            className={`${
+              router.asPath.includes("/blog") && "hidden"
+            } text-foreground-secondary md:block`}
+          >
+            <FontAwesomeIcon icon={faLocationPin} /> {aboutMe.location}
+          </p>
           <footer className="mt-14 hidden flex-row justify-around bg-background-secondary p-4 md:flex">
             <p>&copy; {getYear()} - Jaime Trovoada</p>
           </footer>
