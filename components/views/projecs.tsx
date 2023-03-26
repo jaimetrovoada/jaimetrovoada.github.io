@@ -50,7 +50,7 @@ function Card({ title, tools, source, live }: CardProps) {
 export default function Projects() {
   return (
     <Section>
-      <h2 className="font-bold text-3xl"> &gt; Experience</h2>
+      <h2 className="font-bold text-3xl"> &gt; Projects</h2>
       <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-4">
         {projects.map((project, index) => (
           <Card
