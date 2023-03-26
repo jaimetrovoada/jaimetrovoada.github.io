@@ -14,18 +14,18 @@ interface CardProps {
 }
 function Card({ title, tools, source, live }: CardProps) {
   return (
-    <div className="bg-background-secondary p-5 rounded flex flex-col gap-4 justify-between md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:transition-all md:hover:shadow-foreground md:hover:-translate-y-1 md:hover:-translate-x-1">
+    <div className="flex flex-col justify-between gap-4 rounded bg-background-secondary p-5 md:transition-all md:hover:-translate-y-1 md:hover:-translate-x-1 md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:hover:shadow-foreground">
       <p className="font-bold text-header-secondary">{title}</p>
       {/*       <p>{description}</p> */}
       <div className="flex flex-col gap-3">
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row items-center gap-2">
           <FontAwesomeIcon icon={faTools} />
           <p>{tools}</p>
         </div>
         <div className="flex flex-row gap-2">
           <Link
             href={source}
-            className="underline text-foreground-secondary flex items-center gap-1"
+            className="flex items-center gap-1 text-foreground-secondary underline"
           >
             <FontAwesomeIcon icon={faGithub} />
             GitHub
@@ -34,7 +34,7 @@ function Card({ title, tools, source, live }: CardProps) {
             <>
               <Link
                 href={live}
-                className="underline text-foreground-secondary flex items-center gap-1"
+                className="flex items-center gap-1 text-foreground-secondary underline"
               >
                 <FontAwesomeIcon icon={faGlobe} />
                 Live
@@ -50,8 +50,8 @@ function Card({ title, tools, source, live }: CardProps) {
 export default function Projects() {
   return (
     <Section>
-      <h2 className="font-bold text-3xl"> &gt; Experience</h2>
-      <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-4">
+      <h2 className="text-3xl font-bold"> &gt; Projects</h2>
+      <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {projects.map((project, index) => (
           <Card
             title={project.title}

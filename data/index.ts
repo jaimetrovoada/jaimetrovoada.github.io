@@ -6,7 +6,8 @@ export const aboutMe: AboutMeProps = {
   occupation: "Full-Stack Developer",
   introduction:
     "I'm a Full-Stack Developer from Sao Tome and Principe. I specialize in building web apps with React and TypeScript. Currently working towards improving my back-end development skills in Go(lang) and NodeJS.\n\n",
-  resumeLink: "https://github.com/jaimetrovoada/resume/releases",
+  resumeLink:
+    "https://github.com/jaimetrovoada/resume/releases/download/v2023.02.05/jaime_trovoada-resume.pdf",
   skills: [
     "JavaScript/TypeScript",
     "React",
@@ -34,7 +35,6 @@ export const aboutMe: AboutMeProps = {
     },
   ],
 };
-
 
 export const projects: ProjectProps[] = [
   {
@@ -118,16 +118,15 @@ export const works: WorkProps[] = [
   },
 ];
 
-
 export const meta: MetaProps = {
   title: "Jaime Trovoada",
   description: {
     home: `A full-stack developer, specializing in developing web apps with React and TypeScript`,
-    blog: "Jaime's blog"
+    blog: "Jaime's blog",
   },
   keywords: {
     home: "typescript, react, developer, tianjin, china, web developer, frontend developer, full-stack developer",
-    blog: "blog, programming"
+    blog: "blog, programming",
   },
   image: "/images/avatar.webp",
   type: "website",

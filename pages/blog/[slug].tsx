@@ -39,10 +39,12 @@ export default function PostPage({ frontmatter, slug, content }: Props) {
           content={`https://jaimetrovoada.vercel.app/api/og?title=${frontmatter.title}`}
         />
       </Head>
-      <article
-        className={`${markdownStyles["markdown"]} container px-4 md:px-0 prose prose-slate prose-base max-w-2xl mx-auto pt-20`}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div className="rounded-2xl bg-background p-4">
+        <article
+          className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto`}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      </div>
     </>
   );
 }
