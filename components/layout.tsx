@@ -137,7 +137,9 @@ export default function Layout({ children }: LayoutProps) {
             <p>&copy; {getYear()} - Jaime Trovoada</p>
           </footer>
         </aside>
-        <main className="flex flex-col gap-14 rounded-2xl">{children}</main>
+        <main className="flex flex-1 flex-col gap-14 rounded-2xl">
+          {children}
+        </main>
         <button
           className="fixed bottom-6 right-6 rounded-full bg-background-secondary py-2 px-3 text-2xl"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
