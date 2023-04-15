@@ -1,4 +1,6 @@
 import axios from "axios";
+import { createClient } from "../prismicio";
+import type { Content } from "@prismicio/client";
 
 export interface PostsResponse {
   data: PostsResponseData;
@@ -96,4 +98,18 @@ export async function getPostBySlug(slug: string) {
   return res.data.post;
 }
 
-export default { getPosts, getPostBySlug };
+const getAllPosts = async () => {
+  const client = createClient();
+  const pages = await client.getAllByType<Content.BlogDocument>("blog");
+
+  return pages;
+};
+
+const getPostByUid = async (uid: string) => {
+  const client = createClient();
+  const page = await client.getByUID<Content.BlogDocument>("blog", uid);
+
+  return page;
+};
+
+export default { getPosts, getPostBySlug, getAllPosts, getPostByUid };
