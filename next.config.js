@@ -6,6 +6,18 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "jaimetrovoada.vercel.app",
+      },
+      {
+        protocol: "https",
+        hostname: "images.prismic.io",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

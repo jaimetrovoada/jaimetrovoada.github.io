@@ -1,64 +1,73 @@
-import { readFileSync, readdirSync } from "fs";
-import matter from "gray-matter";
-import path from "path";
-import markdownToHtml from "../../helpers/mdtohtml";
 import markdownStyles from "./markdown-styles.module.scss";
+import api from "../../lib/api";
+import { InferGetStaticPropsType } from "next";
+import * as primsicHelper from "@prismicio/helpers";
 import Head from "next/head";
-import { Frontmatter } from "../../types";
+import { PrismicRichText } from "@prismicio/react";
+import Image from "next/image";
 
-interface Props {
-  frontmatter: Frontmatter;
-  slug: string;
-  content: string;
-}
+type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-export default function PostPage({ frontmatter, slug, content }: Props) {
+export default function PostPage({ post }: PageProps) {
+  const title = primsicHelper.asText(post.data.title);
+  const description = primsicHelper.asText(post.data.description);
+  const keywords = post.data.keywords as string;
+
   return (
     <>
       <Head>
-        <title>{`${frontmatter.title} | Jaime Trovoada`}</title>
-        <meta name="description" content={frontmatter.summary} />
-        <meta name="keywords" content={frontmatter.keywords.join(", ")} />
-        <meta property="og:description" content={frontmatter.summary} />
-        <meta
-          property="og:title"
-          content={`${frontmatter.title} | Jaime Trovoada`}
-        />
+        <title>{`${title} | Jaime Trovoada`}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta property="og:description" content={description} />
+        <meta property="og:title" content={`${title} | Jaime Trovoada`} />
         <meta
           property="og:image"
-          content={`https://jaimetrovoada.vercel.app/api/og?title=${frontmatter.title}`}
+          content={`https://jaimetrovoada.vercel.app/api/og?title=${title}`}
         />
         <meta property="og:image:type" content="image/png" />
-        <meta
-          name="twitter:title"
-          content={`${frontmatter.title} | Jaime Trovoada`}
-        />
-        <meta name="twitter:description" content={frontmatter.summary} />
+        <meta name="twitter:title" content={`${title} | Jaime Trovoada`} />
+        <meta name="twitter:description" content={description} />
         <meta
           name="twitter:image"
-          content={`https://jaimetrovoada.vercel.app/api/og?title=${frontmatter.title}`}
+          content={`https://jaimetrovoada.vercel.app/api/og?title=${title}`}
         />
       </Head>
       <div className="rounded-2xl bg-background p-4">
         <article
           className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto`}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        >
+          <PrismicRichText
+            field={post.data.content}
+            components={{
+              image: ({ node }) => (
+                <Image
+                  src={node.url}
+                  alt={node.alt || "image"}
+                  width={500}
+                  height={500}
+                  priority
+                  className="aspect-auto h-auto w-auto object-cover"
+                />
+              ),
+            }}
+          />
+        </article>
       </div>
     </>
   );
 }
 
 export async function getStaticPaths() {
-  const files = readdirSync(path.join("_posts"));
+  const posts = await api.getAllPosts();
 
-  const paths = files
-    .filter((filename) => filename.match(/\.md$/))
-    .map((filename) => ({
+  const paths = posts.map((post) => {
+    return {
       params: {
-        slug: filename.replace(".md", ""),
+        slug: post.uid,
       },
-    }));
+    };
+  });
 
   return {
     paths,
@@ -73,15 +82,11 @@ export async function getStaticProps({
     slug: string;
   };
 }) {
-  const mdWithMeta = readFileSync(path.join("_posts", slug + ".md"), "utf-8");
-
-  const { data: frontmatter, content } = matter(mdWithMeta);
+  const post = await api.getPostByUid(slug);
 
   return {
     props: {
-      frontmatter,
-      slug,
-      content: await markdownToHtml(content || ""),
+      post: post,
     },
   };
 }
