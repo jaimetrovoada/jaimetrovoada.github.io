@@ -1,28 +1,37 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Head from "next/head";
 import { meta } from "../../data";
-import api, { PostsResponseNode } from "../../lib/api";
+import api from "../../lib/api";
+import type { Content } from "@prismicio/client";
+import { PrismicRichText } from "@prismicio/react";
+import { InferGetStaticPropsType } from "next";
+import Image from "next/image";
+import * as primsicHelper from "@prismicio/helpers";
 
-function Card({ post }: { post: PostsResponseNode }) {
+type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
+
+function Card({ post }: { post: Content.BlogDocument }) {
+  const title = primsicHelper.asText(post.data.title);
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/blog/${post.uid}`}
       className="flex flex-row gap-3 rounded bg-background p-5 hover:underline md:transition-all md:hover:-translate-y-1 md:hover:-translate-x-1 md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:hover:shadow-foreground"
     >
-      <img
-        src={`https://jaimetrovoada.vercel.app/api/og?title=${post.title}`}
+      <Image
+        src={`https://jaimetrovoada.vercel.app/api/og?title=${title}`}
         width={100}
         height={100}
-        className="aspect-auto object-cover"
+        className="aspect-auto h-auto w-auto object-cover"
         alt="post image preview"
       />
-      <h2 className="text-xl font-bold text-header-secondary">{post.title}</h2>
+      <h2 className="text-xl font-bold text-header-secondary">
+        <PrismicRichText field={post.data.title} />
+      </h2>
     </Link>
   );
 }
 
-export default function Posts({ posts }: { posts: PostsResponseNode[] }) {
+export default function Posts({ posts }: PageProps) {
   return (
     <>
       <Head>
@@ -45,8 +54,8 @@ export default function Posts({ posts }: { posts: PostsResponseNode[] }) {
       </Head>
       <div className="flex flex-col gap-8">
         {posts && posts.length ? (
-          posts.map((post, index) => {
-            return <Card post={post} key={`${index}-${post.slug}`} />;
+          posts.map((post) => {
+            return <Card post={post} key={`${post.id}`} />;
           })
         ) : (
           <>
@@ -61,10 +70,9 @@ export default function Posts({ posts }: { posts: PostsResponseNode[] }) {
 }
 
 export async function getStaticProps() {
-  const posts = await api.getPosts();
-  console.log({ posts });
+  const pages = await api.getAllPosts();
 
   return {
-    props: { posts: posts },
+    props: { posts: pages },
   };
 }
