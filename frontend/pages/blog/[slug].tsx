@@ -32,7 +32,6 @@ export default function PostPage({ post, content }: PageProps) {
           className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto`}
           dangerouslySetInnerHTML={{ __html: content }}
         ></article>
-        naet
       </div>
     </>
   );
