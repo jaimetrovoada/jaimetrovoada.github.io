@@ -2,31 +2,25 @@ import Link from "next/link";
 import Head from "next/head";
 import { meta } from "../../data";
 import api from "../../lib/api";
-import type { Content } from "@prismicio/client";
-import { PrismicRichText } from "@prismicio/react";
 import { InferGetStaticPropsType } from "next";
 import Image from "next/image";
-import * as primsicHelper from "@prismicio/helpers";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-function Card({ post }: { post: Content.BlogDocument }) {
-  const title = primsicHelper.asText(post.data.title);
+function Card({ post }: { post: PageProps["posts"][0] }) {
   return (
     <Link
-      href={`/blog/${post.uid}`}
+      href={`/blog/${post.slug}`}
       className="flex flex-row gap-3 rounded bg-background p-5 hover:underline md:transition-all md:hover:-translate-y-1 md:hover:-translate-x-1 md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:hover:shadow-foreground"
     >
       <Image
-        src={`https://jaimetrovoada.vercel.app/api/og?title=${title}`}
+        src={`https://jaimetrovoada.vercel.app/api/og?title=${post.title}`}
         width={100}
         height={100}
         className="aspect-auto h-auto w-auto object-cover"
         alt="post image preview"
       />
-      <h2 className="text-xl font-bold text-header-secondary">
-        <PrismicRichText field={post.data.title} />
-      </h2>
+      <h2 className="text-xl font-bold text-header-secondary">{post.title}</h2>
     </Link>
   );
 }
@@ -55,7 +49,7 @@ export default function Posts({ posts }: PageProps) {
       <div className="flex flex-col gap-8">
         {posts && posts.length ? (
           posts.map((post) => {
-            return <Card post={post} key={`${post.id}`} />;
+            return <Card post={post} key={`${post.slug}`} />;
           })
         ) : (
           <>
@@ -70,9 +64,9 @@ export default function Posts({ posts }: PageProps) {
 }
 
 export async function getStaticProps() {
-  const pages = await api.getAllPosts();
+  const posts = await api.getPosts();
 
   return {
-    props: { posts: pages },
+    props: { posts: posts },
   };
 }
