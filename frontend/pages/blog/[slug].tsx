@@ -2,7 +2,11 @@ import markdownStyles from "./markdown-styles.module.scss";
 import api from "../../lib/api";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import markdownToHtml from "../../helpers/mdtohtml";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Image from "next/image";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -28,10 +32,28 @@ export default function PostPage({ post, content }: PageProps) {
         />
       </Head>
       <div className="rounded-2xl bg-background p-4">
-        <article
+        <ReactMarkdown
           className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto`}
-          dangerouslySetInnerHTML={{ __html: content }}
-        ></article>
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeKatex]}
+          components={{
+            img: function ({ ...props }) {
+              const alt = props.alt;
+
+              return (
+                <Image
+                  src={props.src as string}
+                  alt={alt as string}
+                  width={500}
+                  height={500}
+                  className="object-fit aspect-auto h-auto w-auto"
+                />
+              );
+            },
+          }}
+        >
+          {content}
+        </ReactMarkdown>
       </div>
     </>
   );
@@ -61,7 +83,7 @@ export async function getStaticProps({
 }) {
   const post = await api.getPostBySlug(slug);
 
-  const content = await markdownToHtml(post.content);
+  const content = post.content;
   return {
     props: {
       post: post,
