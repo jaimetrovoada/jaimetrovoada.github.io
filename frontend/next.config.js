@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "images.prismic.io",
+        hostname: "cdn.sanity.io",
       },
     ],
   },

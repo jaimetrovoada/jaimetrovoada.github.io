@@ -8,7 +8,10 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 config.autoAddCss = false;
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+  if (router.pathname.startsWith("/studio")) {
+    return <Component {...pageProps} />;
+  }
   return (
     <ThemeProvider attribute="class">
       <Layout>
