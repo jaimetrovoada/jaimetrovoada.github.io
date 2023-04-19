@@ -11,7 +11,7 @@ function Card({ post }: { post: PageProps["posts"][0] }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="flex flex-row gap-3 rounded bg-background p-5 hover:underline md:transition-all md:hover:-translate-y-1 md:hover:-translate-x-1 md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:hover:shadow-foreground"
+      className="flex flex-row gap-3 rounded bg-background p-5 hover:underline md:transition-all md:hover:-translate-x-1 md:hover:-translate-y-1 md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:hover:shadow-foreground"
     >
       <Image
         src={`https://jaimetrovoada.vercel.app/api/og?title=${post.title}`}
@@ -68,5 +68,6 @@ export async function getStaticProps() {
 
   return {
     props: { posts: posts },
+    revalidate: 60,
   };
 }
