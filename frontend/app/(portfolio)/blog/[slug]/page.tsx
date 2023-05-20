@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Image from "next/image";
+import { ImageResponse } from "next/server";
 
 type Props = {
   params: {
@@ -65,5 +66,23 @@ export const dynamicParams = true,
   revalidate = 60;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return {};
+  const post = await getPost(params);
+  const image = `https://jaimetrovoada.vercel.app/api/og?title=${post.title}`;
+  return {
+    title: post.title + " | " + "Jaime Trovoada",
+    description: post.description,
+    keywords: post.keywords,
+    openGraph: {
+      title: post.title + " | " + "Jaime Trovoada",
+      description: post.description,
+      images: [{ url: image, type: "image/png" }],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title + " | " + "Jaime Trovoada",
+      description: post.description,
+      images: [image],
+    },
+  };
 }
