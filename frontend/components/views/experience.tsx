@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { works } from "../../data";
 import Section from "../section";
@@ -11,14 +12,14 @@ export default function Experience() {
 
   return (
     <Section>
-      <h2 className="font-bold text-3xl"> &gt; Experience</h2>
-      <div className="flex flex-row h-80 max-h-80 w-full max-w-screen-xl mx-auto">
-        <div className="flex flex-col flex-none basis-1/4">
+      <h2 className="text-3xl font-bold"> &gt; Experience</h2>
+      <div className="mx-auto flex h-80 max-h-80 w-full max-w-screen-xl flex-row">
+        <div className="flex flex-none basis-1/4 flex-col">
           {works.map((work, index) => (
             <button
               key={`${work.position}+${work.company}`}
               onClick={() => handleClick(index)}
-              className="bg-background-secondary-75 p-1 rounded-md"
+              className="rounded-md bg-background-secondary-75 p-1"
             >
               {work.company}
             </button>
@@ -28,7 +29,7 @@ export default function Experience() {
           <div className="m mb-4">
             <p className="font-bold">
               {work.position} @{" "}
-              <span className="text-header-secondary font-normal">
+              <span className="font-normal text-header-secondary">
                 {work.company}
               </span>
             </p>

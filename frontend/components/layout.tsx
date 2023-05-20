@@ -1,15 +1,16 @@
+"use client";
+
 import React, { useEffect } from "react";
-import { aboutMe, meta } from "../data";
+import { aboutMe } from "@/data";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import Prism from "prismjs";
-import Head from "next/head";
-import { useRouter } from "next/router";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faAt, faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { usePathname } from "next/navigation";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -39,45 +40,22 @@ const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   }
 };
 export default function Layout({ children }: LayoutProps) {
-  // const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     // setMounted(true);
     Prism.highlightAll();
   }, []);
 
-  /* if (!mounted) {
-    return null;
-  } */
+  const path = usePathname();
 
   const getYear = () => {
     const date = new Date();
     return date.getFullYear();
   };
 
-  const router = useRouter();
-
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="follow, index" />
-        {/* <meta
-          property="og:url"
-          content={`https://jaimetrovoada.vercel.app${router.asPath}`}
-        />
-        <link
-          rel="canonical"
-          href={`https://jaimetrovoada.vercel.app${router.asPath}`}
-        /> */}
-        <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content={meta.title} />
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className="flex max-h-screen min-h-screen flex-col gap-4 overflow-y-auto p-4 md:flex-row md:p-8">
         <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-background p-4 transition-all md:sticky md:top-0">
           <Link
@@ -106,11 +84,7 @@ export default function Layout({ children }: LayoutProps) {
           >
             Blog
           </Link>
-          <div
-            className={`${
-              router.asPath.includes("/blog") && "hidden"
-            } md:block`}
-          >
+          <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
             <p className="font-bold">Get in touch:</p>
             <div className="flex flex-row gap-2">
               {aboutMe.socials.map((media) => (
@@ -125,25 +99,21 @@ export default function Layout({ children }: LayoutProps) {
               ))}
             </div>
           </div>
-          <div
-            className={`${
-              router.asPath.includes("/blog") && "hidden"
-            } md:block`}
-          >
+          <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
             <p className="font-bold">My Skills:</p>
             <span className="">{aboutMe.skills.join(", ").toString()}</span>
           </div>
           <Link
             href={aboutMe.resumeLink as string}
             className={`${
-              router.asPath.includes("/blog") && "hidden"
+              path?.includes("/blog") && "hidden"
             } font-bold text-header-secondary underline md:block`}
           >
             Resume
           </Link>
           <p
             className={`${
-              router.asPath.includes("/blog") && "hidden"
+              path?.includes("/blog") && "hidden"
             } text-foreground-secondary md:block`}
           >
             <FontAwesomeIcon icon={faLocationPin} /> {aboutMe.location}
@@ -156,7 +126,7 @@ export default function Layout({ children }: LayoutProps) {
           {children}
         </main>
         <button
-          className="fixed bottom-6 right-6 rounded-full bg-background-secondary py-2 px-3 text-2xl"
+          className="fixed bottom-6 right-6 rounded-full bg-background-secondary px-3 py-2 text-2xl"
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
           aria-label="theme-switcher"
         >
