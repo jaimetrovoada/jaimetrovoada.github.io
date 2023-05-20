@@ -2,6 +2,7 @@ import Link from "next/link";
 import { meta } from "@/data";
 import api, { SanityPost } from "@/lib/api";
 import Image from "next/image";
+import { Metadata } from "next";
 
 interface CardProps {
   post: Pick<SanityPost, "slug" | "title">;
@@ -53,7 +54,30 @@ async function getPosts() {
 
 export const revalidate = 3600;
 
-export const metadata = {
-  title: `${meta.title} | Blog`,
+export const metadata: Metadata = {
+  title: `Blog | ${meta.title} `,
   description: meta.description.blog,
+  keywords: meta.keywords.blog,
+  openGraph: {
+    title: `Blog | ${meta.title} `,
+    description: meta.description.blog,
+    images: [
+      {
+        url: `https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`,
+        type: "image/png",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Blog | ${meta.title} `,
+    description: meta.description.blog,
+    images: [
+      {
+        url: `https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`,
+        alt: "Jaime's Bl",
+      },
+    ],
+  },
 };
