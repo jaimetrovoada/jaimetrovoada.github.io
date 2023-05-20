@@ -1,5 +1,5 @@
 import markdownStyles from "./markdown-styles.module.scss";
-import api from "../../../lib/api";
+import api from "@/lib/api";
 import { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
