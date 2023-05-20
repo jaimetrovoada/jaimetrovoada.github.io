@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { aboutMe } from "../data";
+import { aboutMe } from "@/data";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -84,7 +84,7 @@ export default function Layout({ children }: LayoutProps) {
           >
             Blog
           </Link>
-          <div className={`${path.includes("/blog") && "hidden"} md:block`}>
+          <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
             <p className="font-bold">Get in touch:</p>
             <div className="flex flex-row gap-2">
               {aboutMe.socials.map((media) => (
@@ -99,21 +99,21 @@ export default function Layout({ children }: LayoutProps) {
               ))}
             </div>
           </div>
-          <div className={`${path.includes("/blog") && "hidden"} md:block`}>
+          <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
             <p className="font-bold">My Skills:</p>
             <span className="">{aboutMe.skills.join(", ").toString()}</span>
           </div>
           <Link
             href={aboutMe.resumeLink as string}
             className={`${
-              path.includes("/blog") && "hidden"
+              path?.includes("/blog") && "hidden"
             } font-bold text-header-secondary underline md:block`}
           >
             Resume
           </Link>
           <p
             className={`${
-              path.includes("/blog") && "hidden"
+              path?.includes("/blog") && "hidden"
             } text-foreground-secondary md:block`}
           >
             <FontAwesomeIcon icon={faLocationPin} /> {aboutMe.location}
