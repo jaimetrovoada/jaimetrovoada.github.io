@@ -6,7 +6,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Image from "next/image";
-import { ImageResponse } from "next/server";
+import Link from "next/link";
 
 type Props = {
   params: {
@@ -18,9 +18,9 @@ export default async function Page({ params }: Props) {
   const post = await getPost(params);
   return (
     <>
-      <div className="rounded-2xl bg-background p-4">
+      <div className="rounded-2xl bg-gray-800/50 p-4">
         <ReactMarkdown
-          className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto`}
+          className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto text-slate-200`}
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeKatex]}
           components={{
@@ -35,6 +35,29 @@ export default async function Page({ params }: Props) {
                   height={500}
                   className="object-fit aspect-auto h-auto w-auto"
                 />
+              );
+            },
+            h1: function ({ children }) {
+              return <h1 className="text-3xl text-blue-400">{children}</h1>;
+            },
+            h2: function ({ children }) {
+              return <h2 className="text-2xl text-blue-400">{children}</h2>;
+            },
+            h3: function ({ children }) {
+              return <h3 className="text-xl text-blue-400">{children}</h3>;
+            },
+            strong: function ({ children }) {
+              return (
+                <strong className="font-bold text-indigo-300">
+                  {children}
+                </strong>
+              );
+            },
+            a: function ({ href, children }) {
+              return (
+                <Link href={href as string} className="text-indigo-300">
+                  {children}
+                </Link>
               );
             },
           }}
