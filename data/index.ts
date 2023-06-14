@@ -94,7 +94,7 @@ export const projects: ProjectProps[] = [
     githubLink: "https://github.com/jaimetrovoada/weather-app",
   },
   {
-    title: "Weather Fetch (WIP)",
+    title: "Weather Fetch",
     /*     description: "A CLI tool for fetching system info alongside the weather.", */
     techStack: "TypeScript, NodeJS, Ink",
     liveLink: "",
