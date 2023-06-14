@@ -2,50 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-mono: "Source Code Pro", Consolas, "Lucida Console", ui-monospace,
-    monospace;
-}
-
-@layer base {
-  :root {
-    --color-background: 249 245 215;
-    --color-background-secondary: 251 241 199;
-    --color-foreground: 60 56 54;
-    --color-foreground-secondary: 7 102 120;
-
-    --color-section-header: 204 36 29;
-    --color-project-header: 175 58 48;
-  }
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: var(--font-mono);
-}
-
-body {
-  color: rgb(var(--color-foreground));
-  background: rgb(var(--color-background-secondary));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-h2 {
-  color: rgb(var(--color-section-header));
-}
-
 *::-webkit-scrollbar {
   width: 0.2em;
 }
@@ -58,12 +14,6 @@ h2 {
 *::-webkit-scrollbar-thumb {
   background-color: rgb(var(--color-foreground));
   border-radius: 16px;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 button,
