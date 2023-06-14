@@ -1,6 +1,11 @@
 import { Metadata } from "next";
 import { meta } from "@/data";
 import "@/styles/globals.css";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -36,7 +41,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={
+          inter.className +
+          " flex max-h-screen min-h-screen max-w-full flex-col gap-4 overflow-y-auto bg-gray-100 p-4 md:flex-row md:overflow-hidden md:p-8"
+        }
+      >
+        {children}
+      </body>
     </html>
   );
 }
