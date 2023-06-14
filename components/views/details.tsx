@@ -34,10 +34,10 @@ const Details = () => {
           height={100}
         />
       </Link>
-      <h1 className="text-2xl font-bold text-blue-400 md:text-4xl">
+      <h1 className="text-2xl font-bold text-yellow-400 md:text-4xl">
         <Link href="/">{aboutMe.name}</Link>
       </h1>
-      <h2 className="text-lg font-semibold text-fuchsia-200">
+      <h2 className="text-lg font-semibold text-blue-400">
         {aboutMe.occupation}
       </h2>
 
