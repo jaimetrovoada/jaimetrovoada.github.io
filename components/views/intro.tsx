@@ -1,8 +1,4 @@
-import Link from "next/link";
 import { aboutMe } from "../../data";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAt, faLocationPin } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Section from "../section";
 
 export default function Intro() {
