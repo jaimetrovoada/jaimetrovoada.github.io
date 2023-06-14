@@ -5,32 +5,49 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 interface CardProps {
-  post: Pick<SanityPost, "slug" | "title">;
+  post: Pick<SanityPost, "slug" | "title" | "description">;
 }
 
 function Card({ post }: CardProps) {
   return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="flex flex-row gap-3 rounded bg-background p-5 hover:underline md:transition-all md:hover:-translate-x-1 md:hover:-translate-y-1 md:hover:shadow-[5px_5px_0_0_theme(colors.foreground)] md:hover:shadow-foreground"
-    >
-      <Image
-        src={`https://jaimetrovoada.vercel.app/api/og?title=${post.title}`}
-        width={100}
-        height={100}
-        className="aspect-auto h-auto w-auto object-cover"
-        alt="post image preview"
-      />
-      <h2 className="text-xl font-bold text-header-secondary">{post.title}</h2>
-    </Link>
+    <div className="group flex flex-row gap-3 overflow-hidden rounded-lg bg-gray-800/50 text-slate-200">
+      <div className="relative hidden aspect-square object-cover sm:block sm:basis-1/4">
+        <Image
+          src={`https://jaimetrovoada.vercel.app/api/og?title=${post.title}`}
+          fill
+          className="object-cover"
+          alt="post image preview"
+        />
+      </div>
+      <div className="flex flex-1 flex-col justify-between gap-2">
+        <Link
+          href={`/blog/${post.slug}`}
+          className="p-4 pb-0 text-xl font-semibold uppercase group-hover:underline"
+        >
+          {post.title}
+        </Link>
+        <p className="px-4 text-sm/relaxed text-gray-400 line-clamp-3">
+          {post.description}
+        </p>
+        <div className="sm:flex sm:items-end sm:justify-end">
+          <Link
+            href={`/blog/${post.slug}`}
+            className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
+          >
+            Read
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default async function Page() {
   const posts = await getPosts();
+  console.log({ posts });
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {posts && posts.length ? (
           posts.map((post) => {
             return <Card post={post} key={`${post.slug}`} />;
@@ -70,7 +87,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: `Blog | ${meta.title} `,
     description: meta.description.blog,
     images: [
