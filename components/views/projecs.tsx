@@ -11,13 +11,13 @@ interface CardProps {
 }
 function Card({ title, tools, source, live }: CardProps) {
   return (
-    <div className="grid grid-flow-row gap-4 rounded  bg-gray-50 p-4">
+    <div className="grid grid-flow-row gap-4 rounded bg-slate-900/75 p-4">
       <p className="font-bold text-header-secondary">{title}</p>
-      <div className="flex flex-row items-center gap-2 text-sm">
+      <div className="flex flex-row items-center gap-2 text-sm text-slate-300">
         <Tool size={14} />
         <p className="flex-1">{tools}</p>
       </div>
-      <div className="flex flex-row gap-2 self-end text-sm">
+      <div className="flex flex-row gap-2 self-end text-sm text-slate-300">
         <Link href={source} className="flex items-center gap-1 underline">
           <GitHub size={14} />
           GitHub
@@ -38,7 +38,7 @@ function Card({ title, tools, source, live }: CardProps) {
 export default function Projects() {
   return (
     <Section>
-      <h2 className="text-3xl font-bold"> &gt; Projects</h2>
+      <h2 className="text-3xl font-semibold text-indigo-300"> &gt; Projects</h2>
       <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         {projects.map((project, index) => (
           <Card

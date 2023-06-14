@@ -2,7 +2,7 @@ import { aboutMe } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Linkedin, GitHub, AtSign, MapPin } from "react-feather";
+import { Linkedin, GitHub, AtSign, MapPin, ArrowRight } from "react-feather";
 
 const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   switch (social) {
@@ -25,11 +25,8 @@ const Details = () => {
   };
 
   return (
-    <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-white p-4 shadow-md transition-all md:sticky md:top-0">
-      <Link
-        href="/"
-        className="mx-auto rounded-2xl bg-background-secondary p-2"
-      >
+    <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-gray-900/50 p-4 text-slate-200 shadow-md transition-all">
+      <Link href="/" className="mx-auto rounded-full bg-gray-700/25 p-2">
         <Image
           src={aboutMe.avatar as string}
           alt={"avatar"}
@@ -37,26 +34,28 @@ const Details = () => {
           height={100}
         />
       </Link>
-      <Link href="/">
-        <h1 className="bg-gradient-to-r from-header-primary to-header-secondary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">
-          &lt;{aboutMe.name} /&gt;
-        </h1>
-      </Link>
-      <h2 className="text-lg font-bold text-foreground">
+      <h1 className="text-2xl font-bold text-blue-400 md:text-4xl">
+        <Link href="/">{aboutMe.name}</Link>
+      </h1>
+      <h2 className="text-lg font-semibold text-fuchsia-200">
         {aboutMe.occupation}
       </h2>
 
-      <Link href="/blog" className="font-bold text-header-secondary underline">
+      <Link
+        href="/blog"
+        className="inline-flex items-center text-lg font-semibold text-header-secondary underline"
+      >
         Blog
+        <ArrowRight size={16} />
       </Link>
       <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
-        <p className="font-bold">Get in touch:</p>
+        <p className="font-semibold">Get in touch:</p>
         <div className="flex flex-row gap-2">
           {aboutMe.socials.map((media) => (
             <Link
               href={media.link}
               key={media.name}
-              className="flex items-center gap-1 underline"
+              className="flex items-center gap-1 text-slate-300 underline"
             >
               <SocialIcon social={media.name} />
               {media.name}
@@ -65,8 +64,17 @@ const Details = () => {
         </div>
       </div>
       <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
-        <p className="font-bold">My Skills:</p>
-        <span className="">{aboutMe.skills.join(", ").toString()}</span>
+        <p className="font-semibold">My Skills:</p>
+        <div className="flex flex-row flex-wrap gap-2">
+          {aboutMe.skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full bg-gray-600/50 p-2 text-xs leading-none text-gray-200"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
       <Link
         href={aboutMe.resumeLink as string}
@@ -74,11 +82,11 @@ const Details = () => {
       >
         Resume
       </Link>
-      <div className="flex w-fit flex-row items-center gap-2 rounded-full bg-gray-100 p-2 text-xs">
+      <div className="flex w-fit flex-row items-center gap-2 rounded-full bg-gray-600/50 p-2 text-xs leading-none text-gray-200">
         <MapPin size={12} />
         <span>{aboutMe.location}</span>
       </div>
-      <footer className="mt-14 hidden flex-row justify-around bg-background-secondary p-4 md:flex">
+      <footer className="mx-auto mt-14 hidden p-4 md:block">
         <p>&copy; {getYear()} - Jaime Trovoada</p>
       </footer>
     </aside>
