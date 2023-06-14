@@ -17,16 +17,6 @@
     --color-section-header: 204 36 29;
     --color-project-header: 175 58 48;
   }
-
-  .dark {
-    --color-background: 40 40 40;
-    --color-background-secondary: 29 32 33;
-    --color-foreground: 235 219 178;
-    --color-foreground-secondary: 131 165 152;
-
-    --color-section-header: 254 128 25;
-    --color-project-header: 250 189 47;
-  }
 }
 
 * {

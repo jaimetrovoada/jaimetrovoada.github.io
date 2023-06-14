@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import { aboutMe } from "@/data";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
@@ -40,8 +39,6 @@ const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   }
 };
 export default function Layout({ children }: LayoutProps) {
-  const { resolvedTheme, setTheme } = useTheme();
-
   useEffect(() => {
     // setMounted(true);
     Prism.highlightAll();
@@ -125,17 +122,6 @@ export default function Layout({ children }: LayoutProps) {
         <main className="flex flex-1 flex-col gap-14 rounded-2xl">
           {children}
         </main>
-        <button
-          className="fixed bottom-6 right-6 rounded-full bg-background-secondary px-3 py-2 text-2xl"
-          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-          aria-label="theme-switcher"
-        >
-          {resolvedTheme === "dark" ? (
-            <FontAwesomeIcon icon={faSun} />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} />
-          )}
-        </button>
         <footer className="mt-14 flex flex-row justify-around bg-background-secondary p-4 md:hidden">
           <p>&copy; {getYear()} - Jaime Trovoada</p>
         </footer>
