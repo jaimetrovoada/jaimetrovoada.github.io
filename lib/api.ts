@@ -6,16 +6,18 @@ export interface SanityPost {
   keywords: string;
   slug: string;
   title: string;
-  description: string
+  description: string;
 }
 
 export interface Author {
-  name: string
+  name: string;
 }
 
 const getPosts = async () => {
-  const posts = await client.fetch<Pick<SanityPost, "slug" | "title">[]>(
-    `*[_type == "post" && defined(slug.current)]{"slug": slug.current, title}`
+  const posts = await client.fetch<
+    Pick<SanityPost, "slug" | "title" | "description">[]
+  >(
+    `*[_type == "post" && defined(slug.current)]{"slug": slug.current, title, description }`
   );
 
   return posts;
