@@ -25,7 +25,7 @@ const Details = () => {
   };
 
   return (
-    <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-gray-900/50 p-4 text-slate-200 shadow-md transition-all">
+    <aside className="flex h-fit basis-1/3 flex-col gap-4 rounded-2xl bg-gray-800/50 p-4 text-slate-200 shadow-md transition-all">
       <Link href="/" className="mx-auto rounded-full bg-gray-700/25 p-2">
         <Image
           src={aboutMe.avatar as string}

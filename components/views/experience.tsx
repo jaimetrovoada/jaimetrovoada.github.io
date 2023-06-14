@@ -16,7 +16,7 @@ export default function Experience() {
         {" "}
         &gt; Experience
       </h2>
-      <div className="mx-auto flex h-80 max-h-80 w-full max-w-screen-xl flex-row">
+      <div className="mx-auto flex h-80 max-h-80 w-full max-w-screen-xl flex-col md:flex-row">
         <div className="flex flex-none basis-1/4 flex-col">
           {works.map((work, index) => (
             <button

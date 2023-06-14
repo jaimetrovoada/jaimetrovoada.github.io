@@ -11,7 +11,7 @@ interface CardProps {
 }
 function Card({ title, tools, source, live }: CardProps) {
   return (
-    <div className="grid grid-flow-row gap-4 rounded bg-slate-900/75 p-4">
+    <div className="grid grid-flow-row gap-4 rounded bg-slate-950/50 p-4">
       <p className="font-bold text-header-secondary">{title}</p>
       <div className="flex flex-row items-center gap-2 text-sm text-slate-300">
         <Tool size={14} />
