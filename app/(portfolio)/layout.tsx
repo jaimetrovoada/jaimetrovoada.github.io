@@ -45,7 +45,7 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          " flex max-h-screen min-h-screen max-w-full flex-col gap-4 overflow-y-auto bg-gray-950 p-4 md:flex-row md:overflow-hidden md:p-8"
+          " flex min-h-screen max-w-full flex-col gap-4 overflow-y-auto bg-gray-950 p-4 md:max-h-screen md:flex-row md:overflow-hidden md:p-8"
         }
       >
         <Layout>{children}</Layout>
