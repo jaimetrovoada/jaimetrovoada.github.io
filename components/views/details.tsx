@@ -16,7 +16,11 @@ const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   }
 };
 
-const Details = () => {
+interface Props {
+  resumeUrl: string;
+}
+
+const Details = ({ resumeUrl }: Props) => {
   const path = usePathname();
 
   const getYear = () => {
@@ -34,20 +38,20 @@ const Details = () => {
           height={100}
         />
       </Link>
-      <h1 className="text-2xl font-bold text-yellow-400 md:text-4xl">
-        <Link href="/">{aboutMe.name}</Link>
-      </h1>
-      <h2 className="text-lg font-semibold text-blue-400">
-        {aboutMe.occupation}
-      </h2>
+      <div className="flex flex-col gap-2">
+        <h1 className="text-2xl font-bold text-yellow-400 md:text-4xl">
+          <Link href="/">{aboutMe.name}</Link>
+        </h1>
+        <h2 className="text-lg font-semibold text-blue-400">
+          {aboutMe.occupation}
+        </h2>
+      </div>
 
-      <Link
-        href="/blog"
-        className="inline-flex items-center text-lg font-semibold text-header-secondary underline"
-      >
-        Blog
-        <ArrowRight size={16} />
-      </Link>
+      <div className="flex w-fit flex-row items-center gap-2 rounded-full bg-gray-600/50 p-2 text-xs leading-none text-gray-200">
+        <MapPin size={12} />
+        <span>{aboutMe.location}</span>
+      </div>
+
       <div className={`${path?.includes("/blog") && "hidden"} md:block`}>
         <p className="font-semibold">Get in touch:</p>
         <div className="flex flex-row gap-2">
@@ -76,17 +80,23 @@ const Details = () => {
           ))}
         </div>
       </div>
-      <Link
-        href={aboutMe.resumeLink as string}
-        className={"font-bold underline"}
-      >
-        Resume
-      </Link>
-      <div className="flex w-fit flex-row items-center gap-2 rounded-full bg-gray-600/50 p-2 text-xs leading-none text-gray-200">
-        <MapPin size={12} />
-        <span>{aboutMe.location}</span>
+      <div className="mt-8 flex flex-row gap-4">
+        <Link
+          href="/blog"
+          className="inline-flex items-center text-lg font-semibold text-header-secondary underline"
+        >
+          Blog
+          <ArrowRight size={16} />
+        </Link>
+        <Link
+          href={resumeUrl}
+          className="inline-flex items-center text-lg font-semibold text-header-secondary underline"
+        >
+          Resume
+          <ArrowRight size={16} />
+        </Link>
       </div>
-      <footer className="mx-auto mt-14 hidden p-4 md:block">
+      <footer className="mx-auto hidden p-4 md:block">
         <p>&copy; {getYear()} - Jaime Trovoada</p>
       </footer>
     </aside>

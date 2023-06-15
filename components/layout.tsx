@@ -6,9 +6,10 @@ import Details from "./views/details";
 
 interface LayoutProps {
   children: React.ReactNode;
+  resumeUrl: string;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, resumeUrl }: LayoutProps) {
   useEffect(() => {
     // setMounted(true);
     Prism.highlightAll();
@@ -21,7 +22,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <Details />
+      <Details resumeUrl={resumeUrl} />
       <main className="flex flex-1 flex-col gap-14 pb-4 md:overflow-y-auto">
         {children}
       </main>
