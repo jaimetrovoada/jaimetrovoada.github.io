@@ -7,6 +7,7 @@ export interface SanityPost {
   slug: string;
   title: string;
   description: string;
+  publishedAt: string;
 }
 
 export interface Author {
@@ -15,9 +16,9 @@ export interface Author {
 
 const getPosts = async () => {
   const posts = await client.fetch<
-    Pick<SanityPost, "slug" | "title" | "description">[]
+    Pick<SanityPost, "slug" | "title" | "description" | "publishedAt">[]
   >(
-    `*[_type == "post" && defined(slug.current)]{"slug": slug.current, title, description }`
+    `*[_type == "post" && defined(slug.current)]{"slug": slug.current, title, description, publishedAt}`
   );
 
   return posts;
