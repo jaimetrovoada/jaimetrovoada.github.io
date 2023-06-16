@@ -38,6 +38,12 @@ export const aboutMe: AboutMeProps = {
 
 export const projects: ProjectProps[] = [
   {
+    title: "Got Food",
+    techStack: "NextJS, TypeScript, NodeJS/Express, PostgresSQL, TypeORM",
+    liveLink: "https://got-food-five.vercel.app/",
+    githubLink: "https://github.com/jaimetrovoada/got-food",
+  },
+  {
     title: "Patent Inquiry System",
     /*     description:
       "A fullstack app that allows users to search for a patent and get the patent information, using different parameters.", */
