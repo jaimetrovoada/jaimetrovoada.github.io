@@ -23,10 +23,10 @@ export default function Layout({ children, resumeUrl }: LayoutProps) {
   return (
     <>
       <Details resumeUrl={resumeUrl} />
-      <main className="flex flex-1 flex-col gap-14 pb-4 md:overflow-y-auto">
+      <main className="flex flex-1 flex-col gap-4 pb-4 md:overflow-y-auto">
         {children}
       </main>
-      <footer className="mt-14 flex flex-row justify-around bg-background-secondary p-4 md:hidden">
+      <footer className="mt-14 flex flex-row justify-around p-4 text-slate-200 md:hidden">
         <p>&copy; {getYear()} - Jaime Trovoada</p>
       </footer>
     </>
