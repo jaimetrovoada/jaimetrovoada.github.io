@@ -17,6 +17,9 @@ module.exports = {
         "header-primary": "rgb(var(--color-section-header))",
         "header-secondary": "rgb(var(--color-project-header))",
       },
+      height: {
+        dynamic: ["100vh /* fallback */", "100dvh"],
+      },
     },
   },
   plugins: [
