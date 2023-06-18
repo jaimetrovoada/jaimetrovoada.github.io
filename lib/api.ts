@@ -1,3 +1,4 @@
+import { ProjectProps } from "@/types";
 import client from "../client";
 
 export interface SanityPost {
@@ -35,4 +36,12 @@ const getPostBySlug = async (slug: string) => {
   return post;
 };
 
-export default { getPosts, getPostBySlug };
+const getProjects = async () => {
+  const projects = await client.fetch<ProjectProps[]>(
+    `*[_type == "projects"] | order(title asc)`
+  );
+
+  return projects;
+};
+
+export default { getPosts, getPostBySlug, getProjects };

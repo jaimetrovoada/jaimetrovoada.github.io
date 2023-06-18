@@ -1,7 +1,7 @@
-import { projects } from "../../data";
 import Link from "next/link";
 import Section from "../section";
 import { GitHub, Globe, Tool } from "react-feather";
+import { ProjectProps } from "@/types";
 
 interface CardProps {
   title: string;
@@ -35,7 +35,10 @@ function Card({ title, tools, source, live }: CardProps) {
   );
 }
 
-export default function Projects() {
+interface Props {
+  projects: ProjectProps[];
+}
+export default function Projects({ projects }: Props) {
   return (
     <Section>
       <h2 className="text-3xl font-semibold text-indigo-300"> &gt; Projects</h2>
