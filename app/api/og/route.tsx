@@ -1,13 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
-import Image from "next/image";
 import { NextRequest } from "next/server";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
 
-export default function handler(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
 
