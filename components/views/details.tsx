@@ -2,7 +2,14 @@ import { aboutMe } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Linkedin, GitHub, AtSign, MapPin, ArrowRight } from "react-feather";
+import {
+  Linkedin,
+  GitHub,
+  AtSign,
+  MapPin,
+  ArrowRight,
+  Home,
+} from "react-feather";
 
 const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   switch (social) {
@@ -85,7 +92,11 @@ const Details = ({ resumeUrl }: Props) => {
         </div>
 
         <div className="flex w-fit flex-row items-center gap-2 rounded-full  text-sm leading-none text-slate-300">
-          <MapPin size={14} />
+          <Home size={14} />
+          <span>Sao Tome and Principe</span>
+        </div>
+        <div className="flex w-fit flex-row items-center gap-2 rounded-full  text-xs leading-none text-slate-300">
+          <MapPin size={12} />
           <span>{aboutMe.location}</span>
         </div>
       </div>
