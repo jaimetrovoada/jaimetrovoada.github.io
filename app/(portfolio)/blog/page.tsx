@@ -86,13 +86,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Blog | ${meta.title} `,
     description: meta.description.blog,
+    type: "website",
+    url: "https://jaimetrovoada.vercel.app/blog",
     images: [
       {
         url: `https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`,
         type: "image/png",
       },
     ],
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
@@ -101,7 +102,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: `https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`,
-        alt: "Jaime's Bl",
+        alt: "Jaime's Blog",
       },
     ],
   },

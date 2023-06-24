@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: meta.title,
     description: meta.description.home,
+    type: "website",
+    url: "https://jaimetrovoada.vercel.app/",
     images: [
       {
         url: `https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`,
