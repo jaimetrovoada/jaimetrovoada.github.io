@@ -73,6 +73,10 @@ async function getReleases() {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
           "X-GitHub-Api-Version": "2022-11-28",
         },
+        cache: "no-cache",
+        next: {
+          revalidate: 0,
+        },
       }
     );
     const data: Release = await res.json();
