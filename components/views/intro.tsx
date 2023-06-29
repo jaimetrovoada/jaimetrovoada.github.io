@@ -1,11 +1,12 @@
 import { aboutMe } from "../../data";
-import Section from "../section";
 
 export default function Intro() {
   return (
-    <Section>
-      <h2 className="text-3xl font-semibold text-indigo-300">&gt; About Me</h2>
-      <p className="text-slate-300">{aboutMe.introduction}</p>
-    </Section>
+    <section className="py-5 text-5xl">
+      <p className="font-semibold text-slate-200">
+        Hi there 👋! I build cool{" "}
+        <span className="uppercase text-yellow-400">web</span> stuff.
+      </p>
+    </section>
   );
 }
