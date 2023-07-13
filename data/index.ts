@@ -9,9 +9,12 @@ export const aboutMe: AboutMeProps = {
   resumeLink:
     "https://github.com/jaimetrovoada/resume/releases/download/v2023.02.05/jaime_trovoada-resume.pdf",
   skills: [
-    "JavaScript/TypeScript",
+    "JavaScript",
+    "TypeScript",
     "React",
-    "HTML/CSS/SCSS",
+    "HTML",
+    "CSS",
+    "SCSS",
     "NextJS",
     "TailwindCSS",
     "Golang",
