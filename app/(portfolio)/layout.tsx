@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: meta.title,
     description: meta.description.home,
+    type: "website",
+    url: "https://jaimetrovoada.vercel.app/",
     images: [
       {
         url: `https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`,
@@ -71,6 +73,10 @@ async function getReleases() {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
           "X-GitHub-Api-Version": "2022-11-28",
         },
+        cache: "no-cache",
+        next: {
+          revalidate: 0,
+        },
       }
     );
     const data: Release = await res.json();
@@ -80,4 +86,4 @@ async function getReleases() {
   }
 }
 
-export const revalidate = 86400;
+export const revalidate = 3600;

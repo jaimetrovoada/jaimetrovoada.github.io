@@ -99,7 +99,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title + " | " + "Jaime Trovoada",
       description: post.description,
       images: [{ url: image, type: "image/png" }],
-      type: "website",
+      type: "article",
+      url: `https://jaimetrovoada.vercel.app/blog/${post.slug}`,
     },
     twitter: {
       card: "summary_large_image",
