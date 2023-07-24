@@ -16,7 +16,7 @@ function Card({ post }: CardProps) {
   });
 
   return (
-    <div className="group flex flex-row gap-3 overflow-hidden rounded-lg bg-gray-800/50 text-slate-200">
+    <div className="group flex flex-row gap-3 overflow-hidden rounded-lg bg-neutral-950 text-slate-200">
       <div className="rotate-180 p-2 py-4 [writing-mode:_vertical-lr]">
         <time
           dateTime={post.publishedAt}

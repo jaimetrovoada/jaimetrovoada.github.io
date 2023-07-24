@@ -18,7 +18,7 @@ export default async function Page({ params }: Props) {
   const post = await getPost(params);
   return (
     <>
-      <div className="rounded-2xl bg-gray-800/50 p-4">
+      <div className="rounded-2xl bg-neutral-95 border border-gray-600/50 bg-neutral-950 p-4">
         <ReactMarkdown
           className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto text-slate-200`}
           remarkPlugins={[remarkGfm, remarkMath]}

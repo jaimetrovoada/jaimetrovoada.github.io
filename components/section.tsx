@@ -8,7 +8,7 @@ export default function Section({ children, className }: Props) {
     <section
       className={`${
         className || ""
-      } flex flex-col gap-6 rounded-2xl bg-gray-800/50 p-4 text-slate-200 shadow-md`}
+      } flex flex-col gap-6 rounded-2xl bg-neutral-950 p-4 shadow-md`}
     >
       {children}
     </section>
