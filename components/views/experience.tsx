@@ -18,7 +18,7 @@ export default function Experience() {
               </p>
             </div>
             <div className="mb-6 ml-4 mt-2">
-              <h4 className="mb-1.5 text-lg font-semibold">
+              <h4 className="mb-1.5 font-semibold">
                 {work.position} @ {work.company}
               </h4>
             </div>
