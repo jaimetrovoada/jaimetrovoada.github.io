@@ -8,6 +8,10 @@ import { Release } from "@/types";
 const inter = Inter({
   subsets: ["latin"],
 });
+const url = process.env.NEXT_PUBLIC_APP_URL;
+
+const ogUrl = new URL(`${url}/api/og`);
+ogUrl.searchParams.set("title", meta.title);
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -20,7 +24,7 @@ export const metadata: Metadata = {
     url: "https://jaimetrovoada.vercel.app/",
     images: [
       {
-        url: `https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`,
+        url: ogUrl.toString(),
         type: "image/png",
       },
     ],
@@ -31,7 +35,7 @@ export const metadata: Metadata = {
     description: meta.description.home,
     images: [
       {
-        url: `https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`,
+        url: ogUrl.toString(),
         alt: "Jaime's portfolio",
       },
     ],
@@ -54,7 +58,7 @@ export default async function RootLayout({
       <body
         className={
           inter.className +
-          " flex h-dynamic max-w-full flex-col gap-4 overflow-y-auto p-4 md:flex-row md:overflow-hidden md:p-8 bg-zinc-900 text-slate-200"
+          " flex h-dynamic max-w-full flex-col gap-4 overflow-y-auto bg-zinc-900 p-4 text-slate-200 md:flex-row md:overflow-hidden md:p-8"
         }
       >
         <Layout resumeUrl={resume as string}>{children}</Layout>
