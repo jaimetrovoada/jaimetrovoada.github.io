@@ -11,7 +11,7 @@ interface CardProps {
 }
 function Card({ title, tools, source, live }: CardProps) {
   return (
-    <div className="group grid grid-flow-row gap-4 rounded  p-4 border border-neutral-800">
+    <div className="group grid grid-flow-row gap-4 rounded  border border-neutral-800 p-4">
       {live ? (
         <Link
           href={live}
