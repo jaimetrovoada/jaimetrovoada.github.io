@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : "Jaime Trovoada";
+      : null;
 
 const fontData = await fetch(
     new URL('../../../assets/fonts/Phatt.ttf', import.meta.url),
@@ -47,11 +47,15 @@ const image = await fetch(new URL('../../../assets/images/og_bg.png', import.met
             <span>
               Jaime Trovoada
             </span>
+          {
+            title ? 
             <span style={{
               fontSize: 32,
             }}>
             {title}
             </span>
+            : null
+          }
         </div>
       ),
       {
