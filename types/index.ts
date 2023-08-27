@@ -14,6 +14,7 @@ export interface AboutMeProps {
   introduction: string;
   skills: string[];
   location?: string;
+  email: string;
   socials: SocialProps[];
 }
 
