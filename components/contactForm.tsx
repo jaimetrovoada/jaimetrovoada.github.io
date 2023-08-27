@@ -6,6 +6,7 @@ const ContactForm = () => {
       className="flex flex-col gap-4 p-2 [&_label]:font-semibold [&_label]:text-slate-300"
       action="mailto:jaimetrovoada@gmail.com"
       method="GET"
+      target="_blank"
     >
       <div className={getClasses("flex flex-col gap-1")}>
         <label htmlFor="subject">Subject</label>

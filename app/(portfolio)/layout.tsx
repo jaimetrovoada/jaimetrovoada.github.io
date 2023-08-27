@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: "https://jaimetrovoada.vercel.app/",
     images: [
       {
-        url: `https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`,
+        url: `https://jaimetrovoada.vercel.app/api/og`,
         type: "image/png",
       },
     ],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: meta.description.home,
     images: [
       {
-        url: `https://jaimetrovoada.vercel.app/api/og?title=Jaime%20Trovoada`,
+        url: `https://jaimetrovoada.vercel.app/api/og`,
         alt: "Jaime's portfolio",
       },
     ],

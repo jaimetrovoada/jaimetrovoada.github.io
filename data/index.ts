@@ -23,14 +23,11 @@ export const aboutMe: AboutMeProps = {
     "Docker",
   ],
   location: "Tianjin, China",
+  email: "jaimetrovoada@gmail.com",
   socials: [
     {
       name: "LinkedIn",
       link: "https://www.linkedin.com/in/jaime-trovoada-5426bb1a2",
-    },
-    {
-      name: "Email",
-      link: "mailto:jaimetrovoada@gmail.com",
     },
     {
       name: "GitHub",

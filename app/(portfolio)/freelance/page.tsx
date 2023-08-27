@@ -55,8 +55,30 @@ export const metadata: Metadata = {
   title: "Freelance Web Developer | Jaime Trovoada",
   description: "",
   keywords: "freelance, next.js, nextjs, web, developer",
-  openGraph: {},
-  twitter: {},
+  openGraph: {
+  title: "Freelance Web Developer | Jaime Trovoada",
+  description: "",
+    type: "website",
+    url: "https://jaimetrovoada.vercel.app/freelance",
+    images: [
+      {
+        url: `https://jaimetrovoada.vercel.app/api/og?title=Freelance Web Developer`,
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+  card: "summary_large_image",
+  title: "Freelance Web Developer | Jaime Trovoada",
+  description: "",
+    images: [
+      {
+        url: `https://jaimetrovoada.vercel.app/api/og?title=Freelance Web Developer`,
+        alt: "Jaime's portfolio",
+      },
+    ],
+  },
+
 };
 
 export default Page;

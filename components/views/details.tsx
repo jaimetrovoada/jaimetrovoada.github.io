@@ -1,3 +1,5 @@
+"use client";
+
 import { aboutMe } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,16 +7,17 @@ import { usePathname } from "next/navigation";
 import {
   Linkedin,
   GitHub,
-  AtSign,
   MapPin,
   ArrowRight,
   Home,
+  Clipboard,
 } from "react-feather";
+import { useCopyToClipboard } from "@/lib/hooks";
+import { useState } from "react";
+import { getClasses } from "@/lib/utils";
 
 const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   switch (social) {
-    case "Email":
-      return <AtSign size={14} />;
     case "GitHub":
       return <GitHub size={14} />;
 
@@ -33,6 +36,20 @@ const Details = ({ resumeUrl }: Props) => {
   const getYear = () => {
     const date = new Date();
     return date.getFullYear();
+  };
+
+  const [_, copy] = useCopyToClipboard();
+
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    const ok = await copy(aboutMe.email);
+    console.log({ ok });
+    setCopied(ok);
+    const timeout = setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+    return () => clearTimeout(timeout);
   };
 
   return (
@@ -63,17 +80,44 @@ const Details = ({ resumeUrl }: Props) => {
       >
         <div>
           <p className="font-semibold">Get in touch:</p>
-          <div className="flex flex-row gap-2">
-            {aboutMe.socials.map((media) => (
+          <div className="flex flex-col gap-2">
+            <span className="flex flex-row items-center gap-1 text-slate-300">
+              Email:
               <Link
-                href={media.link}
-                key={media.name}
-                className="flex items-center gap-1 text-sm text-slate-300 underline"
+                href={`mailto:${aboutMe.email}`}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="underline"
               >
-                <SocialIcon social={media.name} />
-                {media.name}
+                {aboutMe.email}
               </Link>
-            ))}
+              <button
+                onClick={copyToClipboard}
+                className="relative cursor-pointer"
+              >
+                <Clipboard size={16} />
+                <span
+                  className={getClasses(
+                    "absolute -right-1 top-1/2 hidden -translate-y-1/2 translate-x-full rounded-full bg-gray-600/25 px-1 text-sm text-slate-300",
+                    { block: copied }
+                  )}
+                >
+                  Copied!
+                </span>
+              </button>
+            </span>
+            <div className="flex flex-row flex-wrap gap-2">
+              {aboutMe.socials.map((media) => (
+                <Link
+                  href={media.link}
+                  key={media.name}
+                  className="flex items-center gap-1 text-sm text-slate-300 underline"
+                >
+                  <SocialIcon social={media.name} />
+                  {media.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
