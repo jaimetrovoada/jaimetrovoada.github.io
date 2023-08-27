@@ -13,21 +13,13 @@ export async function GET(req: NextRequest) {
       ? searchParams.get("title")?.slice(0, 100)
       : "Jaime Trovoada";
 
-    const phatt = await fetch(
-      new URL("../../../assets/Phatt.ttf", import.meta.url)
-    ).then((res) => res.arrayBuffer());
-    const image = await fetch(new URL("/images/og_bg.png")).then((res) =>
-      res.arrayBuffer()
-    );
-
     return new ImageResponse(
       (
         <div
           style={{
             backgroundColor: "#282828",
-            backgroundImage: `url("data:image/png;base64,${Buffer.from(
-              image
-            ).toString("base64")}")`,
+            backgroundImage:
+              "url('https://jaimetrovoada.vercel.app/images/og_bg.svg')",
             backgroundSize: "1200px 630px",
             height: "100%",
             width: "100%",
@@ -39,6 +31,22 @@ export async function GET(req: NextRequest) {
             flexWrap: "nowrap",
           }}
         >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              justifyItems: "center",
+              fontSize: 200,
+            }}
+          >
+            <img
+              alt="Jaime's avatar"
+              height={691}
+              src="https://jaimetrovoada.vercel.app/images/me_dev.svg"
+              width={512}
+            />
+          </div>
           <div
             style={{
               fontSize: 60,
@@ -58,13 +66,6 @@ export async function GET(req: NextRequest) {
         width: 1200,
         height: 630,
         emoji: "noto",
-        fonts: [
-          {
-            name: "Phatt",
-            data: phatt,
-            style: "normal",
-          },
-        ],
       }
     );
   } catch (e: any) {
