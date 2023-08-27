@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : null;
+    console.log({hasTitle, title})
 
 const fontData = await fetch(
     new URL('../../../assets/fonts/Phatt.ttf', import.meta.url),
