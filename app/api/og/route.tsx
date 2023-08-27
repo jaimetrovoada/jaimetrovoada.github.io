@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : null;
+    console.log({hasTitle, title})
 
 const fontData = await fetch(
     new URL('../../../assets/fonts/Phatt.ttf', import.meta.url),
@@ -50,7 +51,7 @@ const image = await fetch(new URL('../../../assets/images/og_bg.png', import.met
           {
             title ? 
             <span style={{
-              fontSize: 32,
+              fontSize: 48,
             }}>
             {title}
             </span>
