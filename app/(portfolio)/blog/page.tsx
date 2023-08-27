@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     url: "https://jaimetrovoada.vercel.app/blog",
     images: [
       {
-        url: `https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`,
+        url: `https://jaimetrovoada.vercel.app/api/og?title=Blog`,
         type: "image/png",
       },
     ],
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     description: meta.description.blog,
     images: [
       {
-        url: `https://jaimetrovoada.vercel.app/api/og?title=Blog | Jaime Trovoada`,
+        url: `https://jaimetrovoada.vercel.app/api/og?title=Blog`,
         alt: "Jaime's Blog",
       },
     ],
