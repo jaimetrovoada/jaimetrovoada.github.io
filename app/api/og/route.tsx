@@ -13,59 +13,58 @@ export async function GET(req: NextRequest) {
       ? searchParams.get("title")?.slice(0, 100)
       : "Jaime Trovoada";
 
+const fontData = await fetch(
+    new URL('../../../assets/fonts/Phatt.ttf', import.meta.url),
+  ).then((res) => res.arrayBuffer());
+
+const image = await fetch(new URL('../../../assets/images/og_bg.png', import.meta.url)).then(
+    (res) => res.arrayBuffer(),
+  );
+ 
     return new ImageResponse(
       (
         <div
           style={{
-            backgroundColor: "#282828",
-            backgroundImage:
-              "url('https://jaimetrovoada.vercel.app/images/og_bg.svg')",
+            background:
+              `url(data:image/png;base64,${Buffer.from(image).toString("base64")})`,
             backgroundSize: "1200px 630px",
             height: "100%",
             width: "100%",
             display: "flex",
-            textAlign: "center",
-            alignItems: "center",
-            justifyContent: "space-around",
-            flexDirection: "row",
-            flexWrap: "nowrap",
+            padding: 64,
+            fontSize: 64,
+            fontFamily: "Phatt",
+            fontStyle: "normal",
+            fontWeight: "bold",
+            color: "#ebdbb2",
+            lineHeight: 1.4,
+            whiteSpace: "pre-wrap",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: 12,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              justifyItems: "center",
-              fontSize: 200,
-            }}
-          >
-            <img
-              alt="Jaime's avatar"
-              height={691}
-              src="https://jaimetrovoada.vercel.app/images/me_dev.svg"
-              width={512}
-            />
-          </div>
-          <div
-            style={{
-              fontSize: 60,
-              fontStyle: "normal",
-              fontWeight: "bold",
-              color: "#ebdbb2",
-              padding: "0 20px",
-              lineHeight: 1.4,
-              whiteSpace: "pre-wrap",
-            }}
-          >
+            <span>
+              Jaime Trovoada
+            </span>
+            <span style={{
+              fontSize: 32,
+            }}>
             {title}
-          </div>
+            </span>
         </div>
       ),
       {
         width: 1200,
         height: 630,
         emoji: "noto",
+        fonts: [
+          {
+            name: "Phatt",
+            data: fontData,
+            style: "normal",
+          }
+        ]
       }
     );
   } catch (e: any) {
