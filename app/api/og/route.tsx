@@ -50,7 +50,7 @@ const image = await fetch(new URL('../../../assets/images/og_bg.png', import.met
           {
             title ? 
             <span style={{
-              fontSize: 32,
+              fontSize: 48,
             }}>
             {title}
             </span>
