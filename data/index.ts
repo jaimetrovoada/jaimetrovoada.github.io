@@ -22,12 +22,12 @@ export const aboutMe: AboutMeProps = {
     "Rust",
     "Docker",
   ],
-  location: "Tianjin, China",
+  location: "Lisbon, Portugal",
   email: "jaimetrovoada@gmail.com",
   socials: [
     {
       name: "LinkedIn",
-      link: "https://www.linkedin.com/in/jaime-trovoada-5426bb1a2",
+      link: "https://www.linkedin.com/in/jaimetrovoada",
     },
     {
       name: "GitHub",
@@ -40,7 +40,7 @@ export const works: WorkProps[] = [
   {
     company: "北京燃星科技有限公司",
     position: "Junior Frontend Developer",
-    period: "August 2021 - April 2022",
+    period: "August 2021 - August 2022",
     description: "Collaborated in the development of several Web3 projects.",
   },
 ];
