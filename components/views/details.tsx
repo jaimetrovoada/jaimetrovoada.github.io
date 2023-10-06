@@ -136,10 +136,6 @@ const Details = ({ resumeUrl }: Props) => {
         </div>
 
         <div className="flex w-fit flex-row items-center gap-2 rounded-full  text-sm leading-none text-slate-300">
-          <Home size={14} />
-          <span>Sao Tome and Principe</span>
-        </div>
-        <div className="flex w-fit flex-row items-center gap-2 rounded-full  text-xs leading-none text-slate-300">
           <MapPin size={12} />
           <span>{aboutMe.location}</span>
         </div>
