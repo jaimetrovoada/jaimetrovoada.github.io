@@ -156,13 +156,6 @@ const Details = ({ resumeUrl }: Props) => {
           Resume
           <ArrowRight size={16} />
         </Link>
-        <Link
-          href="/freelance"
-          className="inline-flex items-center text-lg font-semibold text-header-secondary underline"
-        >
-          Freelance
-          <ArrowRight size={16} />
-        </Link>
       </div>
       <footer className="mx-auto hidden p-4 md:block">
         <p>&copy; {getYear()} - Jaime Trovoada</p>
