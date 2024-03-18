@@ -6,10 +6,12 @@ import Projects from "../../components/views/projecs";
 
 export default async function Page() {
   const projects = await api.getProjects();
+  const works = await api.getWork();
+
   return (
     <>
       <Intro />
-      <Experience />
+      <Experience works={works} />
       <Projects projects={projects} />
     </>
   );

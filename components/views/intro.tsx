@@ -1,5 +1,3 @@
-import { aboutMe } from "../../data";
-
 export default function Intro() {
   return (
     <section className="py-5 text-5xl">

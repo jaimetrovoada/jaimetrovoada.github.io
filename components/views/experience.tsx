@@ -1,6 +1,14 @@
-import { works } from "../../data";
 import Section from "../section";
-export default function Experience() {
+import { WorkProps } from "@/types";
+
+interface Props {
+  works: WorkProps[]
+}
+
+export default function Experience({ works }: Props) {
+  const sortedByStartDate = works.sort(
+    (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+  )
 
   return (
     <Section>
@@ -9,12 +17,12 @@ export default function Experience() {
         &gt; Experience
       </h2>
       <ol className="border-l border-neutral-500">
-        {works.map((work) => (
+        {sortedByStartDate.map((work) => (
           <li key={`${work.position}+${work.company}`}>
             <div className="flex-start flex items-center pt-3">
               <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-500"></div>
               <p className="text-sm text-slate-300">
-                {work.period}
+                {`${work.startDate} - ${work.endDate ? work.endDate : "Present"}`}
               </p>
             </div>
             <div className="mb-6 ml-4 mt-2">

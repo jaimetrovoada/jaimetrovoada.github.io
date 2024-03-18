@@ -1,6 +1,6 @@
 "use client";
 
-import { aboutMe } from "@/data";
+import { meta } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,7 @@ import {
 import { useCopyToClipboard } from "@/lib/hooks";
 import { useState } from "react";
 import { getClasses } from "@/lib/utils";
+import { AboutMeProps } from "@/types";
 
 const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
   switch (social) {
@@ -28,9 +29,10 @@ const SocialIcon: React.FC<{ social: string }> = ({ social }) => {
 
 interface Props {
   resumeUrl: string;
+  aboutMe: AboutMeProps;
 }
 
-const Details = ({ resumeUrl }: Props) => {
+const Details = ({ resumeUrl, aboutMe }: Props) => {
   const path = usePathname();
 
   const getYear = () => {
@@ -57,7 +59,7 @@ const Details = ({ resumeUrl }: Props) => {
       <div className="flex flex-col gap-4">
         <Link href="/" className="mx-auto rounded-full bg-gray-700/25 p-2">
           <Image
-            src={aboutMe.avatar as string}
+            src={meta.image as string}
             alt={"avatar"}
             width={100}
             height={100}
@@ -109,7 +111,7 @@ const Details = ({ resumeUrl }: Props) => {
             <div className="flex flex-row flex-wrap gap-2">
               {aboutMe.socials.map((media) => (
                 <Link
-                  href={media.link}
+                  href={media.url}
                   key={media.name}
                   className="flex items-center gap-1 text-sm text-slate-300 underline"
                 >
