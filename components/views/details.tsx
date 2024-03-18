@@ -1,6 +1,6 @@
 "use client";
 
-import { aboutMe as _aboutMe } from "@/data";
+import { meta } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -59,7 +59,7 @@ const Details = ({ resumeUrl, aboutMe }: Props) => {
       <div className="flex flex-col gap-4">
         <Link href="/" className="mx-auto rounded-full bg-gray-700/25 p-2">
           <Image
-            src={_aboutMe.avatar as string}
+            src={meta.image as string}
             alt={"avatar"}
             width={100}
             height={100}
