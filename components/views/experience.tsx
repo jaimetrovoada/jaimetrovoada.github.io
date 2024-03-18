@@ -22,7 +22,11 @@ export default function Experience({ works }: Props) {
             <div className="flex-start flex items-center pt-3">
               <div className="-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-500"></div>
               <p className="text-sm text-slate-300">
-                {`${work.startDate} - ${work.endDate ? work.endDate : "Present"}`}
+                {`${new Date(work.startDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+  }
+)} - ${work.endDate ? new Date(work.endDate).toLocaleDateString("en-US", { year: "numeric", month: "long" }) : "Present"}`}
               </p>
             </div>
             <div className="mb-6 ml-4 mt-2">
@@ -35,4 +39,10 @@ export default function Experience({ works }: Props) {
       </ol>
     </Section>
   );
+}
+function dateYYYYMM(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+  });
 }
