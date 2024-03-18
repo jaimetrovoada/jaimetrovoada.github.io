@@ -20,6 +20,22 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'ocupation',
+      title: 'Ocupation',
+      type: 'string',
+    }),
+    defineField({
+      name: 'introduction',
+      title: 'Introduction',
+      type: 'string',
+    }),
+    defineField({
+      name: 'skills',
+      title: 'Skills',  
+      type: 'array',
+      of: [{type: 'string'}]
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -28,16 +44,31 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+    }),
+
+    defineField({
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+      validation: (Rule) => Rule.email(),
+    }),
+    defineField({
+      name: 'socials',
+      title: 'Socials',
       type: 'array',
       of: [
         {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
+  title: 'Social',
+  name: 'social',
+  type: 'object',
+  fields: [
+    {name: 'name', type: 'string', title: 'Name'},
+    {name: 'url', type: 'url', title: 'Url'},
+  ]
+},
       ],
     }),
   ],

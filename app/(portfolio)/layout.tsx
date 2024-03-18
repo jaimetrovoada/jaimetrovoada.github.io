@@ -3,7 +3,8 @@ import { Metadata } from "next";
 import { meta } from "@/data";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
-import { Release } from "@/types";
+import { Release, AboutMeProps } from "@/types";
+import api from "@/lib/api";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,8 @@ export default async function RootLayout({
   const resume = assets?.find(
     (asset) => asset.name === "jaime_trovoada-resume.pdf"
   )?.browser_download_url;
+  
+  const aboutMe = await api.getAboutMe();
 
   return (
     <html lang="en">
@@ -57,7 +60,7 @@ export default async function RootLayout({
           " flex h-dynamic max-w-full flex-col gap-4 overflow-y-auto p-4 md:flex-row md:overflow-hidden md:p-8 bg-zinc-900 text-slate-200"
         }
       >
-        <Layout resumeUrl={resume as string}>{children}</Layout>
+        <Layout resumeUrl={resume as string} aboutMe={aboutMe}>{children}</Layout>
       </body>
     </html>
   );

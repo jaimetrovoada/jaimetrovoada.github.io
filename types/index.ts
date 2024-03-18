@@ -20,7 +20,7 @@ export interface AboutMeProps {
 
 export interface SocialProps {
   name: string;
-  link: string;
+  url: string;
 }
 
 export interface ProjectProps {
@@ -34,7 +34,8 @@ export interface ProjectProps {
 export interface WorkProps {
   company: string; // name of the company
   position: string; // position in the company
-  period: string; // period of time in the company
+  startDate: Date; // start date
+  endDate: Date; // end date
   description: string; // optional, description of the work
 }
 

@@ -1,4 +1,4 @@
-import { ProjectProps } from "@/types";
+import { ProjectProps, AboutMeProps, WorkProps } from "@/types";
 import client from "../client";
 
 export interface SanityPost {
@@ -44,4 +44,20 @@ const getProjects = async () => {
   return projects;
 };
 
-export default { getPosts, getPostBySlug, getProjects };
+const getAboutMe = async () => {
+  const aboutMe = await client.fetch<AboutMeProps>(
+    `*[_type == "author"]{name, ocupation, introduction, skills, image, location, email, socials}`
+  );
+
+  return aboutMe[0];
+}
+
+const getWork = async () => {
+  const work = await client.fetch<WorkProps[]>(
+    `*[_type == "work"]{company, position, startDate, endDate, description}`
+  );
+
+  return work;
+}
+
+export default { getPosts, getPostBySlug, getProjects, getAboutMe, getWork };
