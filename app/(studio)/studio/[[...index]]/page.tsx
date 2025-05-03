@@ -1,8 +1,12 @@
-import { Studio } from "./Studio";
+// ./src/app/studio/[[...tool]]/page.tsx
 
-// Set the right `viewport`, `robots` and `referer` meta tags
-export { metadata } from "next-sanity/studio/metadata";
+import { NextStudio } from 'next-sanity/studio'
+import config from '../../../../sanity.config'
+
+export const dynamic = 'force-static'
+
+export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
-  return <Studio />;
+  return <NextStudio config={config} />
 }

@@ -4,23 +4,24 @@ import { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Markdown from "react-markdown"; "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default async function Page({ params }: Props) {
-  const post = await getPost(params);
+  const slug = (await params).slug
+  const post = await getPost({ slug });
   return (
     <>
-      <div className="rounded-2xl bg-neutral-95 border border-gray-600/50 bg-neutral-950 p-4">
-        <ReactMarkdown
-          className={`${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto text-slate-200`}
+      <div className={`rounded-2xl bg-neutral-95 border border-gray-600/50 bg-neutral-950 p-4 ${markdownStyles["markdown"]} container prose prose-base prose-slate mx-auto text-slate-200`}>
+        <Markdown
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeKatex]}
           components={{
@@ -63,7 +64,7 @@ export default async function Page({ params }: Props) {
           }}
         >
           {post.content}
-        </ReactMarkdown>
+        </Markdown>
       </div>
     </>
   );
@@ -89,7 +90,8 @@ export const dynamicParams = true,
   revalidate = 60;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await getPost(params);
+  const slug = (await params).slug
+  const post = await getPost({ slug });
   const image = `https://jaimetrovoada.vercel.app/api/og?title=${post.title}`;
   return {
     title: post.title + " | " + "Jaime Trovoada",

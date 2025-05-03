@@ -105,3 +105,9 @@ export interface Author {
   type: string;
   site_admin: boolean;
 }
+
+export interface SocialLinkProps {
+  slug: string,
+  name: string,
+  url: string
+}

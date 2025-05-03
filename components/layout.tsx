@@ -12,10 +12,10 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, resumeUrl, aboutMe }: LayoutProps) {
-   useEffect(() => {
-     // setMounted(true);
-     Prism.highlightAll();
-   }, []);
+  useEffect(() => {
+    // setMounted(true);
+    Prism.highlightAll();
+  }, []);
 
   const getYear = () => {
     const date = new Date();
