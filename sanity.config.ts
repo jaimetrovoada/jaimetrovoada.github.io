@@ -1,5 +1,7 @@
-import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+'use client'
+
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
 import { schemaTypes } from "./schemas";
 import { markdownSchema } from "sanity-plugin-markdown/next";
 import 'easymde/dist/easymde.min.css'
@@ -13,7 +15,7 @@ export default defineConfig({
   projectId,
   dataset,
 
-  plugins: [deskTool(), markdownSchema()],
+  plugins: [structureTool(), markdownSchema()],
 
   schema: {
     types: schemaTypes,
