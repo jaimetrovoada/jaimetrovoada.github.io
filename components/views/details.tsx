@@ -55,7 +55,7 @@ const Details = ({ resumeUrl, aboutMe }: Props) => {
   };
 
   return (
-    <aside className="flex h-fit basis-1/3 flex-col gap-10 rounded-2xl bg-neutral-950 p-4 shadow-md transition-all">
+    <aside className="flex h-fit basis-1/3 flex-col gap-10 rounded-2xl bg-neutral-950 p-4 shadow-md transition-all md:sticky md:top-8">
       <div className="flex flex-col gap-4">
         <Link href="/" className="mx-auto rounded-full bg-gray-700/25 p-2">
           <Image
