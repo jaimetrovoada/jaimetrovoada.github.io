@@ -60,4 +60,5 @@ const getWork = async () => {
   return work;
 }
 
+/* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default { getPosts, getPostBySlug, getProjects, getAboutMe, getWork };

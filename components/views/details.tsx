@@ -76,9 +76,8 @@ const Details = ({ resumeUrl, aboutMe }: Props) => {
       </div>
 
       <div
-        className={`flex-col gap-4 ${
-          path?.includes("/blog") ? "hidden md:flex" : "flex"
-        }`}
+        className={`flex-col gap-4 ${path?.includes("/blog") ? "hidden md:flex" : "flex"
+          }`}
       >
         <div>
           <p className="font-semibold">Get in touch:</p>
@@ -86,7 +85,7 @@ const Details = ({ resumeUrl, aboutMe }: Props) => {
             <span className="flex flex-row items-center gap-1 text-slate-300">
               Email:
               <Link
-                href={`mailto:${aboutMe.email}`}
+                href={aboutMe?.email ? `mailto:${aboutMe.email}` : ""}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="underline"
@@ -111,7 +110,7 @@ const Details = ({ resumeUrl, aboutMe }: Props) => {
             <div className="flex flex-row flex-wrap gap-2">
               {aboutMe.socials.map((media) => (
                 <Link
-                  href={media.url}
+                  href={media.url ?? ""}
                   key={media.name}
                   className="flex items-center gap-1 text-sm text-slate-300 underline"
                 >
@@ -152,7 +151,7 @@ const Details = ({ resumeUrl, aboutMe }: Props) => {
           <ArrowRight size={16} />
         </Link>
         <Link
-          href={resumeUrl}
+          href={resumeUrl ?? ""}
           className="inline-flex items-center text-lg font-semibold text-header-secondary underline"
         >
           Resume
