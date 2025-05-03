@@ -1,4 +1,9 @@
 import { defineField, defineType } from 'sanity'
+import * as Icons from "react-feather";
+import { title } from 'node:process';
+
+const iconsNames = Object.keys(Icons).map((icon) => icon)
+// console.log({ iconsNames })
 
 export default defineType({
   name: 'links',
@@ -23,6 +28,14 @@ export default defineType({
       name: 'url',
       title: 'Url',
       type: "url",
+    }),
+    defineField({
+      name: 'iconName',
+      title: 'Icon Name',
+      type: 'string',
+      options: {
+        list: iconsNames.map(icon => ({ title: icon, value: icon })),
+      }
     }),
   ],
   preview: {

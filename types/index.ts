@@ -110,4 +110,5 @@ export interface SocialLinkProps {
   slug: string,
   name: string,
   url: string
+  iconName: string,
 }
