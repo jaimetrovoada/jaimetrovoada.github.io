@@ -57,7 +57,7 @@ export default async function RootLayout({
       <body
         className={
           inter.className +
-          " flex h-dynamic max-w-full flex-col gap-4 overflow-y-auto p-4 md:flex-row md:p-8 bg-zinc-900 text-slate-200"
+          " flex h-screen max-w-full flex-col gap-4 overflow-y-auto p-4 md:flex-row md:p-8 bg-zinc-900 text-slate-200"
         }
       >
         <Layout resumeUrl={resume as string} aboutMe={aboutMe}>{children}</Layout>

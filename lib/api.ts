@@ -1,4 +1,4 @@
-import { ProjectProps, AboutMeProps, WorkProps } from "@/types";
+import { ProjectProps, AboutMeProps, WorkProps, SocialLinkProps } from "@/types";
 import client from "../client";
 
 export interface SanityPost {
@@ -60,5 +60,13 @@ const getWork = async () => {
   return work;
 }
 
+const getLinks = async () => {
+  const links = await client.fetch<SocialLinkProps[]>(
+    `*[_type == "links"] | order(title asc)`
+  );
+
+  return links;
+};
+
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
-export default { getPosts, getPostBySlug, getProjects, getAboutMe, getWork };
+export default { getPosts, getPostBySlug, getProjects, getAboutMe, getWork, getLinks };
