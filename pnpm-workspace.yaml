@@ -1,0 +1,23 @@
+ignoredBuiltDependencies:
+  - esbuild
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - sharp
+  - unrs-resolver
+
+overrides:
+  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  brace-expansion@>=1.0.0 <=1.1.11: '>=1.1.12'
+  brace-expansion@>=2.0.0 <=2.0.1: '>=2.0.2'
+  esbuild@<=0.24.2: '>=0.25.0'
+  form-data@>=3.0.0 <3.0.4: '>=3.0.4'
+  form-data@>=4.0.0 <4.0.4: '>=4.0.4'
+  next@>=15.0.0 <=15.4.4: '>=15.4.5'
+  next@>=15.0.0-canary.0 <15.4.7: '>=15.4.7'
+  next@>=15.3.0 <15.3.3: '>=15.3.3'
+  prismjs@<1.30.0: '>=1.30.0'
+  tar-fs@>=2.0.0 <2.1.3: '>=2.1.3'
+  tmp@<=0.2.3: '>=0.2.4'
+  vite@>=6.0.0 <=6.3.5: '>=6.3.6'
+  vite@>=6.3.0 <=6.3.3: '>=6.3.4'
